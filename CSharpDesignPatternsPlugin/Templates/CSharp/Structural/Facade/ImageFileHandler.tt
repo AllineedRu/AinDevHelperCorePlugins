@@ -1,0 +1,58 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="AinDevHelperPluginLibrary.Language" #>
+using System;
+
+namespace AinDevHelperFacadePattern {
+    /// <summary>
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+    /// Subsystem for working with images
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+    /// Subsystem zum Arbeiten mit Bildern
+<# } else { #>
+    /// Подсистема для работы с изображениями
+<# } #>
+    /// </summary>
+    public class ImageFileHandler {
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+        public void OpenFile(string fileName) {
+            Console.WriteLine($"Opening an image: {fileName}");
+        }
+
+        public void ResizeImage() {
+            Console.WriteLine("Resizing an Image");
+        }
+
+        public void SaveImage() {
+            Console.WriteLine("Saving an image");
+        }
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+        public void OpenFile(string fileName) {
+            Console.WriteLine($"Ein Bild öffnen: {fileName}");
+        }
+
+        public void ResizeImage() {
+            Console.WriteLine("Bildauflösung anzeigen");
+        }
+
+        public void SaveImage() {
+            Console.WriteLine("Ein Bild speichern");
+        }
+<# } else { #>
+        public void OpenFile(string fileName) {
+            Console.WriteLine($"Открытие изображения: {fileName}");
+        }
+
+        public void ResizeImage() {
+            Console.WriteLine("Изменение размера изображения");
+        }
+
+        public void SaveImage() {
+            Console.WriteLine("Сохранение изображения");
+        }
+<# } #>
+    }
+}

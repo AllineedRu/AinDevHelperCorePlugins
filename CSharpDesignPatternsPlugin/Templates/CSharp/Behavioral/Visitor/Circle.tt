@@ -1,0 +1,20 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+namespace AinDevHelperVisitorPattern {
+    /// <summary>
+    /// Класс "Круг", реализующий интерфейс <see cref="IShape" />
+    /// </summary>
+    public class Circle : IShape {
+        /// <summary>
+        /// Радиус круга
+        /// </summary>
+        public double Radius { get; set; }
+
+        public void Accept(IVisitor visitor) {
+            visitor.VisitCircle(this);
+        }
+    }
+}

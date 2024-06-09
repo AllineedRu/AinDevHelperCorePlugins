@@ -1,0 +1,97 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="AinDevHelperPluginLibrary.Language" #>
+using System;
+
+namespace AinDevHelperProxyPattern {
+    /// <summary>
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+    /// Let's imagine a situation where we have a class that represents downloading images from the web. 
+    /// We can use the 'Proxy' pattern to implement caching of downloaded images to reduce the number of requests to the server. 
+    /// Below is a sample C# code that demonstrates this.
+    ///
+    /// In this example, <see cref="ImageService" /> is the actual image download service, and <see cref="ImageProxy" /> is a proxy 
+    /// that checks for the image to be cached before downloading it from the network. If the image is already downloaded and is in the cache, 
+    /// the proxy returns it from the cache, otherwise it delegates the request to the real download service.
+    ///
+    /// When you run the program, you can see that if you download the same image again, it will be retrieved from the cache, 
+    /// which helps reduce the number of requests to the server and improve performance.
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+    /// Stellen wir uns eine Situation vor, in der wir eine Klasse haben, die das Herunterladen von Bildern aus dem Internet darstellt. 
+    /// Wir können das Proxy-Muster verwenden, um die Zwischenspeicherung heruntergeladener Bilder zu implementieren und so die Anzahl der Anfragen an den Server zu reduzieren. 
+    /// Unten finden Sie einen Beispiel-C#-Code, der dies demonstriert.
+    ///
+    /// In diesem Beispiel ist <see cref="ImageService" /> der eigentliche Bild-Download-Dienst und <see cref="ImageProxy" /> ein Proxy, 
+    /// der prüft, ob das Bild zwischengespeichert wird, bevor es aus dem Netzwerk heruntergeladen wird. Wenn das Bild bereits heruntergeladen wurde und sich 
+    /// im Cache befindet, gibt der Proxy es aus dem Cache zurück, andernfalls delegiert er die Anfrage an den echten Download-Dienst.
+    ///
+    /// Wenn Sie das Programm ausführen, können Sie sehen, dass, wenn Sie dasselbe Bild erneut herunterladen, es aus dem Cache abgerufen wird, 
+    /// was dazu beiträgt, die Anzahl der Anfragen an den Server zu reduzieren und die Leistung zu verbessern.
+<# } else { #>
+    /// Представим ситуацию, когда у нас есть класс, представляющий загрузку изображений из сети. 
+    /// Мы можем использовать паттерн "Заместитель" (Proxy) для реализации кеширования загруженных изображений, чтобы уменьшить количество запросов к серверу. 
+    /// Ниже показан пример кода на C#, демонстрирующий это.
+    ///
+    /// В этом примере <see cref="ImageService" /> является реальным сервисом загрузки изображений, а <see cref="ImageProxy" /> — заместителем, 
+    /// который проверяет наличие изображения в кеше перед загрузкой из сети. Если изображение уже загружено и находится в кеше, заместитель 
+    /// возвращает его из кеша, иначе он делегирует запрос реальному сервису загрузки.
+    ///
+    /// При запуске программы можно увидеть, что при повторной загрузке того же изображения оно будет получено из кеша, что помогает уменьшить 
+    /// количество запросов к серверу и повысить производительность.
+<# } #>
+    /// </summary>
+    public static class Program {
+        public static void Main() {
+            Console.WriteLine("=============================================================================");
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+            Console.WriteLine("Demonstration of the \"Proxy\" Design Pattern");
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+            Console.WriteLine("Demonstration des „Proxy“-Musters");
+<# } else { #>
+            Console.WriteLine("Демонстрация применения шаблона проектирования \"Заместитель\" (Proxy)");
+<# } #>
+            Console.WriteLine("=============================================================================");            
+
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+            // Using a proxy to load and cache images
+            IImageService imageProxy = new ImageProxy();
+
+            // First image upload (must be from server)
+            imageProxy.DisplayImage("image1.jpg");
+
+            // Re-downloading the same image (must be from cache)
+            imageProxy.DisplayImage("image1.jpg");
+
+            // Uploading another image (must be from the server)
+            imageProxy.DisplayImage("image2.jpg");
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+            // Verwenden eines Proxys zum Laden und Zwischenspeichern von Bildern
+            IImageService imageProxy = new ImageProxy();
+
+            // Erster Bild-Upload (muss vom Server erfolgen)
+            imageProxy.DisplayImage("Bild1.jpg");
+
+            // Dasselbe Bild erneut herunterladen (muss aus dem Cache stammen)
+            imageProxy.DisplayImage("Bild1.jpg");
+
+            // Ein weiteres Bild hochladen (muss vom Server stammen)
+            imageProxy.DisplayImage("Bild2.jpg");
+<# } else { #>
+            // Используем заместитель для загрузки и кеширования изображений
+            IImageService imageProxy = new ImageProxy();
+
+            // Первая загрузка изображения (должна быть с сервера)
+            imageProxy.DisplayImage("изображение1.jpg");
+
+            // Повторная загрузка того же изображения (должна быть из кеша)
+            imageProxy.DisplayImage("изображение1.jpg");
+
+            // Загрузка другого изображения (должна быть с сервера)
+            imageProxy.DisplayImage("изображение2.jpg");
+<# } #>
+        }
+    }
+}

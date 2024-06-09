@@ -1,0 +1,58 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="AinDevHelperPluginLibrary.Language" #>
+using System;
+
+namespace AinDevHelperFacadePattern {
+    /// <summary>
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+    /// Subsystem for working with text files
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+    /// Subsystem zum Arbeiten mit Textdateien
+<# } else { #>
+    /// Подсистема для работы с текстовыми файлами
+<# } #>
+    /// </summary>
+    public class TextFileHandler {
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+        public void OpenFile(string fileName) {
+            Console.WriteLine($"Opening a text file: {fileName}");
+        }
+
+        public void EditFile() {
+            Console.WriteLine("Editing a text file");
+        }
+
+        public void SaveFile() {
+            Console.WriteLine("Saving a text file");
+        }
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+        public void OpenFile(string fileName) {
+            Console.WriteLine($"Eine Textdatei öffnen: {fileName}");
+        }
+
+        public void EditFile() {
+            Console.WriteLine("Bearbeiten einer Textdatei");
+        }
+
+        public void SaveFile() {
+            Console.WriteLine("Speichern einer Textdatei");
+        }
+<# } else { #>
+        public void OpenFile(string fileName) {
+            Console.WriteLine($"Открытие текстового файла: {fileName}");
+        }
+
+        public void EditFile() {
+            Console.WriteLine("Редактирование текстового файла");
+        }
+
+        public void SaveFile() {
+            Console.WriteLine("Сохранение текстового файла");
+        }
+<# } #>
+    }
+}

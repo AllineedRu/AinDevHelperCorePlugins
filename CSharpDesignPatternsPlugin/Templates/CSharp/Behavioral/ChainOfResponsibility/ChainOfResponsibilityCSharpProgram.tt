@@ -1,0 +1,42 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using System;
+
+namespace AinDevHelperChainOfResponsibilityPattern {
+    /// <summary>
+    /// Представим ситуацию, где у нас есть система обработки заявок на кредит. 
+    /// У нас есть несколько уровней одобрения кредита, и каждый уровень должен принять решение о том, одобрять ли заявку или передавать её на следующий уровень.
+    ///
+    /// В этом примере BankManager и LoanManager представляют различные уровни одобрения кредита, 
+    /// а CreditRequest представляет саму заявку на кредит. Каждый обработчик решает, может ли он одобрить заявку, и если нет, 
+    /// передает её следующему обработчику в цепочке.
+    /// </summary>
+    public static class Program {
+
+        public static void Main() {
+            Console.WriteLine("=======================================================================");
+            Console.WriteLine("Демонстрация применения шаблона проектирования \"Цепочка обязанностей\" (Chain Of Responsibility)");
+            Console.WriteLine("=======================================================================");
+
+            // Создаем цепочку обработчиков
+            ICreditApprover bankManager = new BankManager();
+            ICreditApprover loanManager = new LoanManager();
+
+            // Устанавливаем следующего обработчика
+            bankManager.SetNextApprover(loanManager);
+
+            // Подаем заявку на кредит
+            CreditRequest request1 = new CreditRequest(5000);
+            bankManager.ProcessRequest(request1);
+
+            CreditRequest request2 = new CreditRequest(20000);
+            bankManager.ProcessRequest(request2);
+
+            CreditRequest request3 = new CreditRequest(100000);
+            bankManager.ProcessRequest(request3);
+        }
+    }    
+}

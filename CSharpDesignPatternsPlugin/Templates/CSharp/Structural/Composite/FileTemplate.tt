@@ -1,0 +1,26 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="AinDevHelperPluginLibrary.Language" #>
+using System;
+
+namespace AinDevHelperCompositePattern {
+    /// <summary>
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+    /// Class representing a file
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+    /// Klasse, die eine Datei darstellt
+<# } else { #>
+    /// Класс, представляющий файл
+<# } #>
+    /// </summary>
+    public class File : FileSystemItem {
+        public File(string name) : base(name) { }
+
+        public override void Print(int level) {
+            Console.WriteLine(new string('-', level) + name);
+        }
+    }
+}

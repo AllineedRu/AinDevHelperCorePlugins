@@ -1,0 +1,17 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using System;
+
+namespace AinDevHelperFactoryMethodPattern {
+    /// <summary>
+    /// Класс для представления самолета
+    /// </summary>    
+    public class Airplane : ITransport {
+        public void Drive() {
+            Console.WriteLine("Летим на самолёте!");
+        }
+    }
+}

@@ -1,0 +1,50 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="AinDevHelperPluginLibrary.Language" #>
+using System;
+
+namespace AinDevHelperBridgePattern {
+    /// <summary>
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+    /// Specific Device - Radio
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+    /// Spezifisches Gerät – Radio
+<# } else { #>
+    /// Конкретное устройство - Радио
+<# } #>
+    /// </summary>
+    public class Radio : IDevice {
+        public void TurnOn() {
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+            Console.WriteLine("Radio is turned on");
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+            Console.WriteLine("Radio ist eingeschaltet");
+<# } else { #>
+            Console.WriteLine("Радио включено");
+<# } #>
+        }
+
+        public void TurnOff() {
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+            Console.WriteLine("Radio is turned off");
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+            Console.WriteLine("Radio ist ausgeschaltet");
+<# } else { #>
+            Console.WriteLine("Радио выключено");
+<# } #>
+        }
+
+        public void SetChannel<T>(T channel) {
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+            Console.WriteLine("Radio frequency is set to " + channel);
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+            Console.WriteLine("Die Funkfrequenz ist auf " + channel + " eingestellt");
+<# } else { #>
+            Console.WriteLine("Частота радио установлена в значение " + channel);
+<# } #>
+        }
+    }
+}

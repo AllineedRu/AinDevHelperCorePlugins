@@ -1,0 +1,18 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using System;
+
+namespace AinDevHelperStrategyPattern {
+    /// <summary>
+    /// Реализация стратегии оплаты кредитной картой
+    /// </summary>
+    public class CreditCardPaymentStrategy : IPaymentStrategy {
+        public void ProcessPayment(double amount) {
+            Console.WriteLine($"Оплата кредитной картой на сумму: {amount}");
+            // Здесь будет код для обработки платежа кредитной картой
+        }
+    }
+}

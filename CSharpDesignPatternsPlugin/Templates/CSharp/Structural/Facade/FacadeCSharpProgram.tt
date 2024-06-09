@@ -1,0 +1,84 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="AinDevHelperPluginLibrary.Language" #>
+using System;
+
+namespace AinDevHelperFacadePattern {
+    /// <summary>
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+    /// The Façade structural pattern allows you to provide a unified interface to a group of subsystem interfaces. 
+    /// Below is a sample code in C# demonstrating the use of the Facade pattern to work with different types of files in the file system.
+    ///
+    /// In this example, the <see cref="FileFacade" /> class provides a simplified interface for working with text files and images, 
+    /// hiding the complexity of interacting with the corresponding <see cref="TextFileHandler" /> and <see cref="ImageFileHandler" /> subsystems. 
+    /// Developers can use <see cref="FileFacade" /> to open, edit, and save both text and image files without worrying about the implementation details of each operation.
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+    /// Mit dem Strukturmuster „Fassade“ können Sie einer Gruppe von Subsystemschnittstellen eine einheitliche Schnittstelle bereitstellen. 
+    /// Nachfolgend finden Sie einen Beispielcode in C#, der die Verwendung des Facade-Musters für die Arbeit mit verschiedenen Dateitypen im Dateisystem demonstriert.
+    ///
+    /// In diesem Beispiel stellt die Klasse <see cref="FileFacade" /> eine vereinfachte Schnittstelle für die Arbeit mit Textdateien und Bildern bereit und verbirgt 
+    /// so die Komplexität der Interaktion mit den entsprechenden Klassen <see cref="TextFileHandler" /> und <see cref=" ImageFileHandler" /> Subsysteme. 
+    /// Entwickler können <see cref="FileFacade" /> verwenden, um sowohl Text- als auch Bilddateien zu öffnen, zu bearbeiten und zu speichern, 
+    /// ohne sich um die Implementierungsdetails der einzelnen Vorgänge kümmern zu müssen.
+<# } else { #>
+    /// Структурный паттерн "Фасад" (Façade) позволяет предоставить унифицированный интерфейс к группе интерфейсов подсистемы. 
+    /// Ниже представлен пример кода на C#, демонстрирующий использование паттерна "Фасад" для работы с различными видами файлов в файловой системе.
+    ///
+    /// В данном примере класс <see cref="FileFacade" /> предоставляет упрощенный интерфейс для работы с текстовыми файлами и изображениями, 
+    /// скрывая сложности взаимодействия с соответствующими подсистемами <see cref="TextFileHandler" /> и <see cref="ImageFileHandler" />. 
+    /// Разработчики могут использовать <see cref="FileFacade" /> для открытия, редактирования и сохранения как текстовых файлов, так и изображений, 
+    /// не беспокоясь о деталях реализации каждой операции.
+<# } #>
+    /// </summary>
+    public static class Program {
+        public static void Main() {
+            Console.WriteLine("=============================================================================");
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+            Console.WriteLine("Demonstration of the \"Façade\" Design Pattern");
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+            Console.WriteLine("Demonstration des „Fassaden“-Musters");
+<# } else { #>
+            Console.WriteLine("Демонстрация применения шаблона проектирования \"Фасад\" (Façade)");
+<# } #>
+            Console.WriteLine("=============================================================================");
+
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+            // Using Façade to work with different file types
+            var fileFacade = new FileFacade();
+
+            fileFacade.OpenTextFile("example.txt");
+            fileFacade.EditTextFile();
+            fileFacade.SaveTextFile();
+
+            fileFacade.OpenImageFile("example.jpg");
+            fileFacade.ResizeImage();
+            fileFacade.SaveImage();
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+            // Verwenden von Façade zum Arbeiten mit verschiedenen Dateitypen
+            var fileFacade = new FileFacade();
+
+            fileFacade.OpenTextFile("beispiel.txt");
+            fileFacade.EditTextFile();
+            fileFacade.SaveTextFile();
+
+            fileFacade.OpenImageFile("beispiel.jpg");
+            fileFacade.ResizeImage();
+            fileFacade.SaveImage();
+<# } else { #>
+            // Использование Фасада для работы с разными типами файлов
+            var fileFacade = new FileFacade();
+
+            fileFacade.OpenTextFile("пример.txt");
+            fileFacade.EditTextFile();
+            fileFacade.SaveTextFile();
+
+            fileFacade.OpenImageFile("пример.jpg");
+            fileFacade.ResizeImage();
+            fileFacade.SaveImage();
+<# } #>
+        }
+    }
+}

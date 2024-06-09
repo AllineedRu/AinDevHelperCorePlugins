@@ -1,0 +1,69 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="AinDevHelperPluginLibrary.Language" #>
+using System;
+
+namespace AinDevHelperCompositePattern {
+    /// <summary>
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+    /// Below is an example of implementing the "Linker" pattern in C# using the task of organizing files and folders.
+    /// In this example, the <see cref="File" /> and <see cref="Folder" /> classes represent files and folders, respectively. 
+    /// The <see cref="Folder" /> class can contain both files and other folders. 
+    /// The <see cref="FileSystemItem.Print" /> method is called recursively for each item, which allows you to display the structure 
+    /// of the file system, taking into account nested items.
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+    /// Nachfolgend finden Sie ein Beispiel für die Implementierung des „Linker“-Musters in C# unter Verwendung der Aufgabe, Dateien und Ordner zu organisieren.
+    /// In diesem Beispiel stellen die Klassen <see cref="File" /> und <see cref="Folder" /> Dateien bzw. Ordner dar. Die Klasse <see cref="Folder" /> kann sowohl 
+    /// Dateien als auch andere Ordner enthalten. 
+    /// Die Methode <see cref="FileSystemItem.Print" /> wird rekursiv für jedes Element aufgerufen, wodurch Sie die Struktur des Dateisystems unter 
+    /// Berücksichtigung verschachtelter Elemente anzeigen können.
+<# } else { #>
+    /// Ниже представлен пример реализации паттерна "Компоновщик" на языке C# с использованием задачи организации файлов и папок.
+    /// В этом примере классы <see cref="File" /> и <see cref="Folder" /> представляют файлы и папки соответственно. Класс <see cref="Folder" /> 
+    /// может содержать как файлы, так и другие папки. 
+    /// Метод <see cref="FileSystemItem.Print" /> вызывается рекурсивно для каждого элемента, что позволяет выводить структуру файловой системы с учетом вложенных элементов.
+<# } #>
+    /// </summary>
+    public static class Program {
+        public static void Main() {
+            Console.WriteLine("=============================================================================");
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+            Console.WriteLine("Demonstration of the \"Composite\" Design Pattern");
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+            Console.WriteLine("Demonstration der Verwendung des „Composer“-Musters");
+<# } else { #>
+            Console.WriteLine("Демонстрация применения шаблона проектирования \"Компоновщик\" (Composite)");
+<# } #>
+            Console.WriteLine("=============================================================================");
+    
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+            var root = new Folder("Root");
+            var folder1 = new Folder("Folder 1");
+            var folder2 = new Folder("Folder 2");
+            var file1 = new File("File 1.txt");
+            var file2 = new File("File 2.txt");
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+            var root = new Folder("Wurzel");
+            var folder1 = new Folder("Ordner 1");
+            var folder2 = new Folder("Ordner 2");
+            var file1 = new File("Datei 1.txt");
+            var file2 = new File("Datei 2.txt");
+<# } else { #>
+            var root = new Folder("Корень");
+            var folder1 = new Folder("Каталог 1");
+            var folder2 = new Folder("Каталог 2");
+            var file1 = new File("Файл 1.txt");
+            var file2 = new File("Файл 2.txt");
+<# } #>
+            root.Add(folder1);
+            root.Add(folder2);
+            folder1.Add(file1);
+            folder2.Add(file2);
+
+            root.Print(0);    
+        }
+    }
+}

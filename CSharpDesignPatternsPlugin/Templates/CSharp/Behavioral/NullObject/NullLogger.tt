@@ -1,0 +1,16 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+namespace AinDevHelperNullObjectPattern {
+
+    /// <summary>
+    /// Нулевой объект логгера
+    /// </summary>
+    public class NullLogger : ILogger {
+        public void Log(string message) {
+            // Ничего не делаем, так как это нулевой объект
+        }
+    }
+}

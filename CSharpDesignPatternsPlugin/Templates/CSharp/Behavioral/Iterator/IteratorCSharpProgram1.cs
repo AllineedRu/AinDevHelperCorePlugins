@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace AinDevHelperIteratorPattern {
+    /// <summary>
+    /// Пример использования шаблона проектирования "Итератор" (Iterator).
+    /// Допустим, у нас есть класс <see cref="Student" /> и класс <see cref="StudentCollection" />, который реализует интерфейс <see cref="IEnumerable{T}" /> для итерации по студентам.
+    /// 
+    /// В этом примере StudentCollection представляет коллекцию студентов, а StudentIterator реализует итератор для этой коллекции. 
+    /// При использовании цикла <see langword="foreach" /> по объекту studentCollection, мы можем перебирать всех студентов в коллекции без необходимости знать 
+    /// детали реализации итерации. 
+    /// 
+    /// Это отражает типовую задачу для разработчиков, когда требуется перебор элементов в коллекции с помощью итератора.
+    /// </summary>
+    public static class Program {
+        public static void Main() {
+            var studentCollection = new StudentCollection();
+
+            studentCollection.AddStudent(new Student("Василий", 20));
+            studentCollection.AddStudent(new Student("Иван", 22));
+            studentCollection.AddStudent(new Student("Сергей", 21));
+            studentCollection.AddStudent(new Student("Диана", 20));
+            studentCollection.AddStudent(new Student("Пётр", 23));
+
+            foreach (Student student in studentCollection) {
+                Console.WriteLine($"Имя студента: {student.Name}, Возраст: {student.Age}");
+            }
+        }
+    }
+}

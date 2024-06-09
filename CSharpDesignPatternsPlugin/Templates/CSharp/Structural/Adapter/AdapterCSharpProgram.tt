@@ -1,0 +1,59 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="AinDevHelperPluginLibrary.Language" #>
+using System;
+
+namespace AinDevHelperAdapterPattern {
+    /// <summary>
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+    /// This program provides sample code in C# demonstrating the use of the Adapter pattern to transform an interface 
+    /// of one class to the interface of another class. For example, let's take a situation where we have a third-party library that provides functionality 
+    /// work with different input devices and we want to use this library in our project, but we already have our own interface 
+    /// for working with input devices.
+    ///
+    /// In this example, the <see cref="ThirdPartyInputDevice" /> class represents a third-party library, <see cref="IInputDevice" /> is an interface in our project, 
+    /// and <see cref="InputDeviceAdapter" /> is an adapter that allows you to use the functionality of a third-party library through our interface. 
+    /// The adapter allows us to encapsulate the logic for converting method calls from our interface into calls to methods of a third-party library.
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+    /// Dieses Programm stellt Beispielcode in C# bereit, der die Verwendung des Adaptermusters zum Transformieren einer Schnittstelle demonstriert 
+    /// einer Klasse an die Schnittstelle einer anderen Klasse. Nehmen wir zum Beispiel eine Situation an, in der wir über eine Bibliothek eines Drittanbieters verfügen, die Funktionalität bereitstellt 
+    /// Wir arbeiten mit verschiedenen Eingabegeräten und möchten diese Bibliothek in unserem Projekt verwenden, verfügen jedoch bereits über eine eigene Schnittstelle 
+    /// für die Arbeit mit Eingabegeräten.
+    ///
+    /// In diesem Beispiel stellt die Klasse <see cref="ThirdPartyInputDevice" /> eine Bibliothek eines Drittanbieters dar, <see cref="IInputDevice" /> ist eine Schnittstelle in unserem Projekt. 
+    /// und <see cref="InputDeviceAdapter" /> ist ein Adapter, der es Ihnen ermöglicht, die Funktionalität einer Drittanbieter-Bibliothek über unsere Schnittstelle zu nutzen. 
+    /// Mit dem Adapter können wir die Logik zum Konvertieren von Methodenaufrufen von unserer Schnittstelle in Aufrufe von Methoden einer Drittanbieterbibliothek kapseln.
+<# } else { #>
+    /// В этой программе представлен пример кода на C#, демонстрирующий использование паттерна "Адаптер" (Adapter) для преобразования интерфейса 
+    /// одного класса в интерфейс другого класса. Для примера возьмем ситуацию, когда у нас есть сторонняя библиотека, предоставляющая функциональность 
+    /// работы с различными устройствами ввода, и мы хотим использовать эту библиотеку в нашем проекте, но у нас уже есть свой собственный интерфейс 
+    /// для работы с устройствами ввода.
+    ///
+    /// В этом примере класс <see cref="ThirdPartyInputDevice" /> представляет стороннюю библиотеку, <see cref="IInputDevice" /> - интерфейс в нашем проекте, 
+    /// а <see cref="InputDeviceAdapter" /> - адаптер, который позволяет использовать функциональность сторонней библиотеки через наш интерфейс. 
+    /// Адаптер позволяет инкапсулировать логику преобразования вызовов методов из нашего интерфейса в вызовы методов сторонней библиотеки.
+<# } #>
+    /// </summary>
+    public static class Program {
+        public static void Main() {
+            Console.WriteLine("=============================================================================");
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+            Console.WriteLine("Demonstration of the \"Adapter\" Design Pattern");
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+            Console.WriteLine("Demonstration des „Adapter“-Musters");
+<# } else { #>
+            Console.WriteLine("Демонстрация применения шаблона проектирования \"Адаптер\" (Adapter)");
+<# } #>
+            Console.WriteLine("=============================================================================");
+
+            ThirdPartyInputDevice thirdPartyDevice = new ThirdPartyInputDevice();
+            InputDeviceAdapter adapter = new InputDeviceAdapter(thirdPartyDevice);
+
+            adapter.Connect();
+            adapter.Disconnect();
+        }
+    }
+}

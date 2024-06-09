@@ -1,0 +1,26 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="AinDevHelperPluginLibrary.Language" #>
+namespace AinDevHelperCompositePattern {
+    /// <summary>
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+    /// Abstract class that defines common methods and properties for files and folders
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+    /// Abstrakte Klasse, die allgemeine Methoden und Eigenschaften für Dateien und Ordner definiert
+<# } else { #>
+    /// Абстрактный класс, который определяет общие методы и свойства для файлов и папок
+<# } #>
+    /// </summary>
+    public abstract class FileSystemItem {
+        protected string name;
+
+        public FileSystemItem(string name) {
+            this.name = name;
+        }
+
+        public abstract void Print(int level);
+    }
+}

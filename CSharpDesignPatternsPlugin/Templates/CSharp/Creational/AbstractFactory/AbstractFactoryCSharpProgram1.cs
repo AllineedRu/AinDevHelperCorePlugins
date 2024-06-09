@@ -1,0 +1,44 @@
+﻿namespace AinDevHelperAbstractFactoryPattern {
+    /// <summary>
+    /// Пример использования шаблона проектирования "Абстрактная фабрика". В данном примере у нас есть
+    /// необходимость производства деталей для автомобилей разных классов - спорткары и седаны.
+    /// Класс <see cref="AbstractCarFactory" /> устанавливает контракт (доступные методы класса) для производства запчастей для 
+    /// автомобилей заданного класса. Класс фабрики умеет изготавливать определённые типы двигателей и корпусов для автомобилей.
+    /// Классы конкретных фабрик <see cref="SedanV4CarFactory" /> и <see cref="SportCarV12CarFactory" /> отвечают за производство
+    /// деталей для авто заданного типа: первый - детали для седанов, второй - детали для спорткаров.
+    /// Для получения экземпляра конкретной фабрики достаточно вызвать статический метод <see cref="AbstractCarFactory.GetFactory{T}" /> у класса
+    /// абстрактной фабрики и передать ему требуемый тип конкретной фабрики, после чего создавать с помощью полученного
+    /// экземпляра детали конкретного типа.
+    /// </summary>
+    public static class Program {
+        public static void Main() {
+            Console.WriteLine("=========================================================================================");
+            Console.WriteLine("Демонстрация применения шаблона проектирования \"Абстрактная фабрика\" (Abstract Factory)");
+            Console.WriteLine("=========================================================================================");
+
+            // Через вызов метода GetFactory класса абстрактной фабрики 
+            // получаем экземпляр уже конкретной фабрики по производству деталей для седанов с двигателями V4
+            AbstractCarFactory sedanFactory = AbstractCarFactory.GetFactory<SedanV4CarFactory>();
+
+            // производим двигатель для седана
+            AbstractCarEngine sedanEngine = sedanFactory.CreateEngine();
+
+            // производим корпус для седана
+            AbstractCarBody sedanCarBody = sedanFactory.CreateCarBody();
+
+            // печать на консоли деталей по произведённым деталям для седана
+            sedanEngine.PrintCarEngineDetails();
+            sedanCarBody.PrintCarBodyDetails();
+
+            // Аналогичным образом можем получить экземпляр другой конкретной фабрики - по производству деталей для
+            // спорткаров и производить с помощью неё детали соответствующего типа.
+            AbstractCarFactory sportCarFactory = AbstractCarFactory.GetFactory<SportCarV12CarFactory>();
+            AbstractCarEngine sportCarEngine = sportCarFactory.CreateEngine();
+            AbstractCarBody sportCarBody = sportCarFactory.CreateCarBody();
+
+            // печать на консоли деталей по произведённым деталям для спорткара
+            sportCarEngine.PrintCarEngineDetails();
+            sportCarBody.PrintCarBodyDetails();
+        }
+    }
+}

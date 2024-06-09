@@ -1,0 +1,55 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using System;
+using System.Diagnostics.CodeAnalysis;
+
+namespace AinDevHelperMediatorPattern {
+    /// <summary>
+    /// Участник, который взаимодействует через Mediator
+    /// </summary>
+    public class Participant {
+        /// <summary>
+        /// Имя участника
+        /// </summary>
+        public string Name { get; }
+
+        /// <summary>
+        /// Ссылка на экземпляр посредника
+        /// </summary>
+        public FlightManagementSystem? FlightManagementSystem { get; set; }
+
+        /// <summary>
+        /// Конструктор с параметрами. Создаёт участника с указанным именем
+        /// </summary>
+        /// <param name="name">имя участника</param>
+        public Participant([DisallowNull] string name) {
+            if (name == null) {
+                throw new ArgumentNullException("name", "Параметр не может иметь значение null!");
+            }
+            Name = name;
+        }
+
+        /// <summary>
+        /// Отправить сообщение "Посреднику" от текущего участника
+        /// </summary>
+        /// <param name="message">текст сообщения для отправки</param>
+        public void Send(string message) {
+            if (FlightManagementSystem != null) {
+                FlightManagementSystem.SendMessage(Name, message);
+            } else {
+                Console.WriteLine($"Свойство FlightManagementSystem равно null. Отсутствует ссылка на экземпляр посредника. Сообщение не будет доставлено.");
+            }            
+        }
+
+        /// <summary>
+        /// Получить сообщение
+        /// </summary>
+        /// <param name="message"></param>
+        public void ReceiveMessage(string message) {
+            Console.WriteLine($"Участник '{Name}' - получено сообщение: {message}");
+        }
+    }
+}

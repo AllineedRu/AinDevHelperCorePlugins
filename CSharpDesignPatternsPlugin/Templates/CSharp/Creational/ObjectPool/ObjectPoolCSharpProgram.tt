@@ -1,0 +1,43 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using System;
+
+namespace AinDevHelperObjectPoolPattern {
+    /// <summary>
+    /// Рассмотрим пример простой реализации паттерна "Пул объектов" на языке C#, который моделирует пул соединений к базе данных.
+    /// В этом примере <see cref="ConnectionPool"/> представляет пул объектов <see cref="DatabaseConnection"/>, предназначенных для работы с базой данных. 
+    /// При запросе соединения из пула, он возвращает либо существующее соединение, либо создает новое, если все соединения уже заняты. 
+    /// После использования соединение можно освободить обратно в пул для повторного использования.
+    /// Паттерн "Пул объектов" полезен, когда создание и уничтожение объектов - дорогостоящие операции, и их повторное использование может повысить производительность приложения.
+    /// </summary>
+    public static class Program {
+        public static void Main() {
+            Console.WriteLine("=============================================================================");
+            Console.WriteLine("Демонстрация применения шаблона проектирования \"Пул объектов\" (Object Pool)");
+            Console.WriteLine("=============================================================================");
+
+            ConnectionPool pool = new ConnectionPool(3);
+
+            // Получаем соединения из пула
+            DatabaseConnection conn1 = pool.GetConnection();
+            conn1.Connect();
+
+            DatabaseConnection conn2 = pool.GetConnection();
+            conn2.Connect();
+
+            // Освобождаем соединения обратно в пул
+            pool.ReleaseConnection(conn1);
+            pool.ReleaseConnection(conn2);
+
+            // Повторно используем соединения
+            DatabaseConnection conn3 = pool.GetConnection();
+            conn3.Connect();
+
+            // В конце освобождаем все соединения
+            pool.ReleaseConnection(conn3);
+        }
+    }
+}

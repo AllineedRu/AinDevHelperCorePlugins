@@ -1,0 +1,16 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+namespace AinDevHelperAbstractFactoryPattern {
+    /// <summary>
+    /// Абстрактный класс для изготовления различных типов двигателей для автомобилей
+    /// </summary>
+    public abstract class AbstractCarEngine {
+        /// <summary>
+        /// Абстрактный метод для печати на консоли деталей по двигателю автомобиля
+        /// </summary>
+        public abstract void PrintCarEngineDetails();
+    }
+}

@@ -1,0 +1,36 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="AinDevHelperPluginLibrary.Language" #>
+using System;
+
+namespace AinDevHelperFlyweightPattern {
+    /// <summary>
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+    /// A concrete lightweight representing a web page
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+    /// Ein konkretes Leichtgewicht, das eine Webseite darstellt
+<# } else { #>
+    /// Конкретный приспособленец, представляющий веб-страницу
+<# } #>
+    /// </summary>
+    public class WebPage : IWebPage {
+        private readonly string content;
+
+        public WebPage(string content) {
+            this.content = content;
+        }
+
+        public void Display(string theme) {
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+            Console.WriteLine($"Displaying the content '{content}' of web page with theme '{theme}'");
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+            Console.WriteLine($"Anzeige des Inhalts '{content}' der Webseite mit Thema '{theme}'");
+<# } else { #>
+            Console.WriteLine($"Отображаю контент '{content}' веб-страницы с темой '{theme}'");
+<# } #>
+        }
+    }
+}

@@ -1,0 +1,1477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B8C86389-6B1B-4C11-9564-0D9196F6884A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSharpDesignPatternsPlugin</RootNamespace>
+    <AssemblyName>CSharpDesignPatternsPlugin</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.CodeDom, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.8.0.0\lib\net462\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CSharpDesignPatternsPlugin.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />    
+  </ItemGroup>
+  <ItemGroup>
+	<Compile Include="Templates\CSharp\Behavioral\ChainOfResponsibility\BankManager.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BankManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\ChainOfResponsibility\ChainOfResponsibilityCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChainOfResponsibilityCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\ChainOfResponsibility\CreditRequest.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreditRequest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\ChainOfResponsibility\ICreditApprover.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ICreditApprover.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\ChainOfResponsibility\LoanManager.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoanManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\ChainOfResponsibility\ChainOfResponsibilityCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChainOfResponsibilityCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Command\CommandCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommandCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Command\CommandCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommandCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Command\CommandExecutor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommandExecutor.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Command\ICommand.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ICommand.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Command\MoveBackwardCommand.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MoveBackwardCommand.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Command\MoveForwardCommand.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MoveForwardCommand.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Command\Robot.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Robot.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Iterator\IteratorCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IteratorCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Iterator\IteratorCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IteratorCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Iterator\Student.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Student.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Iterator\StudentCollection.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentCollection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Mediator\AirTrafficControl.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AirTrafficControl.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Mediator\FlightManagementSystem.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlightManagementSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Mediator\MediatorCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MediatorCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Mediator\MediatorCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MediatorCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Mediator\Participant.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Participant.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Memento\MementoConsoleUtils.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MementoConsoleUtils.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Memento\MementoCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MementoCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Memento\MementoCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MementoCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Memento\TextDocument.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TextDocument.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Memento\TextDocumentMemento.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TextDocumentMemento.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\NullObject\FileLogger.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileLogger.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\NullObject\ILogger.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ILogger.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\NullObject\NullLogger.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NullLogger.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\NullObject\NullObjectCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NullObjectCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\NullObject\NullObjectCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NullObjectCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Observer\ISubscriber.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ISubscriber.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Observer\ObserverCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ObserverCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Observer\ObserverCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ObserverCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Observer\SocialMediaPage.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SocialMediaPage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Observer\Subscriber.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Subscriber.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\State\CancelledOrder.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CancelledOrder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\State\InProcessOrder.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InProcessOrder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\State\IOrderState.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IOrderState.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\State\NewOrder.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NewOrder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\State\Order.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Order.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\State\StateCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StateCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\State\StateCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StateCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Strategy\CreditCardPaymentStrategy.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreditCardPaymentStrategy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Strategy\IPaymentStrategy.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IPaymentStrategy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Strategy\PaymentProcessor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaymentProcessor.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Strategy\PayPalPaymentStrategy.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PayPalPaymentStrategy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Strategy\StrategyCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StrategyCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Strategy\StrategyCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StrategyCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\TemplateMethod\CsvDataProcessor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CsvDataProcessor.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\TemplateMethod\DataProcessor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataProcessor.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\TemplateMethod\ExcelDataProcessor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExcelDataProcessor.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\TemplateMethod\TemplateMethodCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TemplateMethodCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\TemplateMethod\TemplateMethodCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TemplateMethodCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Visitor\AreaVisitor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AreaVisitor.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Visitor\Circle.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Circle.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Visitor\IShape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IShape.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Visitor\IVisitor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IVisitor.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Visitor\VisitorCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisitorCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Visitor\Rectangle.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rectangle.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Visitor\Square.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Square.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Visitor\Triangle.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Triangle.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Behavioral\Visitor\VisitorCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisitorCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\AbstractFactory\AbstractCarBody.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AbstractCarBody.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\AbstractFactory\AbstractCarEngine.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AbstractCarEngine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\AbstractFactory\AbstractCarFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AbstractCarFactory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\AbstractFactory\AbstractFactoryCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AbstractFactoryCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\AbstractFactory\AbstractFactoryCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AbstractFactoryCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\AbstractFactory\SedanV4CarBody.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SedanV4CarBody.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\AbstractFactory\SedanV4CarEngine.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SedanV4CarEngine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\AbstractFactory\SedanV4CarFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SedanV4CarFactory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\AbstractFactory\SportCarV12CarBody.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SportCarV12CarBody.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\AbstractFactory\SportCarV12CarEngine.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SportCarV12CarEngine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\AbstractFactory\SportCarV12CarFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SportCarV12CarFactory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\Builder\BuilderCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BuilderCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\Builder\BuilderCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BuilderCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\Builder\IPizzaBuilder.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IPizzaBuilder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\Builder\MargheritaPizzaBuilder.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MargheritaPizzaBuilder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\Builder\PizzaDirector.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PizzaDirector.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\Builder\PizzaOrder.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PizzaOrder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\FactoryMethod\Airplane.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Airplane.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\FactoryMethod\AirplaneFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AirplaneFactory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\FactoryMethod\Bicycle.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Bicycle.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\FactoryMethod\BicycleFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BicycleFactory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\FactoryMethod\Car.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Car.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\FactoryMethod\CarFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarFactory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\FactoryMethod\FactoryMethodCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FactoryMethodCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\FactoryMethod\FactoryMethodCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FactoryMethodCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\FactoryMethod\ITransport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ITransport.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\FactoryMethod\TransportFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransportFactory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\NotThreadSafeSingleton\NotThreadSafeLogger.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotThreadSafeLogger.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\NotThreadSafeSingleton\NotThreadSafeSingletonCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotThreadSafeSingletonCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\NotThreadSafeSingleton\NotThreadSafeSingletonCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotThreadSafeSingletonCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\ObjectPool\ConnectionPool.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConnectionPool.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\ObjectPool\DatabaseConnection.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\ObjectPool\ObjectPoolCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ObjectPoolCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\ObjectPool\ObjectPoolCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ObjectPoolCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\Prototype\Document.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Document.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\Prototype\DocumentPrototype.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DocumentPrototype.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\Prototype\PrototypeCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrototypeCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\Prototype\PrototypeCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrototypeCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\ThreadSafeSingleton\ThreadSafeLogger.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThreadSafeLogger.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\ThreadSafeSingleton\ThreadSafeSingletonCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThreadSafeSingletonCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Creational\ThreadSafeSingleton\ThreadSafeSingletonCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThreadSafeSingletonCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Adapter\AdapterCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdapterCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Adapter\AdapterCSharpProgramCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Adapter\AdapterCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdapterCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Adapter\IInputDevice.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IInputDevice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Adapter\IInputDeviceCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Adapter\InputDeviceAdapter.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InputDeviceAdapter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Adapter\InputDeviceAdapterCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Adapter\ThirdPartyInputDevice.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThirdPartyInputDevice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Adapter\ThirdPartyInputDeviceCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Bridge\BridgeCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BridgeCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Bridge\BridgeCSharpProgramCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Bridge\BridgeCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BridgeCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Bridge\IDevice.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IDevice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Bridge\IDeviceCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Bridge\Radio.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Radio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Bridge\RadioCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Bridge\RadioRemoteControl.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RadioRemoteControl.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Bridge\RadioRemoteControlCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Bridge\RemoteControl.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RemoteControl.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Bridge\RemoteControlCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Bridge\TV.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TV.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Bridge\TVCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Bridge\TVRemoteControl.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TVRemoteControl.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Bridge\TVRemoteControlCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Composite\CompositeCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompositeCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Composite\CompositeCSharpProgramCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Composite\CompositeCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompositeCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Composite\FileTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Composite\FileTemplateCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Composite\FileSystemItem.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileSystemItem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Composite\FileSystemItemCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Composite\Folder.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Folder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Composite\FolderCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Decorator\AdminUserDecorator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdminUserDecorator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Decorator\AdminUserDecoratorCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Decorator\DecoratorCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DecoratorCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Decorator\DecoratorCSharpProgramCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Decorator\DecoratorCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DecoratorCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Decorator\IUser.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IUser.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Decorator\IUserCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Decorator\ModeratorUserDecorator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeratorUserDecorator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Decorator\ModeratorUserDecoratorCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Decorator\User.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Decorator\UserCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Facade\FacadeCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FacadeCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Facade\FacadeCSharpProgramCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Facade\FacadeCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FacadeCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Facade\FileFacade.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileFacade.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Facade\FileFacadeCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Facade\ImageFileHandler.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImageFileHandler.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Facade\ImageFileHandlerCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Facade\TextFileHandler.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TextFileHandler.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Facade\TextFileHandlerCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Flyweight\FlyweightCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlyweightCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Flyweight\FlyweightCSharpProgramCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Flyweight\FlyweightCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlyweightCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Flyweight\IWebPage.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IWebPage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Flyweight\IWebPageCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Flyweight\WebPage.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebPage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Flyweight\WebPageCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Flyweight\WebPageFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebPageFactory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Flyweight\WebPageFactoryCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Proxy\IImageService.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IImageService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Proxy\IImageServiceCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Proxy\ImageProxy.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImageProxy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Proxy\ImageProxyCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Proxy\ImageService.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImageService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Proxy\ImageServiceCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Proxy\ProxyCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProxyCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Proxy\ProxyCSharpProgramCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Proxy\ProxyCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProxyCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Router\AboutController.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AboutController.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Router\AboutControllerCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Router\HomeController.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomeController.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Router\HomeControllerCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Router\Router.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Router.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Router\RouterCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Router\RouterCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RouterCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Structural\Router\RouterCSharpProgramCode.cs" />
+    <Compile Include="Templates\CSharp\Structural\Router\RouterCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RouterCSharpProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Techniques\MethodCascading\Employee.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Employee.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Techniques\MethodCascading\MethodCascadingCSharpProgram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MethodCascadingCSharpProgram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CSharp\Techniques\MethodCascading\MethodCascadingCSharpProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MethodCascadingCSharpProject.tt</DependentUpon>
+    </Compile>    
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Templates\CSharp\Structural\PrivateClassData\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\CSharp\Behavioral\ChainOfResponsibility\BankManager.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>BankManager.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\ChainOfResponsibility\ChainOfResponsibilityCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ChainOfResponsibilityCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\ChainOfResponsibility\CreditRequest.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CreditRequest.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\ChainOfResponsibility\ICreditApprover.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ICreditApprover.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\ChainOfResponsibility\LoanManager.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>LoanManager.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\ChainOfResponsibility\ChainOfResponsibilityCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ChainOfResponsibilityCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Command\CommandCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CommandCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Command\CommandCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CommandCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Command\CommandExecutor.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CommandExecutor.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Command\ICommand.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ICommand.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Command\MoveBackwardCommand.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MoveBackwardCommand.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Command\MoveForwardCommand.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MoveForwardCommand.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Command\Robot.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Robot.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Iterator\IteratorCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IteratorCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Iterator\IteratorCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IteratorCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Iterator\Student.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Student.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Iterator\StudentCollection.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>StudentCollection.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Mediator\AirTrafficControl.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AirTrafficControl.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Mediator\FlightManagementSystem.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>FlightManagementSystem.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Mediator\MediatorCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MediatorCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Mediator\MediatorCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MediatorCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Mediator\Participant.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Participant.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Memento\MementoConsoleUtils.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MementoConsoleUtils.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Memento\MementoCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MementoCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Memento\MementoCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MementoCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Memento\TextDocument.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>TextDocument.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Memento\TextDocumentMemento.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>TextDocumentMemento.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\NullObject\FileLogger.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>FileLogger.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\NullObject\ILogger.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ILogger.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\NullObject\NullLogger.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>NullLogger.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\NullObject\NullObjectCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>NullObjectCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\NullObject\NullObjectCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>NullObjectCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Observer\ISubscriber.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ISubscriber.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Observer\ObserverCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ObserverCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Observer\ObserverCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ObserverCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Observer\SocialMediaPage.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SocialMediaPage.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Observer\Subscriber.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Subscriber.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\State\CancelledOrder.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CancelledOrder.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\State\InProcessOrder.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>InProcessOrder.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\State\IOrderState.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IOrderState.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\State\NewOrder.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>NewOrder.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\State\Order.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Order.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\State\StateCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>StateCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\State\StateCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>StateCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Strategy\CreditCardPaymentStrategy.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CreditCardPaymentStrategy.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Strategy\IPaymentStrategy.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IPaymentStrategy.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Strategy\PaymentProcessor.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PaymentProcessor.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Strategy\PayPalPaymentStrategy.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PayPalPaymentStrategy.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Strategy\StrategyCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>StrategyCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Strategy\StrategyCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>StrategyCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\TemplateMethod\CsvDataProcessor.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CsvDataProcessor.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\TemplateMethod\DataProcessor.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DataProcessor.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\TemplateMethod\ExcelDataProcessor.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ExcelDataProcessor.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\TemplateMethod\TemplateMethodCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>TemplateMethodCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\TemplateMethod\TemplateMethodCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>TemplateMethodCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Visitor\AreaVisitor.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AreaVisitor.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Visitor\Circle.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Circle.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Visitor\IShape.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IShape.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Visitor\IVisitor.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IVisitor.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Visitor\VisitorCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>VisitorCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Visitor\Rectangle.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Rectangle.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Visitor\Square.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Square.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Visitor\Triangle.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Triangle.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Behavioral\Visitor\VisitorCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>VisitorCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\AbstractFactory\AbstractCarBody.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AbstractCarBody.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\AbstractFactory\AbstractCarEngine.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AbstractCarEngine.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\AbstractFactory\AbstractCarFactory.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AbstractCarFactory.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\AbstractFactory\AbstractFactoryCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AbstractFactoryCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\AbstractFactory\AbstractFactoryCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AbstractFactoryCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\AbstractFactory\SedanV4CarBody.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SedanV4CarBody.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\AbstractFactory\SedanV4CarEngine.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SedanV4CarEngine.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\AbstractFactory\SedanV4CarFactory.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SedanV4CarFactory.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\AbstractFactory\SportCarV12CarBody.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SportCarV12CarBody.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\AbstractFactory\SportCarV12CarEngine.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SportCarV12CarEngine.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\AbstractFactory\SportCarV12CarFactory.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SportCarV12CarFactory.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\Builder\BuilderCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>BuilderCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\Builder\BuilderCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>BuilderCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\Builder\IPizzaBuilder.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IPizzaBuilder.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\Builder\MargheritaPizzaBuilder.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MargheritaPizzaBuilder.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\Builder\PizzaDirector.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PizzaDirector.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\Builder\PizzaOrder.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PizzaOrder.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\FactoryMethod\Airplane.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Airplane.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\FactoryMethod\AirplaneFactory.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AirplaneFactory.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\FactoryMethod\Bicycle.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Bicycle.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\FactoryMethod\BicycleFactory.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>BicycleFactory.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\FactoryMethod\Car.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Car.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\FactoryMethod\CarFactory.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CarFactory.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\FactoryMethod\FactoryMethodCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>FactoryMethodCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\FactoryMethod\FactoryMethodCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>FactoryMethodCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\FactoryMethod\ITransport.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ITransport.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\FactoryMethod\TransportFactory.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>TransportFactory.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\NotThreadSafeSingleton\NotThreadSafeLogger.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>NotThreadSafeLogger.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\NotThreadSafeSingleton\NotThreadSafeSingletonCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>NotThreadSafeSingletonCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\NotThreadSafeSingleton\NotThreadSafeSingletonCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>NotThreadSafeSingletonCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\ObjectPool\ConnectionPool.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ConnectionPool.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\ObjectPool\DatabaseConnection.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DatabaseConnection.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\ObjectPool\ObjectPoolCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ObjectPoolCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\ObjectPool\ObjectPoolCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ObjectPoolCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\Prototype\Document.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Document.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\Prototype\DocumentPrototype.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DocumentPrototype.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\Prototype\PrototypeCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PrototypeCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\Prototype\PrototypeCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PrototypeCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\ThreadSafeSingleton\ThreadSafeLogger.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ThreadSafeLogger.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\ThreadSafeSingleton\ThreadSafeSingletonCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ThreadSafeSingletonCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Creational\ThreadSafeSingleton\ThreadSafeSingletonCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ThreadSafeSingletonCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Adapter\AdapterCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AdapterCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Adapter\AdapterCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AdapterCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Adapter\IInputDevice.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IInputDevice.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Adapter\InputDeviceAdapter.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>InputDeviceAdapter.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Adapter\ThirdPartyInputDevice.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ThirdPartyInputDevice.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Bridge\BridgeCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>BridgeCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Bridge\BridgeCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>BridgeCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Bridge\IDevice.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IDevice.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Bridge\Radio.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Radio.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Bridge\RadioRemoteControl.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RadioRemoteControl.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Bridge\RemoteControl.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RemoteControl.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Bridge\TV.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>TV.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Bridge\TVRemoteControl.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>TVRemoteControl.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Composite\CompositeCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CompositeCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Composite\CompositeCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CompositeCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Composite\FileTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>FileTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Composite\FileSystemItem.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>FileSystemItem.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Composite\Folder.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Folder.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Decorator\AdminUserDecorator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AdminUserDecorator.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Decorator\DecoratorCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DecoratorCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Decorator\DecoratorCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DecoratorCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Decorator\IUser.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IUser.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Decorator\ModeratorUserDecorator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ModeratorUserDecorator.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Decorator\User.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>User.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Facade\FacadeCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>FacadeCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Facade\FacadeCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>FacadeCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Facade\FileFacade.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>FileFacade.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Facade\ImageFileHandler.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ImageFileHandler.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Facade\TextFileHandler.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>TextFileHandler.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Flyweight\FlyweightCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>FlyweightCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Flyweight\FlyweightCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>FlyweightCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Flyweight\IWebPage.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IWebPage.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Flyweight\WebPage.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>WebPage.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Flyweight\WebPageFactory.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>WebPageFactory.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Proxy\IImageService.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IImageService.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Proxy\ImageProxy.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ImageProxy.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Proxy\ImageService.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ImageService.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Proxy\ProxyCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ProxyCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Proxy\ProxyCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ProxyCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Router\AboutController.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AboutController.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Router\HomeController.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>HomeController.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Router\Router.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Router.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Router\RouterCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RouterCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Structural\Router\RouterCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RouterCSharpProject.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Techniques\MethodCascading\Employee.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Employee.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Techniques\MethodCascading\MethodCascadingCSharpProgram.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MethodCascadingCSharpProgram.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\CSharp\Techniques\MethodCascading\MethodCascadingCSharpProject.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MethodCascadingCSharpProject.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>  
+  <ItemGroup>
+    <ProjectReference Include="..\..\AinDevHelperPluginLibrary\AinDevHelperPluginLibrary.csproj">
+      <Project>{37ab27d6-d34c-4b94-9581-b10e46b34426}</Project>
+      <Name>AinDevHelperPluginLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

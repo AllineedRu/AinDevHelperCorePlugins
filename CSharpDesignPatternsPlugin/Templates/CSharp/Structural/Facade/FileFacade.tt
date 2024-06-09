@@ -1,0 +1,50 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="AinDevHelperPluginLibrary.Language" #>
+namespace AinDevHelperFacadePattern {
+    /// <summary>
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+    /// Façade for simplified access to various file types
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+    /// Fassade für vereinfachten Zugriff auf verschiedene Dateitypen
+<# } else { #>
+    /// Фасад для упрощенного доступа к различным типам файлов
+<# } #>
+    /// </summary>
+    public class FileFacade {
+        private readonly TextFileHandler textFileHandler;
+        private readonly ImageFileHandler imageFileHandler;
+
+        public FileFacade() {
+            textFileHandler = new TextFileHandler();
+            imageFileHandler = new ImageFileHandler();
+        }
+
+        public void OpenTextFile(string fileName) {
+            textFileHandler.OpenFile(fileName);
+        }
+
+        public void EditTextFile() {
+            textFileHandler.EditFile();
+        }
+
+        public void SaveTextFile() {
+            textFileHandler.SaveFile();
+        }
+
+        public void OpenImageFile(string fileName) {
+            imageFileHandler.OpenFile(fileName);
+        }
+
+        public void ResizeImage() {
+            imageFileHandler.ResizeImage();
+        }
+
+        public void SaveImage() {
+            imageFileHandler.SaveImage();
+        }
+    }
+}

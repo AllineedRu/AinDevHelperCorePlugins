@@ -1,0 +1,37 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="AinDevHelperPluginLibrary.Language" #>
+using System;
+
+namespace AinDevHelperDecoratorPattern {
+    /// <summary>
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+    /// Decorator for adding "Administrator" access rights
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+    /// Decorator zum Hinzufügen von „Administrator“-Zugriffsrechten
+<# } else { #>
+    /// Декоратор для добавления прав доступа "Администратор"
+<# } #>
+    /// </summary>
+    public class AdminUserDecorator : IUser {
+        private IUser user;
+
+        public AdminUserDecorator(IUser user) {
+            this.user = user;
+        }
+
+        public void DisplayInfo() {
+            user.DisplayInfo();
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+            Console.WriteLine("Access Level: Administrator");
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+            Console.WriteLine("Zugriffsebene: Administrator");
+<# } else { #>
+            Console.WriteLine("Уровень доступа: Администратор");
+<# } #>
+        }
+    }
+}

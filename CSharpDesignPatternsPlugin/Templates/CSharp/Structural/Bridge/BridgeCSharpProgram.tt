@@ -1,0 +1,64 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="AinDevHelperPluginLibrary.Language" #>
+using System;
+
+namespace AinDevHelperBridgePattern {
+    /// <summary>
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+    /// Let's look at an example of using the 'Bridge' pattern in C# to create different types of devices and their control panels. 
+    /// The 'Bridge' pattern allows you to separate an abstraction from its implementation so that they can change independently of each other.
+    ///
+    /// In this example, we create an abstract class <see cref="RemoteControl" /> that represents a remote control for a device. 
+    /// We have two specific devices: <see cref="TV" /> and <see cref="Radio" /> that implement the <see cref="IDevice" /> interface. 
+    /// We then create specific remote control classes for each device: <see cref="TVRemoteControl" /> and <see cref="RadioRemoteControl" />. 
+    /// The 'Bridge' pattern allows us to change or add new devices and remote controls independently of each other.
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+    /// Schauen wir uns ein Beispiel für die Verwendung des „Bridge“-Musters in C# an, um verschiedene Arten von Geräten und deren Bedienfelder zu erstellen. 
+    /// Mit dem „Bridge“-Muster können Sie eine Abstraktion von ihrer Implementierung trennen, sodass sie sich unabhängig voneinander ändern können.
+    ///
+    /// In diesem Beispiel erstellen wir eine abstrakte Klasse <see cref="RemoteControl" />, die eine Fernbedienung für ein Gerät darstellt. 
+    /// Wir haben zwei spezifische Geräte: <see cref="TV" /> und <see cref="Radio" />, die die <see cref="IDevice" />-Schnittstelle implementieren. 
+    /// Anschließend erstellen wir für jedes Gerät spezifische Fernbedienungsklassen: <see cref="TVRemoteControl" /> und <see cref="RadioRemoteControl" />. 
+    /// Das „Bridge“-Muster ermöglicht es uns, Geräte und Fernbedienungen unabhängig voneinander zu ändern oder neue hinzuzufügen.
+<# } else { #>
+    /// Давайте рассмотрим пример использования паттерна "Мост" (Bridge) на языке C# для создания различных типов устройств и их пультов управления. 
+    /// Паттерн "Мост" позволяет отделить абстракцию от её реализации, чтобы они могли изменяться независимо друг от друга.
+    ///
+    /// В этом примере мы создаем абстрактный класс <see cref="RemoteControl" />, который представляет пульт управления для устройства. 
+    /// У нас есть два конкретных устройства: <see cref="TV" /> и <see cref="Radio" />, реализующих интерфейс <see cref="IDevice" />. 
+    /// Затем мы создаем конкретные классы пультов управления для каждого устройства: <see cref="TVRemoteControl" /> и <see cref="RadioRemoteControl" />. 
+    /// Паттерн "Мост" позволяет нам изменять или добавлять новые устройства и пульты управления независимо друг от друга.
+<# } #>
+    /// </summary>
+    public static class Program {
+        public static void Main() {
+            Console.WriteLine("=============================================================================");
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+            Console.WriteLine("Demonstration of the \"Bridge\" Design Pattern");
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+            Console.WriteLine("Demonstration des „Bridge“-Musters");
+<# } else { #>
+            Console.WriteLine("Демонстрация применения шаблона проектирования \"Мост\" (Bridge)");
+<# } #>
+            Console.WriteLine("=============================================================================");
+
+            TV tv = new TV();
+            TVRemoteControl tvRemote = new TVRemoteControl(tv);
+
+            tvRemote.TurnOn();
+            tvRemote.SetChannel(5);
+            tvRemote.TurnOff();
+
+            Radio radio = new Radio();
+            RadioRemoteControl radioRemote = new RadioRemoteControl(radio);
+
+            radioRemote.TurnOn();
+            radioRemote.SetChannel(101.5);
+            radioRemote.TurnOff();
+        }
+    }
+}

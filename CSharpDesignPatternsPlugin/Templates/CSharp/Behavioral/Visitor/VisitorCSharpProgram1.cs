@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace AinDevHelperVisitorPattern {
+    /// <summary>
+    /// В этом примере классы <see cref="Circle" />, <see cref="Square" />, <see cref="Triangle" /> и <see cref="Rectangle" /> представляют различные геометрические фигуры, 
+    /// а класс <see cref="AreaVisitor" /> реализует интерфейс посетителя <see cref="IVisitor" /> для вычисления площади каждой фигуры. 
+    /// Метод Accept в каждом классе фигуры вызывает соответствующий метод посетителя для вычисления площади фигуры.
+    ///
+    /// При запуске программы будет выведено сообщение с площадями круга, квадрата, треугольника и прямоугольника, не изменяя при этом сами классы этих фигур. 
+    /// Таким образом, паттерн "Посетитель" позволяет добавлять новые операции над объектами без изменения самих объектов.
+    /// </summary>
+    public static class Program {
+
+        public static void Main() {
+            Console.WriteLine("=======================================================================");
+            Console.WriteLine("Демонстрация применения шаблона проектирования \"Посетитель\" (Visitor)");
+            Console.WriteLine("=======================================================================");
+
+            List<IShape> shapes = new List<IShape> {
+                new Circle { Radius = 5 },
+                new Square { SideLength = 4 },
+                new Triangle { Base = 3, Height = 6 },
+                new Rectangle { Height = 3.5, Width = 5.7 }
+            };
+
+            var areaVisitor = new AreaVisitor();
+
+            foreach (var shape in shapes) {
+                shape.Accept(areaVisitor);
+            }
+        }
+    }    
+}

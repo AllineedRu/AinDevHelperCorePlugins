@@ -1,0 +1,38 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using System;
+
+namespace AinDevHelperCommandPattern {
+    /// <summary>
+    /// Представим ситуацию, где у нас есть робот, который умеет выполнять различные команды, такие как движение вперед и назад. 
+    /// Мы можем использовать паттерн "Команда" для управления этими командами.
+    ///
+    /// В этом примере мы создаем интерфейс ICommand, который представляет команду. Затем у нас есть конкретные классы команд MoveForwardCommand и MoveBackwardCommand, 
+    /// которые реализуют этот интерфейс. Класс Robot представляет собой объект, над которым выполняются команды. CommandExecutor отвечает за выполнение команд.
+    ///
+    /// В методе Main создается объект робота и команды для движения вперед и назад. Затем эти команды передаются в CommandExecutor, который их выполняет.
+    /// </summary>
+    public static class Program {
+
+        public static void Main() {
+            Console.WriteLine("=======================================================================");
+            Console.WriteLine("Демонстрация применения шаблона проектирования \"Команда\" (Command)");
+            Console.WriteLine("=======================================================================");
+
+            Robot robot = new Robot();
+            CommandExecutor executor = new CommandExecutor();
+
+            ICommand moveForwardCommand = new MoveForwardCommand(robot);
+            ICommand moveBackwardCommand = new MoveBackwardCommand(robot);
+
+            executor.SetCommand(moveForwardCommand);
+            executor.ExecuteCommand();
+
+            executor.SetCommand(moveBackwardCommand);
+            executor.ExecuteCommand();
+        }
+    }    
+}

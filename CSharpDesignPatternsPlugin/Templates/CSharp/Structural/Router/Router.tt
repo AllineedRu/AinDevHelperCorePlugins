@@ -1,0 +1,49 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="AinDevHelperPluginLibrary.Language" #>
+using System;
+using System.Collections.Generic;
+
+namespace AinDevHelperRouterPattern {
+    /// <summary>
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+    /// Router to match URLs and controllers
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+    /// Router zum Abgleichen von URLs und Controllern
+<# } else { #>
+    /// Маршрутизатор для определения соответствия URL-адресов и контроллеров
+<# } #>
+    /// </summary>
+    public class Router {
+        private readonly Dictionary<string, object> routes = new Dictionary<string, object>();
+
+        public void AddRoute(string url, object controller) {
+            routes[url] = controller;
+        }
+
+        public void RouteRequest(string url) {
+            if (routes.ContainsKey(url)) {
+                var controller = routes[url];
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+                // Let's assume that the controllers have an Index() method that is called when processing a request
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+                // Nehmen wir an, dass die Controller über eine Index()-Methode verfügen, die bei der Verarbeitung einer Anfrage aufgerufen wird
+<# } else { #>
+                // Предположим, что у контроллеров есть метод Index(), который вызывается при обработке запроса
+<# } #>
+                controller.GetType().GetMethod("Index").Invoke(controller, null);
+            } else {
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+                Console.WriteLine("404 - Page Not Found");
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+                Console.WriteLine("404 - Seite nicht gefunden");
+<# } else { #>
+                Console.WriteLine("404 - Страница не найдена");
+<# } #>
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="AinDevHelperPluginLibrary.Language" #>
+namespace AinDevHelperBridgePattern {
+    /// <summary>
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+    /// TV remote control
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+    /// TV Fernbedienung
+<# } else { #>
+    /// Пульт для Телевизора
+<# } #>
+    /// </summary>
+    public class TVRemoteControl : RemoteControl {
+        public TVRemoteControl(IDevice device) : base(device) { }
+
+        public override void TurnOn() {
+            device.TurnOn();
+        }
+
+        public override void TurnOff() {
+            device.TurnOff();
+        }
+
+        public override void SetChannel<T>(T channel) {
+            device.SetChannel(channel);
+        }
+    }
+}

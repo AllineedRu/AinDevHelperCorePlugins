@@ -1,0 +1,21 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+namespace AinDevHelperCommandPattern {
+    /// <summary>
+    /// Конкретная команда для движения робота вперед
+    /// </summary>
+    public class MoveForwardCommand : ICommand {
+        private Robot robot;
+
+        public MoveForwardCommand(Robot robot) {
+            this.robot = robot;
+        }
+
+        public void Execute() {
+            robot.MoveForward();
+        }
+    }
+}

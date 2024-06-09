@@ -1,0 +1,91 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="AinDevHelperPluginLibrary.Language" #>
+using System;
+
+namespace AinDevHelperFlyweightPattern {
+    /// <summary>
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+    /// Below is an example of implementing the Flyweight pattern in C# using the task of creating web pages.
+    /// 
+    /// In this example, the <see cref="WebPage" /> class represents a web page. 
+    /// The <see cref="WebPageFactory" /> class is a opportunist factory and is responsible for creating and managing <see cref="WebPage" /> instances.
+    /// If a web page with the given content already exists, the factory returns the previously created instance, otherwise it creates a new instance 
+    /// and saves it for later use.
+    ///
+    /// When the <see cref="IWebPage.Display" /> method is called, each web page is displayed with the specified theme. 
+    /// Please note that web pages with the same content are reused to save money 
+    /// memory and reduce the number of objects created.
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+    /// Nachfolgend finden Sie ein Beispiel für die Implementierung des Flyweight-Musters in C# mithilfe der Aufgabe, Webseiten zu erstellen.
+    ///
+    /// In diesem Beispiel stellt die Klasse <see cref="WebPage" /> eine Webseite dar. 
+    /// Die Klasse <see cref="WebPageFactory" /> ist eine opportunistische Factory und für die Erstellung und Verwaltung von <see cref="WebPage" />-Instanzen verantwortlich. 
+    /// Wenn eine Webseite mit dem angegebenen Inhalt bereits vorhanden ist, gibt die Factory die zuvor erstellte Instanz zurück, andernfalls erstellt sie eine neue Instanz 
+    /// und speichert sie zur späteren Verwendung.
+    ///
+    /// Wenn die Methode <see cref="IWebPage.Display" /> aufgerufen wird, wird jede Webseite mit dem angegebenen Thema angezeigt. 
+    /// Beachten Sie, dass Webseiten mit demselben Inhalt wiederverwendet werden, was Speicherplatz spart und die Anzahl der erstellten Objekte reduziert.
+<# } else { #>
+    /// Ниже приведён пример реализации паттерна "Приспособленец/Легковес" (Flyweight) на языке C# с использованием задачи о создании веб-страниц.
+    ///
+    /// В этом примере класс <see cref="WebPage" /> представляет веб-страницу. Класс <see cref="WebPageFactory" /> является фабрикой приспособленцев и отвечает за создание 
+    /// и управление экземплярами <see cref="WebPage" />. 
+    /// Если веб-страница с заданным содержимым уже существует, фабрика возвращает ранее созданный экземпляр, иначе она создает новый экземпляр и сохраняет его 
+    /// для последующего использования.
+    ///
+    /// При вызове метода <see cref="IWebPage.Display" /> каждая веб-страница отображается с указанной темой. 
+    /// Обратите внимание, что веб-страницы с одинаковым содержимым используются повторно, что позволяет сэкономить память и уменьшить количество создаваемых объектов. 
+<# } #>
+    /// </summary>
+    public static class Program {
+        public static void Main() {
+            Console.WriteLine("=============================================================================");
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+            Console.WriteLine("Demonstration of the \"Flyweight\" Design Pattern");
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+            Console.WriteLine("Demonstration des „Fliegengewicht“-Musters");
+<# } else { #>
+            Console.WriteLine("Демонстрация применения шаблона проектирования \"Приспособленец/Легковес\" (Flyweight)");
+<# } #>
+            Console.WriteLine("=============================================================================");
+
+            var webPageFactory = new WebPageFactory();
+
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+            // Creating multiple web pages with different content
+            var page1 = webPageFactory.GetWebPage("Welcome to my website!");
+            var page2 = webPageFactory.GetWebPage("Contact information");
+            var page3 = webPageFactory.GetWebPage("About me");
+
+            // Displaying web pages with different themes
+            page1.Display("Light");
+            page2.Display("Dark");
+            page3.Display("Light");
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+            // Erstellen mehrerer Webseiten mit unterschiedlichen Inhalten
+            var page1 = webPageFactory.GetWebPage("Willkommen auf meiner Website!");
+            var page2 = webPageFactory.GetWebPage("Kontaktinformationen");
+            var page3 = webPageFactory.GetWebPage("Über mich");
+
+            // Anzeigen von Webseiten mit unterschiedlichen Themen
+            page1.Display("Licht");
+            page2.Display("Dunkel");
+            page3.Display("Licht");
+<# } else { #>
+            // Создаем несколько веб-страниц с разным содержимым
+            var page1 = webPageFactory.GetWebPage("Добро пожаловать на мой веб-сайт!");
+            var page2 = webPageFactory.GetWebPage("Контактная информация");
+            var page3 = webPageFactory.GetWebPage("Обо мне");
+
+            // Отображаем веб-страницы с разными темами
+            page1.Display("Светлая");
+            page2.Display("Тёмная");
+            page3.Display("Светлая");
+<# } #>
+        }
+    }
+}

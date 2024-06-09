@@ -1,0 +1,50 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="AinDevHelperPluginLibrary.Language" #>
+using System;
+
+namespace AinDevHelperBridgePattern {
+    /// <summary>
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+    /// Specific Device - TV
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+    /// Spezifisches Gerät - Fernseher
+<# } else { #>
+    /// Конкретное устройство - Телевизор
+<# } #>
+    /// </summary>
+    public class TV : IDevice {
+        public void TurnOn() {
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+            Console.WriteLine("TV is turned on");
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+            Console.WriteLine("Der Fernseher ist eingeschaltet");
+<# } else { #>
+            Console.WriteLine("Телевизор включен");
+<# } #>
+        }
+
+        public void TurnOff() {
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+            Console.WriteLine("TV is turned off");
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+            Console.WriteLine("Der Fernseher ist ausgeschaltet");
+<# } else { #>
+            Console.WriteLine("Телевизор выключен");
+<# } #>
+        }
+
+        public void SetChannel<T>(T channel) {
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+            Console.WriteLine("TV channel is set to " + channel);
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+            Console.WriteLine("Der Fernsehsender ist auf " + channel + " eingestellt");
+<# } else { #>
+            Console.WriteLine("Канал телевизора установлен в значение " + channel);
+<# } #>
+        }
+    }
+}

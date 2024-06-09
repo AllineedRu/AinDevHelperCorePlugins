@@ -1,0 +1,37 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using System;
+
+namespace AinDevHelperPrototypePattern {
+    /// <summary>
+    /// Представим, что у нас есть система для создания и редактирования документов, и нам нужно реализовать возможность клонирования существующего документа для создания нового.
+    /// В этом примере <see cref="Document" /> представляет конкретный класс документа, который реализует метод <see cref="DocumentPrototype.Clone" />, возвращающий клон текущего объекта. 
+    /// При создании клонированного документа мы можем изменить его заголовок, не затрагивая оригинальный документ.
+    /// Паттерн "Прототип" полезен, когда необходимо создавать объекты на основе уже существующих объектов с минимальными изменениями. 
+    /// Это позволяет избежать сложных операций по созданию новых объектов с нуля.
+    /// </summary>
+    public static class Program {
+        public static void Main() {
+            Console.WriteLine("=============================================================================");
+            Console.WriteLine("Демонстрация применения шаблона проектирования \"Прототип\" (Prototype)");
+            Console.WriteLine("=============================================================================");
+
+            // Создаем и заполняем оригинальный документ
+            Document originalDocument = new Document { Title = "Пример документа", Content = "Это содержание документа" };
+
+            // Клонируем документ
+            Document clonedDocument = originalDocument.Clone();
+            clonedDocument.Title = "Клонированный документ";
+
+            // Выводим информацию об оригинальном и клонированном документах
+            Console.WriteLine("Оригинальный документ:");
+            originalDocument.DisplayInfo();
+
+            Console.WriteLine("\nКлонированный документ:");
+            clonedDocument.DisplayInfo();           
+        }
+    }
+}

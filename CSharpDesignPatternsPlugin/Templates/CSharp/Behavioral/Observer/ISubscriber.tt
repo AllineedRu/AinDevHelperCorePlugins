@@ -1,0 +1,13 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+namespace AinDevHelperObserverPattern {
+    /// <summary>
+    /// Интерфейс для подписчика
+    /// </summary>
+    public interface ISubscriber {
+        void Update(string post);
+    }
+}

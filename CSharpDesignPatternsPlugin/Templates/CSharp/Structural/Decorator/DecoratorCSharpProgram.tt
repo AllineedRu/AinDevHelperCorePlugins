@@ -1,0 +1,92 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="AinDevHelperPluginLibrary.Language" #>
+namespace AinDevHelperDecoratorPattern {
+    /// <summary>
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+    /// Let's look at an example of using the Decorator pattern in C# to create a system for managing user access rights. 
+    /// In this example, we will be adding different levels of access to the underlying user object.
+    ///
+    /// In this example, <see cref="IUser" /> represents the interface for the underlying user object. 
+    /// The <see cref="User" /> class represents the base user. 
+    /// The decorators <see cref="AdminUserDecorator" /> and <see cref="ModeratorUserDecorator" /> add appropriate access levels to the user. 
+    /// The Decorator pattern allows you to dynamically add new functionality or change the behavior of an object without changing its underlying structure.
+    ///
+    /// When you run the program, you will see how each user is displayed based on their access level (administrator or moderator) added through decorators.
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+    /// Schauen wir uns ein Beispiel für die Verwendung des Decorator-Musters in C# an, um ein System zur Verwaltung von Benutzerzugriffsrechten zu erstellen. 
+    /// In diesem Beispiel fügen wir dem zugrunde liegenden Benutzerobjekt verschiedene Zugriffsebenen hinzu.
+    ///
+    /// In diesem Beispiel stellt <see cref="IUser" /> die Schnittstelle für das zugrunde liegende Benutzerobjekt dar. 
+    /// Die Klasse <see cref="User" /> repräsentiert den Basisbenutzer. 
+    /// Die Dekoratoren <see cref="AdminUserDecorator" /> und <see cref="ModeratorUserDecorator" /> fügen dem Benutzer entsprechende Zugriffsebenen hinzu. 
+    /// Mit dem Decorator-Muster können Sie dynamisch neue Funktionen hinzufügen oder das Verhalten eines Objekts ändern, ohne die zugrunde liegende Struktur zu ändern.
+    ///
+    /// Wenn Sie das Programm ausführen, sehen Sie, wie jeder Benutzer basierend auf seiner durch Dekoratoren hinzugefügten Zugriffsebene (Administrator oder Moderator) angezeigt wird.
+<# } else { #>
+    /// Рассмотрим пример использования паттерна "Декоратор" (Decorator) на языке C# для создания системы управления правами доступа пользователей. 
+    /// В этом примере мы будем добавлять различные уровни доступа к базовому объекту пользователя.
+    ///
+    /// В этом примере <see cref="IUser" /> представляет интерфейс для базового объекта пользователя. 
+    /// Класс <see cref="User" /> представляет базового пользователя. 
+    /// Декораторы <see cref="AdminUserDecorator" /> и <see cref="ModeratorUserDecorator" /> добавляют соответствующие уровни доступа к пользователю. 
+    /// Паттерн "Декоратор" позволяет динамически добавлять новые функциональности или изменять поведение объекта, не изменяя его основной структуры.
+    ///
+    /// При запуске программы вы увидите, как каждый пользователь отображается с учетом своего уровня доступа (администратор или модератор), добавленного через декораторы.
+<# } #>
+    /// </summary>
+    public static class Program {
+        public static void Main() {
+            Console.WriteLine("=============================================================================");
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+            Console.WriteLine("Demonstration of the \"Decorator\" Design Pattern");
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+            Console.WriteLine("Demonstration des „Decorator“-Musters");
+<# } else { #>
+            Console.WriteLine("Демонстрация применения шаблона проектирования \"Декоратор\" (Decorator)");
+<# } #>
+            Console.WriteLine("=============================================================================");
+
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+            IUser user = new User("Alice");
+            Console.WriteLine("Basic User:");
+            user.DisplayInfo();
+
+            IUser adminUser = new AdminUserDecorator(new User("Bob"));
+            Console.WriteLine("\nAdmin User:");
+            adminUser.DisplayInfo();
+
+            IUser modUser = new ModeratorUserDecorator(new User("Charlie"));
+            Console.WriteLine("\nModerator User:");
+            modUser.DisplayInfo();
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+            IUser user = new User("Alexander");
+            Console.WriteLine("Einfacher Benutzer:");
+            user.DisplayInfo();
+
+            IUser adminUser = new AdminUserDecorator(new User("Arwin"));
+            Console.WriteLine("\nAdmin-Benutzer:");
+            adminUser.DisplayInfo();
+
+            IUser modUser = new ModeratorUserDecorator(new User("Carsten"));
+            Console.WriteLine("\nModeratorbenutzer:");
+            modUser.DisplayInfo();
+<# } else { #>
+            IUser user = new User("Пётр");
+            Console.WriteLine("Базовый пользователь:");
+            user.DisplayInfo();
+
+            IUser adminUser = new AdminUserDecorator(new User("Иван"));
+            Console.WriteLine("\nАдминистратор:");
+            adminUser.DisplayInfo();
+
+            IUser modUser = new ModeratorUserDecorator(new User("Василий"));
+            Console.WriteLine("\nМодератор:");
+            modUser.DisplayInfo();
+<# } #>
+        }
+    }
+}

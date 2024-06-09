@@ -1,0 +1,37 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="AinDevHelperPluginLibrary.Language" #>
+using System;
+using System.Collections.Generic;
+
+namespace AinDevHelperCompositePattern {
+    /// <summary>
+<# if (AinDevHelperLanguageCodeConstants.EN.Equals(LanguageCode)) { #>
+    /// Class representing a folder
+<# } else if (AinDevHelperLanguageCodeConstants.DE.Equals(LanguageCode)) { #>
+    /// Klasse, die einen Ordner darstellt
+<# } else { #>
+    /// Класс, представляющий папку
+<# } #>
+    /// </summary>
+    public class Folder : FileSystemItem {
+        private readonly List<FileSystemItem> items = new List<FileSystemItem>();
+
+        public Folder(string name) : base(name) { }
+
+        public void Add(FileSystemItem item) {
+            items.Add(item);
+        }
+
+        public override void Print(int level) {
+            Console.WriteLine(new string('-', level) + name);
+
+            foreach (var item in items) {
+                item.Print(level + 2);
+            }
+        }
+    }
+}
