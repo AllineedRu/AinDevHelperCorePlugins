@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AinDevHelperPluginLibrary",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TauriHelperPlugin", "TauriHelperPlugin\TauriHelperPlugin.csproj", "{BC521951-E049-4C4F-9896-A945E1CEA79A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactHelperPlugin", "ReactHelperPlugin\ReactHelperPlugin.csproj", "{80D0B802-E754-4DBB-B191-476F9860732E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{BC521951-E049-4C4F-9896-A945E1CEA79A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC521951-E049-4C4F-9896-A945E1CEA79A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC521951-E049-4C4F-9896-A945E1CEA79A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80D0B802-E754-4DBB-B191-476F9860732E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80D0B802-E754-4DBB-B191-476F9860732E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80D0B802-E754-4DBB-B191-476F9860732E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80D0B802-E754-4DBB-B191-476F9860732E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -24,6 +24,10 @@ using AinDevHelperPluginLibrary.Language;
 using static AinDevHelperPluginLibrary.AinDevHelperPluginActionResult;
 
 namespace TauriHelperPlugin {
+    /// <summary>
+    /// [RU] Плагин для программы AinDevHelper, который предоставляет различные полезные действия для разработчиков на фреймворке Tauri<br/>
+    /// [EN] Plugin for the AinDevHelper program, which provides various useful actions for developers on the Tauri framework
+    /// </summary>
     public class TauriHelperPlugin : StandardAinDevHelperPlugin {
         // =======================================================================================================================
         // [RU] Имена поддерживаемых плагином действий
