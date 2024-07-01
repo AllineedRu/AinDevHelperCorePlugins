@@ -25,6 +25,7 @@ using AinDevHelperPluginLibrary.Actions;
 using AinDevHelperPluginLibrary.Language;
 using static AinDevHelperPluginLibrary.Language.AinDevHelperLanguageCodeConstants;
 using static AinDevHelperPluginLibrary.Actions.AinDevHelperPluginActionCoreTagsConstants;
+using AinDevHelperPluginLibrary.Settings.Controls;
 
 namespace AngularHelperPlugin {
     /// <summary>
@@ -73,6 +74,7 @@ namespace AngularHelperPlugin {
         public const string FILENAME_ANGLULAR_CLI_VERSION = "angular_cli_version.txt";
         public const string FILENAME_NODE_VERSION = "node_version.txt";
         public const string FILENAME_NPM_VERSION = "npm_version.txt";
+        private const string PARAM_NAME_CHECKBOX_OPEN_PROJECT_DIRECTORY_AFTER_CREATION = "openProjectDirectoryAfterCreation";
 
         // =======================================================================================================================
         // [RU] Переопределения для свойств базового класса StandardAinDevHelperPlugin
@@ -84,6 +86,7 @@ namespace AngularHelperPlugin {
         public override string Company => "Allineed.Ru";
         public override string Description => "Плагин, предоставляющий разработчикам на Angular различные полезные действия, такие как получение информации о версиях Angular CLI, NPM, Node.js, а также облегчающий создание новых приложений и компонентов на Angular.";
         public override string Author => "Max Damascus";
+        public override string AuthorEmail => "allineed.ru@gmail.com";
         public override string AuthorSiteURL => "https://allineed.ru";
         public override int MajorVersion => 1;
         public override int MinorVersion => 0;
@@ -101,21 +104,65 @@ namespace AngularHelperPlugin {
         // [EN] Implementing plugin methods
         // =======================================================================================================================
         public override IEnumerable<AinDevHelperPluginAction> GetActions() {
+            // [RU] "Создать новое Angular приложение через Angular CLI"
+            // [EN] "Create a new Angular application via Angular CLI"
+
+            AinDevHelperSettingBaseControl targetProjectsDirectoryControl = pluginSettings.GetControlByNameOrNull("targetProjectsDirectory");
+            AinDevHelperSettingBaseControl newProjectAppNameControl = pluginSettings.GetControlByNameOrNull("newProjectAppName");
+            AinDevHelperSettingBaseControl newComponentNameControl = pluginSettings.GetControlByNameOrNull("newComponentName");
+
+            string pathForNewProjects = PluginDirectory;
+            if (targetProjectsDirectoryControl is AinDevHelperSettingDirectorySelectionControl directorySelectionControl && Directory.Exists(directorySelectionControl.SelectedDirectory)) {
+                pathForNewProjects = directorySelectionControl.SelectedDirectory;
+            }
+
+            string defaultAngularAppName = newProjectAppNameControl is AinDevHelperSettingTextBoxControl textBoxNewAppNameControl ? textBoxNewAppNameControl.Text : "my-angular-app";
+            string defaultAngularComponentName = newComponentNameControl is AinDevHelperSettingTextBoxControl textBoxNewComponentNameControl ? textBoxNewComponentNameControl.Text : "my-angular-component";
+
             AinDevHelperPluginParameterizedAction createNewAngularAppAction = new AinDevHelperPluginParameterizedAction(RU_ACTION_CREATE_NEW_ANGULAR_APP, ID_ACTION_CREATE_NEW_ANGULAR_APP);
-            createNewAngularAppAction.AddTextParameter("appName", "Название нового Angular приложения:", "Название проекта, который будет создан через Angular CLI", "my-angular-app");
-            createNewAngularAppAction.AddTextParameter("appPath", "Путь для создания нового Angular проекта:", "Путь файловой системы, в котором будет создан новый проект для Angular приложения", Host.GetAppStartupPath());
+            createNewAngularAppAction.AddTextParameter(
+                "appName", 
+                "Название нового Angular приложения:", 
+                "Название проекта, который будет создан через средства Angular CLI",
+                defaultAngularAppName, 
+                (EN, "Name of the new Angular application:", "The name of the project that will be created through the Angular CLI tools"),
+                (DE, "Name der neuen Angular-Anwendung:", "Der Name des Projekts, das über die Angular CLI-Tools erstellt wird")
+            );
+            createNewAngularAppAction.AddDirectorySelectionParameter(
+                "appPath", 
+                "Путь для создания нового Angular проекта:", 
+                "Путь файловой системы, в котором будет создан новый проект для Angular приложения",
+                pathForNewProjects, 
+                (EN, "Path to create a new Angular project:", "The file system path where the new project for the Angular application will be created"),
+                (DE, "Pfad zum Erstellen eines neuen Angular-Projekts:", "Der Dateisystempfad, in dem das neue Projekt für die Angular-Anwendung erstellt wird")
+            );
+            createNewAngularAppAction.AddCheckBoxParameter(
+                PARAM_NAME_CHECKBOX_OPEN_PROJECT_DIRECTORY_AFTER_CREATION, 
+                "Открыть каталог проекта в Проводнике после создания", 
+                "Отметьте чекбокс, если требуется открыть в Проводнике каталог сразу после его создания", 
+                true,
+                (EN, "Open project directory in Explorer after creation", "Check the box if you want to open a directory in Explorer immediately after its creation"), 
+                (DE, "Öffnen Sie nach der Erstellung das Projektverzeichnis im Explorer", "Aktivieren Sie das Kontrollkästchen, wenn Sie ein Verzeichnis sofort nach seiner Erstellung im Explorer öffnen möchten")
+            );
 
             createNewAngularAppAction.LocalizedNames.Add(new AinDevHelperLocalizedMessage(EN, EN_ACTION_CREATE_NEW_ANGULAR_APP));
             createNewAngularAppAction.LocalizedNames.Add(new AinDevHelperLocalizedMessage(DE, DE_ACTION_CREATE_NEW_ANGULAR_APP));
 
 
+            // [RU] "Создать новый Angular компонент через Angular CLI"
+            // [EN] "Create a new Angular component via Angular CLI"
             AinDevHelperPluginParameterizedAction createNewAngularComponentAction = new AinDevHelperPluginParameterizedAction(RU_ACTION_CREATE_NEW_ANGULAR_COMPONENT, ID_ACTION_CREATE_NEW_ANGULAR_COMPONENT);
-            createNewAngularComponentAction.AddTextParameter("newComponentName", "Название нового Angular компонента:", "Название компонента, который будет создан через Angular CLI", "my-angular-component");
-            if (string.IsNullOrEmpty(RecentAngularAppPath)) {
-                createNewAngularComponentAction.AddTextParameter("appPath", "Путь Angular проекта, в котором создать компонент:", "Путь до проекта Angular, в котором будет создан новый компонент", Host.GetAppStartupPath());
-            } else {
-                createNewAngularComponentAction.AddTextParameter("appPath", "Путь Angular проекта, в котором создать компонент:", "Путь до проекта Angular, в котором будет создан новый компонент", RecentAngularAppPath);
-            }
+            createNewAngularComponentAction.AddTextParameter("newComponentName", "Название нового Angular компонента:", "Название компонента, который будет создан через Angular CLI", defaultAngularComponentName);
+            string newAngularComponentPath = string.IsNullOrEmpty(RecentAngularAppPath) ? pathForNewProjects : RecentAngularAppPath;
+
+            createNewAngularComponentAction.AddDirectorySelectionParameter(
+                "appPath", 
+                "Путь до проекта Angular, в котором создать компонент:", 
+                "Полный путь до каталога с проектом Angular, в котором будет создан новый компонент", 
+                newAngularComponentPath, 
+                (EN, "Path to the Angular project in which to create the component:", "Full path to the directory with the Angular project in which the new component will be created"),
+                (DE, "Pfad zum Angular-Projekt, in dem die Komponente erstellt werden soll:", "Vollständiger Pfad zum Verzeichnis mit dem Angular-Projekt, in dem die neue Komponente erstellt wird")
+            );
 
             createNewAngularComponentAction.LocalizedNames.Add(new AinDevHelperLocalizedMessage(EN, EN_ACTION_CREATE_NEW_ANGULAR_COMPONENT));
             createNewAngularComponentAction.LocalizedNames.Add(new AinDevHelperLocalizedMessage(DE, DE_ACTION_CREATE_NEW_ANGULAR_COMPONENT));
@@ -215,7 +262,7 @@ namespace AngularHelperPlugin {
             try {
                 if (actionToRun is AinDevHelperPluginParameterizedAction parameterizedActionCreateNewApp) {
                     RecentAngularAppName = parameterizedActionCreateNewApp.GetTextParameterValue("appName");
-                    string targetDirectory = parameterizedActionCreateNewApp.GetTextParameterValue("appPath");
+                    string targetDirectory = parameterizedActionCreateNewApp.GetDirectorySelectionParameterValue("appPath");
 
                     if (string.IsNullOrEmpty(targetDirectory) || !Directory.Exists(targetDirectory)) {
                         return GetErroneousResponseDirectoryWasNotFound(actionToRun, targetDirectory);
@@ -239,6 +286,11 @@ namespace AngularHelperPlugin {
                         File.Delete(outputFile);
                     }
 
+                    bool isOpenProjectDirectoryAfterCreation = parameterizedActionCreateNewApp.GetCheckBoxParameterValue(PARAM_NAME_CHECKBOX_OPEN_PROJECT_DIRECTORY_AFTER_CREATION);
+                    if (isOpenProjectDirectoryAfterCreation) {
+                        Process.Start(RecentAngularAppPath);
+                    }
+
                     return new AinDevHelperPluginActionResult(this, actionToRun, "Angular приложение '" + RecentAngularAppName + "' успешно создано в директории '" + targetDirectory + "'" + sbAdditionalInfo.ToString(), true);
                 } else {
                     return GetErroneousResponseExpectedParameterizedAction(actionToRun);
@@ -251,7 +303,7 @@ namespace AngularHelperPlugin {
         private AinDevHelperPluginActionResult CreateNewAngularComponent(AinDevHelperPluginAction actionToRun) {
             try {
                 if (actionToRun is AinDevHelperPluginParameterizedAction parameterizedActionCreateNewAngularComponent) {
-                    string workingAngularProjectDirectory = parameterizedActionCreateNewAngularComponent.GetTextParameterValue("appPath");
+                    string workingAngularProjectDirectory = parameterizedActionCreateNewAngularComponent.GetDirectorySelectionParameterValue("appPath");
                     string newComponentName = parameterizedActionCreateNewAngularComponent.GetTextParameterValue("newComponentName");
 
                     if (string.IsNullOrEmpty(workingAngularProjectDirectory) || !Directory.Exists(workingAngularProjectDirectory)) {
@@ -300,21 +352,30 @@ namespace AngularHelperPlugin {
         }
 
         public override void Initialize() {
-            AinDevHelperSettingTextBoxControl textBox = new AinDevHelperSettingTextBoxControl("targetProjectsDirectory", "Путь для новых проектов:", PluginDirectory);
+            AinDevHelperSettingDirectorySelectionControl directorySelection = new AinDevHelperSettingDirectorySelectionControl("targetProjectsDirectory", "Директория для новых проектов:", PluginDirectory);
+            
+            directorySelection.Width = 420;
+            directorySelection.OffsetLeft = 10;
+            directorySelection.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(EN, "Directory for new projects:"));
+            directorySelection.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(DE, "Verzeichnis für neue Projekte:"));
 
-            textBox.OffsetLeft = 10;
-            textBox.Width = 500;
+            pluginSettings.AddSettingControl(directorySelection);
 
-            pluginSettings.AddSettingControl(textBox);
+            AinDevHelperSettingTextBoxControl textBoxNewProjectName = new AinDevHelperSettingTextBoxControl("newProjectAppName", "Название для нового проекта:", "my-angular-app");
+            textBoxNewProjectName.OffsetLeft = 10;
+            textBoxNewProjectName.Width = 550;
+            textBoxNewProjectName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(EN, "Name for the new project:"));
+            textBoxNewProjectName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(DE, "Name für das neue Projekt:"));
 
-            AinDevHelperSettingRadioButtonGroup radioButtonGroup = new AinDevHelperSettingRadioButtonGroup();
-            radioButtonGroup.AddValue("Опция 1");
-            radioButtonGroup.AddValue("Опция 2");
+            pluginSettings.AddSettingControl(textBoxNewProjectName);
 
-            AinDevHelperSettingRadioButtonsControl radioButtonsControl = new AinDevHelperSettingRadioButtonsControl("someOptions", radioButtonGroup);
-            radioButtonsControl.OffsetLeft = 10;
+            AinDevHelperSettingTextBoxControl textBoxNewComponentName = new AinDevHelperSettingTextBoxControl("newComponentName", "Название для нового компонента:", "my-angular-component");
+            textBoxNewComponentName.OffsetLeft = 10;
+            textBoxNewComponentName.Width = 550;
+            textBoxNewComponentName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(EN, "Name for the new component:"));
+            textBoxNewComponentName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(DE, "Name für die neue Komponente:"));
 
-            pluginSettings.AddSettingControl(radioButtonsControl);
+            pluginSettings.AddSettingControl(textBoxNewComponentName);
         }
     }
 }

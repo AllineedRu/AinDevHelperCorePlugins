@@ -97,7 +97,7 @@ namespace TauriHelperPlugin {
         private string RecentTauriAppPath { get; set; }
         public override string Name => "Tauri Helper Plugin";
         public override string Company => "Allineed.Ru";
-        public override string Description => "Плагин, помогающий разработчику с выполнением различных действий, связанных с разработкой приложений на Tauri";
+        public override string Description => "Плагин, помогающий разработчику с выполнением различных действий, связанных с разработкой приложений на Tauri.";
         public override string Author => "Max Damascus";
         public override string AuthorEmail => "allineed.ru@gmail.com";
         public override int MajorVersion => 1;
@@ -107,6 +107,11 @@ namespace TauriHelperPlugin {
         public override string AuthorSiteURL => "https://allineed.ru";
         public override IEnumerable<string> Tags => new List<string>() { "tauri" };
         public override IEnumerable<string> SupportedLanguageCodes => new List<string>() { RU, EN, DE };
+
+        public override IEnumerable<AinDevHelperLocalizedMessage> LocalizedDescriptions => new HashSet<AinDevHelperLocalizedMessage>() {
+            new AinDevHelperLocalizedMessage(EN, "A plugin that helps the developer with various actions related to developing applications on Tauri."),
+            new AinDevHelperLocalizedMessage(DE, "Ein Plugin, das den Entwickler bei verschiedenen Aktionen im Zusammenhang mit der Entwicklung von Anwendungen auf Tauri unterstützt."),
+        };
 
         // =======================================================================================================================
         // [RU] Реализация методов плагина
@@ -157,7 +162,8 @@ namespace TauriHelperPlugin {
             // [EN] "Browser - Open the main page of the Tauri website"
             AinDevHelperPluginWebLinkAction webLinkActionGoToTauriWebsite = new AinDevHelperPluginWebLinkAction(
                 RU_ACTION_NAVIGATE_TO_TAURI_WEBSITE, 
-                ID_ACTION_NAVIGATE_TO_TAURI_WEBSITE
+                ID_ACTION_NAVIGATE_TO_TAURI_WEBSITE,
+                "https://tauri.app/"
             );
             webLinkActionGoToTauriWebsite.LocalizedNames.Add(new AinDevHelperLocalizedMessage(EN, EN_ACTION_NAVIGATE_TO_TAURI_WEBSITE));
             webLinkActionGoToTauriWebsite.LocalizedNames.Add(new AinDevHelperLocalizedMessage(DE, DE_ACTION_NAVIGATE_TO_TAURI_WEBSITE));
@@ -166,7 +172,8 @@ namespace TauriHelperPlugin {
             // [EN] "Browser - Open the \"Guides\" page of the Tauri website"
             AinDevHelperPluginWebLinkAction webLinkActionGoToTauriGuides = new AinDevHelperPluginWebLinkAction(
                 RU_ACTION_NAVIGATE_TO_TAURI_GUIDES, 
-                ID_ACTION_NAVIGATE_TO_TAURI_GUIDES
+                ID_ACTION_NAVIGATE_TO_TAURI_GUIDES,
+                "https://tauri.app/v1/guides/"
             );
             webLinkActionGoToTauriGuides.LocalizedNames.Add(new AinDevHelperLocalizedMessage(EN, EN_ACTION_NAVIGATE_TO_TAURI_GUIDES));
             webLinkActionGoToTauriGuides.LocalizedNames.Add(new AinDevHelperLocalizedMessage(DE, DE_ACTION_NAVIGATE_TO_TAURI_GUIDES));
@@ -175,7 +182,8 @@ namespace TauriHelperPlugin {
             // [EN] "Browser - Open the \"Guides → Getting Started → Prerequisites\" page of the Tauri website"
             AinDevHelperPluginWebLinkAction webLinkActionGoToTauriGuidesGettingStartedPrerequisites = new AinDevHelperPluginWebLinkAction(
                 RU_ACTION_NAVIGATE_TO_TAURI_GUIDES_GETTING_STARTED_PREREQUISITES,
-                ID_ACTION_NAVIGATE_TO_TAURI_GUIDES_GETTING_STARTED_PREREQUISITES
+                ID_ACTION_NAVIGATE_TO_TAURI_GUIDES_GETTING_STARTED_PREREQUISITES,
+                "https://tauri.app/v1/guides/getting-started/prerequisites"
             );
             webLinkActionGoToTauriGuidesGettingStartedPrerequisites.LocalizedNames.Add(new AinDevHelperLocalizedMessage(EN, EN_ACTION_NAVIGATE_TO_TAURI_GUIDES_GETTING_STARTED_PREREQUISITES));
             webLinkActionGoToTauriGuidesGettingStartedPrerequisites.LocalizedNames.Add(new AinDevHelperLocalizedMessage(DE, DE_ACTION_NAVIGATE_TO_TAURI_GUIDES_GETTING_STARTED_PREREQUISITES));
@@ -184,7 +192,8 @@ namespace TauriHelperPlugin {
             // [EN] "Browser - Open the \"Guides → Getting Started → Quick Start\" page of the Tauri website"
             AinDevHelperPluginWebLinkAction webLinkActionGoToTauriGuidesGettingStartedQuickstart = new AinDevHelperPluginWebLinkAction(
                 RU_ACTION_NAVIGATE_TO_TAURI_GUIDES_GETTING_STARTED_QUICK_START,
-                ID_ACTION_NAVIGATE_TO_TAURI_GUIDES_GETTING_STARTED_QUICK_START
+                ID_ACTION_NAVIGATE_TO_TAURI_GUIDES_GETTING_STARTED_QUICK_START,
+                "https://tauri.app/v1/guides/getting-started/setup/"
             );
             webLinkActionGoToTauriGuidesGettingStartedQuickstart.LocalizedNames.Add(new AinDevHelperLocalizedMessage(EN, EN_ACTION_NAVIGATE_TO_TAURI_GUIDES_GETTING_STARTED_QUICK_START));
             webLinkActionGoToTauriGuidesGettingStartedQuickstart.LocalizedNames.Add(new AinDevHelperLocalizedMessage(DE, DE_ACTION_NAVIGATE_TO_TAURI_GUIDES_GETTING_STARTED_QUICK_START));
@@ -193,7 +202,8 @@ namespace TauriHelperPlugin {
             // [EN] "Browser - Open the page \"Guides → Development → Development Cycle\" of the Tauri website"
             AinDevHelperPluginWebLinkAction webLinkActionGoToTauriGuidesDevelopmentDevCycle = new AinDevHelperPluginWebLinkAction(
                 RU_ACTION_NAVIGATE_TO_TAURI_GUIDES_DEVELOPMENT_DEVELOPMENT_CYCLE,
-                ID_ACTION_NAVIGATE_TO_TAURI_GUIDES_DEVELOPMENT_DEVELOPMENT_CYCLE
+                ID_ACTION_NAVIGATE_TO_TAURI_GUIDES_DEVELOPMENT_DEVELOPMENT_CYCLE,
+                "https://tauri.app/v1/guides/development/development-cycle"
             );
             webLinkActionGoToTauriGuidesDevelopmentDevCycle.LocalizedNames.Add(new AinDevHelperLocalizedMessage(EN, EN_ACTION_NAVIGATE_TO_TAURI_GUIDES_DEVELOPMENT_DEVELOPMENT_CYCLE));
             webLinkActionGoToTauriGuidesDevelopmentDevCycle.LocalizedNames.Add(new AinDevHelperLocalizedMessage(DE, DE_ACTION_NAVIGATE_TO_TAURI_GUIDES_DEVELOPMENT_DEVELOPMENT_CYCLE));
@@ -202,7 +212,8 @@ namespace TauriHelperPlugin {
             // [EN] "Browser - Open the \"API → Configuration\" page of the Tauri website"
             AinDevHelperPluginWebLinkAction webLinkActionGoToTauriApiConfiguration = new AinDevHelperPluginWebLinkAction(
                 RU_ACTION_NAVIGATE_TO_TAURI_API_CONFIGURATION,
-                ID_ACTION_NAVIGATE_TO_TAURI_API_CONFIGURATION
+                ID_ACTION_NAVIGATE_TO_TAURI_API_CONFIGURATION,
+                "https://tauri.app/v1/api/config"
             );
             webLinkActionGoToTauriApiConfiguration.LocalizedNames.Add(new AinDevHelperLocalizedMessage(EN, EN_ACTION_NAVIGATE_TO_TAURI_API_CONFIGURATION));
             webLinkActionGoToTauriApiConfiguration.LocalizedNames.Add(new AinDevHelperLocalizedMessage(DE, DE_ACTION_NAVIGATE_TO_TAURI_API_CONFIGURATION));
@@ -211,7 +222,8 @@ namespace TauriHelperPlugin {
             // [EN] "Browser - Open the \"API → CLI\" page of the Tauri website"
             AinDevHelperPluginWebLinkAction webLinkActionGoToTauriApiCLI = new AinDevHelperPluginWebLinkAction(
                 RU_ACTION_NAVIGATE_TO_TAURI_API_CLI,
-                ID_ACTION_NAVIGATE_TO_TAURI_API_CLI
+                ID_ACTION_NAVIGATE_TO_TAURI_API_CLI,
+                "https://tauri.app/v1/api/cli"
             );
             webLinkActionGoToTauriApiCLI.LocalizedNames.Add(new AinDevHelperLocalizedMessage(EN, EN_ACTION_NAVIGATE_TO_TAURI_API_CLI));
             webLinkActionGoToTauriApiCLI.LocalizedNames.Add(new AinDevHelperLocalizedMessage(DE, EN_ACTION_NAVIGATE_TO_TAURI_API_CLI));
@@ -220,7 +232,8 @@ namespace TauriHelperPlugin {
             // [EN] "Browser - Open the \"API → JavaScript / TypeScript\" page of the Tauri website"
             AinDevHelperPluginWebLinkAction webLinkActionGoToTauriApiJavascriptTypescript = new AinDevHelperPluginWebLinkAction(
                 RU_ACTION_NAVIGATE_TO_TAURI_API_JAVASCRIPT_TYPESCRIPT,
-                ID_ACTION_NAVIGATE_TO_TAURI_API_JAVASCRIPT_TYPESCRIPT
+                ID_ACTION_NAVIGATE_TO_TAURI_API_JAVASCRIPT_TYPESCRIPT,
+                "https://tauri.app/v1/api/js/"
             );
             webLinkActionGoToTauriApiJavascriptTypescript.LocalizedNames.Add(new AinDevHelperLocalizedMessage(EN, EN_ACTION_NAVIGATE_TO_TAURI_API_JAVASCRIPT_TYPESCRIPT));
             webLinkActionGoToTauriApiJavascriptTypescript.LocalizedNames.Add(new AinDevHelperLocalizedMessage(DE, DE_ACTION_NAVIGATE_TO_TAURI_API_JAVASCRIPT_TYPESCRIPT));

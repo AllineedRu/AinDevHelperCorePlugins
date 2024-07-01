@@ -22,6 +22,7 @@ using AinDevHelperPluginLibrary.Actions;
 using static AinDevHelperPluginLibrary.Language.AinDevHelperLanguageCodeConstants;
 using AinDevHelperPluginLibrary.Language;
 using static AinDevHelperPluginLibrary.AinDevHelperPluginActionResult;
+using AinDevHelperPluginLibrary.Settings.Controls;
 
 namespace ReactHelperPlugin
 {
@@ -76,7 +77,7 @@ namespace ReactHelperPlugin
         private string RecentReactAppPath { get; set; }
         public override string Name => "React Helper Plugin";
         public override string Company => "Allineed.Ru";
-        public override string Description => "Плагин, помогающий разработчику с выполнением различных действий, связанных с разработкой приложений на React";
+        public override string Description => "Плагин, помогающий разработчику с выполнением различных действий, связанных с разработкой приложений на React.";
         public override string Author => "Max Damascus";
         public override string AuthorEmail => "allineed.ru@gmail.com";
         public override int MajorVersion => 1;
@@ -87,11 +88,26 @@ namespace ReactHelperPlugin
         public override IEnumerable<string> Tags => new List<string>() { "react", "web", "web development", "frontend", "react helper" };
         public override IEnumerable<string> SupportedLanguageCodes => new List<string>() { RU, EN, DE };
 
+        public override IEnumerable<AinDevHelperLocalizedMessage> LocalizedDescriptions => new HashSet<AinDevHelperLocalizedMessage>() {
+            new AinDevHelperLocalizedMessage(EN, "A plugin that helps the developer with various activities related to developing applications in React."),
+            new AinDevHelperLocalizedMessage(DE, "Ein Plugin, das den Entwickler bei verschiedenen Aktivitäten im Zusammenhang mit der Entwicklung von Anwendungen in React unterstützt."),
+        };
+
         // =======================================================================================================================
         // [RU] Реализация методов плагина
         // [EN] Implementing plugin methods
         // =======================================================================================================================
         public override IEnumerable<AinDevHelperPluginAction> GetActions() {
+            AinDevHelperSettingBaseControl targetProjectsDirectoryControl = pluginSettings.GetControlByNameOrNull("targetProjectsDirectory");
+            AinDevHelperSettingBaseControl newProjectAppNameControl = pluginSettings.GetControlByNameOrNull("newProjectAppName");            
+
+            string pathForNewProjects = PluginDirectory;
+            if (targetProjectsDirectoryControl is AinDevHelperSettingDirectorySelectionControl directorySelectionControl && Directory.Exists(directorySelectionControl.SelectedDirectory)) {
+                pathForNewProjects = directorySelectionControl.SelectedDirectory;
+            }
+
+            string defaultReactAppName = newProjectAppNameControl is AinDevHelperSettingTextBoxControl textBoxNewAppNameControl ? textBoxNewAppNameControl.Text : "my-react-app";
+
             // [RU] "Создать новое React приложение"
             // [EN] "Create a new React application"
             AinDevHelperPluginParameterizedAction createNewReactAppAction = new AinDevHelperPluginParameterizedAction(RU_ACTION_CREATE_NEW_REACT_APP, ID_ACTION_CREATE_NEW_REACT_APP);
@@ -103,7 +119,7 @@ namespace ReactHelperPlugin
                 "appName",
                 "Название нового React приложения:",
                 "Название проекта для React, который будет создан в указанном каталоге",
-                "my-react-app",
+                defaultReactAppName,
                 (EN, "Name of the new React application:", "The name of the React project that will be created in the specified directory"),
                 (DE, "Name der neuen React-Anwendung:", "Der Name des React-Projekts, das im angegebenen Verzeichnis erstellt wird")
                 );
@@ -112,7 +128,7 @@ namespace ReactHelperPlugin
                 "appPath",
                 "Путь для создания нового React проекта:",
                 "Путь файловой системы, в котором будет создан новый проект для React-приложения",
-                Host.GetAppStartupPath(),
+                pathForNewProjects,
                 (EN, "Path to create a new React project:", "The file system path where the new project for the React application will be created"),
                 (DE, "Pfad zum Erstellen eines neuen React-Projekts:", "Der Dateisystempfad, in dem das neue Projekt für die React-Anwendung erstellt wird")
             );
@@ -124,7 +140,7 @@ namespace ReactHelperPlugin
             openReactAppInVSCodeAction.LocalizedNames.Add(new AinDevHelperLocalizedMessage(EN, EN_ACTION_OPEN_REACT_APP_IN_VS_CODE));
             openReactAppInVSCodeAction.LocalizedNames.Add(new AinDevHelperLocalizedMessage(DE, DE_ACTION_OPEN_REACT_APP_IN_VS_CODE));
 
-            string existingReactProjectDirectory = string.IsNullOrEmpty(RecentReactAppPath) ? Host.GetAppStartupPath() : RecentReactAppPath;
+            string existingReactProjectDirectory = string.IsNullOrEmpty(RecentReactAppPath) ? pathForNewProjects : RecentReactAppPath;
 
             openReactAppInVSCodeAction.AddDirectorySelectionParameter(
                 "appPath",
@@ -248,6 +264,25 @@ namespace ReactHelperPlugin
             }
 
             return GetErroneousResponseActionNotRecognized(actionToRun);
+        }
+
+        public override void Initialize() {
+            AinDevHelperSettingDirectorySelectionControl directorySelection = new AinDevHelperSettingDirectorySelectionControl("targetProjectsDirectory", "Директория для новых проектов:", PluginDirectory);
+
+            directorySelection.Width = 440;
+            directorySelection.OffsetLeft = 10;
+            directorySelection.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(EN, "Directory for new projects:"));
+            directorySelection.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(DE, "Verzeichnis für neue Projekte:"));
+
+            pluginSettings.AddSettingControl(directorySelection);
+
+            AinDevHelperSettingTextBoxControl textBoxNewProjectName = new AinDevHelperSettingTextBoxControl("newProjectAppName", "Название для нового проекта:", "my-react-app");
+            textBoxNewProjectName.OffsetLeft = 10;
+            textBoxNewProjectName.Width = 550;
+            textBoxNewProjectName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(EN, "Name for the new project:"));
+            textBoxNewProjectName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(DE, "Name für das neue Projekt:"));
+
+            pluginSettings.AddSettingControl(textBoxNewProjectName);
         }
     }
 }

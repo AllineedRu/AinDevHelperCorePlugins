@@ -396,3 +396,9 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# AinDevHelperPlugin Library Specific Custom Settings
+HelloWorldPlugin
+VbHelloWorldPlugin
+VbHelloWorldPlugin/*
+HelloWorldPlugin/*
