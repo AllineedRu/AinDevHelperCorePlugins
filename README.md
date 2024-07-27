@@ -6,7 +6,7 @@
 
 [Русский](README-ru.md) | [Deutsch](README-de.md)
 
-# About Repository
+## About Repository
 
 **AinDevHelperCorePlugins** is a repository containing a set of standard *core plugins* and test plugins for the AinDevHelper program. *Core plugins* are 
 plugins that are prepared by the AinDevHelper developers and are supplied with the AinDevHelper installation package. 
