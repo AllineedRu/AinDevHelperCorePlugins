@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Helper Plugin</title>
+    <link rel="stylesheet" type="text/css" href="./../common-plugin-styles.css" />
+</head>
+<body>
+    <h1 class="title">Tauri Helper Plugin - Dokumentation</h1>
+    <h2>Über das Plugin</h2>
+    <p class="justify">
+		Ein Plugin, das den Entwickler bei verschiedenen Aktivitäten im Zusammenhang mit der Entwicklung von Anwendungen auf Tauri unterstützt.
+	</p>    
+    <h2>Unterstützte Plugin-Aktionen</h2>
+    <p>Das Plugin unterstützt die folgenden Aktionen:</p>
+    <ul>
+        <li><a href="#create_new_tauri_application">Erstellen Sie eine neue Tauri-Anwendung</a></li>
+		<li><a href="#open_tauri_application_in_vscode">Öffnen Sie die Tauri-Anwendung in Visual Studio Code</a></li>
+		<li><a href="#navigate_to_tauri_website">Browser – Öffnen Sie die Hauptseite der Tauri-Website</a></li>
+		<li><a href="#navigate_to_tauri_guides">Browser – Öffnen Sie die Seite „Guides“ der Tauri-Website</a></li>
+		<li><a href="#navigate_to_tauri_guides_getting_started_prerequisites">Browser – Öffnen Sie die Seite „Anleitungen → Erste Schritte → Voraussetzungen“ auf der Tauri-Website</a></li>
+        <li><a href="#navigate_to_tauri_guides_getting_started_quickstart">Browser – Öffnen Sie die Seite „Anleitungen → Erste Schritte → Schnellstart“ auf der Tauri-Website</a></li>
+        <li><a href="#navigate_to_tauri_guides_development_development_cycle">Browser – Öffnen Sie die Seite „Anleitungen → Entwicklung → Entwicklungszyklus“ der Tauri-Website</a></li>
+        <li><a href="#navigate_to_tauri_api_configuration">Browser – Öffnen Sie die Seite „API → Konfiguration“ der Tauri-Website</a></li>
+        <li><a href="#navigate_to_tauri_api_cli">Browser – Öffnen Sie die Seite „API → CLI“ der Tauri-Website</a></li>
+        <li><a href="#navigate_to_tauri_api_javascript_typescript">Browser – Öffnen Sie die Seite „API → JavaScript / TypeScript“ der Tauri-Website</a></li>
+    </ul>
+
+    <h2>Beschreibung der Aktionen</h2>
+    
+	<p>Nachfolgend finden Sie eine Beschreibung, wie die vom Plugin unterstützten Aktionen funktionieren.</p>
+    
+	<h3 id="create_new_tauri_application">Erstellen Sie eine neue Tauri-Anwendung</h3>
+	<p class="justify">
+        Eine parametrisierte Aktion hilft Ihnen, schnell eine neue Tauri-Anwendung zu erstellen.
+    </p>
+    <p class="justify">
+        Das Plugin führt den Befehl <span class="code">cmd /c npm create tauri-app@latest ${appName}</span> aus und startet den <span class="code">cmd</span>-Prozess mit Argumente 
+        <span class="code">npm create tauri-app@latest ${appName}</span> und Schlüssel <span class="code">/c</span>.
+    </p>
+
+    <h4>Aktionsparameter</h4>
+    <ul>
+        <li><b>appName</b> - Name der neuen Tauri-Anwendung</li>
+        <li><b>appPath</b> - Arbeitsverzeichnis zum Erstellen einer neuen Tauri-Anwendung beim Erstellen und Starten des <span class="code">cmd</span>-Prozesses</li>
+    </ul>
+    
+	<h3 id="open_tauri_application_in_vscode">Öffnen Sie die Tauri-Anwendung in Visual Studio Code</h3>
+    <p class="justify">
+        Die parametrisierte Aktion versucht, die angegebene Tauri-Anwendung in der Visual Studio Code-Umgebung zu öffnen. Wenn die Entwicklungsumgebung Visual Studio Code auf Ihrem Computer installiert 
+        ist und das Verzeichnis als Verzeichnis mit einer vorhandenen Tauri-Anwendung angegeben wurde, wird das Projekt mit dieser Anwendung in Visual Studio Code geöffnet.
+    </p>
+    <p class="justify">
+        Wenn eine Aktion ausgeführt wird, führt das Plugin den Befehl <span class="code">code -r ${appPath}</span> aus, startet die Visual Studio Code-Entwicklungsumgebung und übergibt ihr das im Aktionsparameter angegebene Verzeichnis.
+    </p>
+    
+    <h4>Aktionsparameter</h4>
+    <ul>        
+        <li><b>appPath</b> - Pfad zum vorhandenen Verzeichnis, das die fertige Tauri-Anwendung enthält, um sie in Visual Studio Code zu öffnen</li>
+    </ul>
+
+	<h3 id="navigate_to_tauri_website">Browser – Öffnen Sie die Hauptseite der Tauri-Website</h3>
+    <p class="justify">        
+        Beim Ausführen der Aktion wird der auf dem System installierte Standardbrowser geöffnet, woraufhin die Aktion die Webseite unter <b>https://tauri.app/</b> öffnet
+    </p>
+
+	<h3 id="navigate_to_tauri_guides">Browser – Öffnen Sie die Seite „Guides“ der Tauri-Website</h3>
+    <p class="justify">        
+        Beim Ausführen der Aktion wird der auf dem System installierte Standardbrowser geöffnet, woraufhin die Aktion die Webseite unter <b>https://tauri.app/v1/guides/</b> öffnet
+    </p>
+
+    <h3 id="navigate_to_tauri_guides_getting_started_prerequisites">Browser – Öffnen Sie die Seite „Anleitungen → Erste Schritte → Voraussetzungen“ auf der Tauri-Website</h3>
+    <p class="justify">        
+        Beim Ausführen der Aktion wird der auf dem System installierte Standardbrowser geöffnet, woraufhin die Aktion die Webseite unter <b>https://tauri.app/v1/guides/getting-started/prerequisites</b> öffnet
+    </p>
+
+    <h3 id="navigate_to_tauri_guides_getting_started_quickstart">Browser – Öffnen Sie die Seite „Anleitungen → Erste Schritte → Schnellstart“ auf der Tauri-Website</h3>
+    <p class="justify">        
+        Beim Ausführen der Aktion wird der auf dem System installierte Standardbrowser geöffnet, woraufhin die Aktion die Webseite unter <b>https://tauri.app/v1/guides/getting-started/setup/</b> öffnet
+    </p>
+
+    <h3 id="navigate_to_tauri_guides_development_development_cycle">Browser – Öffnen Sie die Seite „Anleitungen → Entwicklung → Entwicklungszyklus“ der Tauri-Website</h3>
+    <p class="justify">        
+        Beim Ausführen der Aktion wird der auf dem System installierte Standardbrowser geöffnet, woraufhin die Aktion die Webseite unter <b>https://tauri.app/v1/guides/development/development-cycle</b> öffnet
+    </p>
+
+    <h3 id="navigate_to_tauri_api_configuration">Browser – Öffnen Sie die Seite „API → Konfiguration“ der Tauri-Website</h3>
+    <p class="justify">        
+        Beim Ausführen der Aktion wird der auf dem System installierte Standardbrowser geöffnet, woraufhin die Aktion die Webseite unter <b>https://tauri.app/v1/api/config</b> öffnet
+    </p>
+
+    <h3 id="navigate_to_tauri_api_cli">Browser – Öffnen Sie die Seite „API → CLI“ der Tauri-Website</h3>
+    <p class="justify">        
+        Beim Ausführen der Aktion wird der auf dem System installierte Standardbrowser geöffnet, woraufhin die Aktion die Webseite unter <b>https://tauri.app/v1/api/cli</b> öffnet
+    </p>
+
+    <h3 id="navigate_to_tauri_api_javascript_typescript">Browser – Öffnen Sie die Seite „API → JavaScript / TypeScript“ der Tauri-Website</h3>
+
+    <p class="justify">
+        Beim Ausführen der Aktion wird der auf dem System installierte Standardbrowser geöffnet, woraufhin die Aktion die Webseite unter <b>https://tauri.app/v1/api/js/</b> öffnet
+    </p>
+</body>
+</html>

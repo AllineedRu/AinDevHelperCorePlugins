@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Helper Plugin</title>
+    <link rel="stylesheet" type="text/css" href="./../common-plugin-styles.css" />
+</head>
+<body>
+    <h1 class="title">React Helper Plugin - Документация</h1>
+    <h2>О плагине</h2>
+    <p class="justify">
+		Плагин, помогающий разработчику с выполнением различных действий, связанных с разработкой приложений на React.
+	</p>    
+    <h2>Поддерживаемые действия плагина</h2>
+    <p>Плагин поддерживает следующие действия:</p>
+    <ul>
+        <li><a href="#create_new_react_app">Создать новое React приложение</a></li>
+		<li><a href="#open_react_app_in_vs_code">Открыть React приложение в среде Visual Studio Code</a></li>
+		<li><a href="#navigate_to_react_website">Браузер - Открыть главную страницу сайта React</a></li>
+		<li><a href="#navigate_to_react_quickstart">Браузер - Открыть страницу "Quick Start" сайта React</a></li>		
+    </ul>
+
+    <h2>Описание действий</h2>
+    
+	<p>Ниже приводится описание работы действий, поддерживаемых плагином.</p>
+    
+	<h3 id="create_new_react_app">Создать новое React приложение</h3>
+	<p class="justify">
+        Параметризованное действие помогает быстро создать новое приложение React.
+    </p>
+    <p class="justify">
+        Плагин выполняет команду <span class="code">cmd /c npx create-react-app ${appName}</span>, запуская процесс <span class="code">cmd</span> 
+        с аргументами <span class="code">npx create-react-app ${appName}</span> и ключом <span class="code">/c</span>.
+    </p>
+
+    <h4>Параметры действия</h4>
+    <ul>
+        <li><b>appName</b> - название нового React приложения</li>
+        <li><b>appPath</b> - рабочий каталог для создания нового React приложения при его создании и запуске процесса <span class="code">cmd</span></li>
+    </ul>
+    
+	<h3 id="open_react_app_in_vs_code">Открыть React приложение в среде Visual Studio Code</h3>
+    <p class="justify">
+        Параметризованное действие пробует открыть указанное React приложение в среде Visual Studio Code. Если среда разработки Visual Studio Code установлена на компьютере, и в качестве каталога был указан каталог, содержащий существующее приложение React,
+        то проект с этим приложением будет открыт в Visual Studio Code.
+    </p>
+    <p class="justify">
+        При выполнении действия плагин выполняет команду <span class="code">code -r ${appPath}</span>, запуская среду разработки Visual Studio Code и передавая ей каталог, указанный в параметре действия.
+    </p>
+    
+    <h4>Параметры действия</h4>
+    <ul>        
+        <li><b>appPath</b> - путь к существующему каталогу, содержащему готовое приложение React для его открытия в Visual Studio Code</li>
+    </ul>
+
+	<h3 id="navigate_to_react_website">Браузер - Открыть главную страницу сайта React</h3>
+    <p class="justify">
+        При выполнении действия будет открыт браузер по умолчанию, установленный в системе, после чего действие откроет Веб-страницу по адресу <b>https://react.dev/</b>
+    </p>
+
+	<h3 id="navigate_to_react_quickstart">Браузер - Открыть страницу "Quick Start" сайта React</h3>
+    <p class="justify">
+        При выполнении действия будет открыт браузер по умолчанию, установленный в системе, после чего действие откроет Веб-страницу по адресу <b>https://react.dev/learn</b>
+    </p>
+</body>
+</html>

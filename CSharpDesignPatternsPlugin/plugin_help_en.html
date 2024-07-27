@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Design Patterns Plugin</title>
+    <link rel="stylesheet" type="text/css" href="./../common-plugin-styles.css" />
+</head>
+<body>
+    <h1 id="toc" class="title">C# Design Patterns Plugin - Documentation</h1>
+    <h2>About the plugin</h2>
+    <p class="justify">
+		A plugin that helps the developer quickly generate code examples in C# for various well-known Design Patterns. 
+        The plugin contains various actions, including generation actions, which generate ready-made projects (the type of each project is a console application) in C# for the Microsoft Visual Studio 
+        with example code for the selected design pattern. Each of the generated demo projects shows the use of a specific design pattern in a specific practical example problem and is 
+        aimed at helping the developer adapt the ready-made generated example template to any other similar tasks the developer needs in his programs.
+	</p>    
+    <h2>Supported plugin actions</h2>
+    <p>The plugin supports the following actions:</p>
+    <ul>
+        <li><a href="#action_clean_generated_directory">Clear plugin 'generated' directory</a></li>
+		<li><a href="#action_generate_behavioral_visitor_pattern">[Behavioral] Generate 'Visitor' Pattern</a></li>
+		<li><a href="#action_generate_behavioral_chain_of_responsibility_pattern">[Behavioral] Generate 'Chain Of Responsibility' Pattern</a></li>
+		<li><a href="#action_generate_behavioral_command_pattern">[Behavioral] Generate 'Command' Pattern</a></li>
+		<li><a href="#action_generate_behavioral_template_method_pattern">[Behavioral] Generate 'Template Method' Pattern</a></li>
+        <li><a href="#action_generate_behavioral_null_object_pattern">[Behavioral] Generate 'Null Object' Pattern</a></li>
+        <li><a href="#action_generate_behavioral_strategy_pattern">[Behavioral] Generate 'Strategy' Pattern</a></li>
+        <li><a href="#action_generate_behavioral_observer_pattern">[Behavioral] Generate 'Observer' Pattern</a></li>
+        <li><a href="#action_generate_behavioral_state_pattern">[Behavioral] Generate 'State' Pattern</a></li>
+        <li><a href="#action_generate_behavioral_memento_pattern">[Behavioral] Generate 'Memento' Pattern</a></li>
+        <li><a href="#action_generate_behavioral_mediator_pattern">[Behavioral] Generate 'Mediator' Pattern</a></li>
+        <li><a href="#action_generate_behavioral_iterator_pattern">[Behavioral] Generate 'Iterator' Pattern</a></li>
+        <li><a href="#action_generate_creational_abstract_factory_pattern">[Creational] Generate 'Abstract Factory' Pattern</a></li>
+        <li><a href="#action_generate_creational_builder_pattern">[Creational] Generate 'Builder' Pattern</a></li>
+        <li><a href="#action_generate_creational_factory_method_pattern">[Creational] Generate 'Factory Method' Pattern</a></li>
+        <li><a href="#action_generate_creational_not_thread_safe_singleton_pattern">[Creational] Generate 'Singleton' Pattern - not thread-safe</a></li>
+        <li><a href="#action_generate_creational_thread_safe_singleton_pattern">[Creational] Generate 'Singleton' Pattern - thread-safe</a></li>
+        <li><a href="#action_generate_creational_object_pool_pattern">[Creational] Generate 'Object Pool' Pattern</a></li>
+        <li><a href="#action_generate_creational_prototype_pattern">[Creational] Generate 'Prototype' Pattern</a></li>
+        <li><a href="#action_generate_structural_adapter_pattern">[Structural] Generate 'Adapter' Pattern</a></li>
+        <li><a href="#action_generate_structural_bridge_pattern">[Structural] Generate 'Bridge' Pattern</a></li>
+        <li><a href="#action_generate_structural_decorator_pattern">[Structural] Generate 'Decorator' Pattern</a></li>
+        <li><a href="#action_generate_structural_composite_pattern">[Structural] Generate 'Composite' Pattern</a></li>
+        <li><a href="#action_generate_structural_flyweight_pattern">[Structural] Generate 'Flyweight' Pattern</a></li>
+        <li><a href="#action_generate_structural_proxy_pattern">[Structural] Generate 'Proxy' Pattern</a></li>
+        <li><a href="#action_generate_structural_router_pattern">[Structural] Generate 'Router' Pattern</a></li>
+        <li><a href="#action_generate_structural_facade_pattern">[Structural] Generate 'Facade' Pattern</a></li>
+        <li><a href="#action_generate_technique_cascading_method">[Tecnhiques] Generate the example project for the technology 'Cascading Method' (Cascading Method)</a></li>
+    </ul>
+
+    <h2>Description of actions</h2>
+    
+	<p>Below is a description of how the actions supported by the plugin work.</p>
+    
+	<h3 id="action_clean_generated_directory">Clear plugin 'generated' directory</h3>
+	<p class="justify">
+        The action clears the entire contents of the <b>generated</b> directory located inside the plugin directory, thus erasing all previous plugin-generated code examples with design patterns and/or techniques.
+    </p>
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_behavioral_visitor_pattern">[Behavioral] Generate 'Visitor' Pattern</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the <b>generated</b> directory of the plugin, demonstrating the use and application of the 'Visitor' behavioral design pattern. 
+        The example generated project will be located in the <b>visitor</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        In this example, the classes <span class="code">Circle</span>, <span class="code">Square</span>, <span class="code">Triangle</span> and <span class= "code">Rectangle</span> represent 
+        various geometric shapes, and the <span class="code">AreaVisitor</span> class implements the <span class="code">IVisitor</span> visitor interface to calculate the area of ​​each shape. 
+        The <span class="code">Accept</span> method in each shape class calls the corresponding visitor method to calculate the area of ​​the shape. 
+        When you run the program for the project generated by the action, a message will be displayed with the areas of the circle, square, triangle and rectangle, without changing the classes 
+        of these shapes themselves. Thus, the 'Visitor' pattern allows you to add new operations on objects without changing the objects themselves.
+    </p>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_behavioral_chain_of_responsibility_pattern">[Behavioral] Generate 'Chain Of Responsibility' Pattern</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the <b>generated</b> directory of the plugin, demonstrating the use and application of the 'Chain Of Responsibility' behavioral design pattern. 
+        The example generated project will be located in the <b>chain_of_responsibility</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The example program generated by the action represents a situation where we have a system for processing loan applications. 
+        We have several levels of loan approval, and each level must decide whether to approve the application or pass it on to the next level. 
+        In this example, the <span class="code">BankManager</span> and <span class="code">LoanManager</span> classes implement the common <span class="code">ICreditApprover</span> 
+        interface and represent different loan approval levels, and the <span class="code">CreditRequest</span> class represents the loan application itself. 
+        Each processor decides whether it can approve the request, and if not, passes it on to the next processor in the chain. 
+        This is how the 'Chain of Responsibility' pattern is implemented.
+    </p>    
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_behavioral_command_pattern">[Behavioral] Generate 'Command' Pattern</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the <b>generated</b> directory of the plugin, demonstrating the use and application of the behavioral 
+        design pattern 'Command'. The example generated project will be located in the <b>command</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The action-generated example program represents a situation where we have a robot that can execute various commands, such as moving forward and backward. 
+        We can use the 'Command' pattern to manage these commands. In this example, we create a <span class="code">ICommand</span> interface that represents a command. 
+        Then we have concrete command classes <span class="code">MoveForwardCommand</span> and <span class="code">MoveBackwardCommand</span> that implement this interface. 
+        The <span class="code">Robot</span> class represents the object on which commands are executed. <span class="code">CommandExecutor</span> is responsible for 
+        executing commands. The <span class="code">Main</span> method of the example program creates a robot object and commands for moving forward and backward. 
+        These commands are then passed to <span class="code">CommandExecutor</span>, which executes them.
+    </p>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_behavioral_template_method_pattern">[Behavioral] Generate 'Template Method' Pattern</h3>
+    <p class="justify">
+        This action generates in the <b>generated</b> directory of the plugin an example of a finished project demonstrating the use and application of the behavioral 
+        design pattern 'Template Method'. The example generated project will be located in the <b>template_method</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The example program generated by the action represents a situation where we have a base class <span class="code">DataProcessor</span> that defines a template 
+        for processing data. We also have two subclasses <span class="code">CsvDataProcessor</span> and <span class="code">ExcelDataProcessor</span> that implement 
+        specific steps for processing data from CSV and Excel files, respectively. In this example, the abstract class <span class="code">DataProcessor</span> defines 
+        a template method <span class="code">ProcessData</span> that invokes a sequence of operations to process the data: reading, parsing, and parsing. 
+        The CsvDataProcessor and ExcelDataProcessor subclasses implement the specific steps of these operations according to the file format (CSV or Excel). 
+        In the <span class="code">Main</span> method, instances of the <span class="code">CsvDataProcessor</span> and <span class="code">ExcelDataProcessor</span> classes 
+        are created, and then the method is called <span class="code">ProcessData</span>, which sequentially performs all data processing steps according to the pattern 
+        defined in the base class.
+    </p>
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_behavioral_null_object_pattern">[Behavioral] Generate 'Null Object' Pattern</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the plugin's <b>generated</b> directory, demonstrating the use and application of the Null Object 
+        behavioral design pattern. The example generated project will be located in the <b>null_object</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The Null Object pattern is used to provide a stub object that implements an interface but does not perform any action. This pattern is useful when you need 
+        to avoid null checks and provide safer program behavior. In the example program generated by the action, the option of using the 'Null Object' pattern is 
+        considered using the example of logging in an application. We have an <span class="code">ILogger</span> interface that defines a method for writing logs. 
+        We will create two classes: <span class="code">FileLogger</span>, which saves logs to a file, and <span class="code">NullLogger</span>, which represents a null 
+        object and does not perform any action. In this example, if we use <span class="code">FileLogger</span>, then the logs will be written to a file. However, 
+        if we replace <span class="code">FileLogger</span> with <span class="code">NullLogger</span>, then the log writing operations will proceed without errors, 
+        but no actual writing will be done. This avoids null checks and ensures smoother program execution.
+    </p>
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_behavioral_strategy_pattern">[Behavioral] Generate 'Strategy' Pattern</h3>
+    <p class="justify">
+        This action generates in the plugin's <b>generated</b> directory an example of a finished project demonstrating the use and application of the 
+        'Strategy' behavioral design pattern. The example generated project will be located in the <b>strategy</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The Strategy pattern is used to define a family of algorithms, encapsulate each of them, and make them interchangeable. In the example program generated by 
+        the action, the option of using the 'Strategy' pattern is considered using the example of payment processing in an online store. We have an 
+        interface <span class="code">IPaymentStrategy</span>, which defines a method for making a payment, and two specific implementations of this 
+        interface: <span class="code">CreditCardPaymentStrategy</span> for payment by credit card and <span class="code">PayPalPaymentStrategy</span> for payment 
+        via PayPal. In this example, we are creating two payment processing strategies: credit card payment and PayPal payment. We then create instances 
+        of the <span class="code">PaymentProcessor</span> class, passing a specific strategy to each of them. When calling 
+        the <span class="code">ProcessOrder</span> method, the <span class="code">PaymentProcessor</span> will execute the appropriate payment algorithm depending 
+        on the selected strategy. This makes it easy to add new payment methods without changing the main code and provides system flexibility.
+    </p>
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_behavioral_observer_pattern">[Behavioral] Generate 'Observer' Pattern</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the plugin's <b>generated</b> directory, demonstrating the use and application of the Observer 
+        behavioral design pattern. The example generated project will be located in the <b>strategy</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The Observer pattern is used to establish a one-to-many dependency between objects, so that when one object changes, all objects that depend on it are notified 
+        and updated automatically. In the example program generated by the action, the option of using the “Observer” pattern is considered using the example of a 
+        notification system on a social network. We have a <span class="code">ISubscriber</span> interface that defines a method for updating subscribers, 
+        and a <span class="code">SocialMediaPage</span> class that represents a page on a social network and notifies its subscribers about new posts. 
+        In this example, the <span class="code">SocialMediaPage</span> class represents a page on a social network that can have multiple followers. 
+        When a new post appears on the page, the <span class="code">PostNewContent</span> method notifies all subscribers about the new content by calling 
+        the <span class="code">Update</span> method on each subscriber. When you run the program, two subscribers are created and added to your social network page. 
+        Two posts are then created and each subscriber receives a notification of the new post. After this, one of the subscribers is deleted, and only one subscriber 
+        will receive a notification about the last post.
+    </p>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_behavioral_state_pattern">[Behavioral] Generate 'State' Pattern</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the plugin's <b>generated</b> directory, demonstrating the use and application of the State behavioral 
+        design pattern. The example generated project will be located in the <b>state</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The example program generated by the action simulates the following situation. Let's imagine an order management system for an online store. 
+        In this system, an order can be in different states, such as "new", "processing", "shipped" and "delivered". We can use the State pattern to model these 
+        different states and how an order behaves depending on its current state. In this example, we create a <span class="code">IOrderState</span> interface 
+        that defines methods for processing and canceling an order. We then create classes that represent the specific states of the order: New, Processing, and Canceled. 
+        The <span class="code">Order</span> class uses the current state to perform appropriate operations. When we run the program, we create an order, move it to the 
+        "Processing" state, try to reprocess the order, cancel the order, and try to process the canceled order. As a result, we see that the order's behavior 
+        changes depending on its current state, which is the main principle of the 'State' pattern.
+    </p>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_behavioral_memento_pattern">[Behavioral] Generate 'Memento' Pattern</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the <b>generated</b> directory of the plugin, demonstrating the use and application of the behavioral 
+        design pattern 'Guardian' (Memento). The example generated project will be located in the <b>memento</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The example program generated by the action simulates the following situation. Let's imagine that we are developing a text editor that needs to have undo/redo 
+        functionality. We can use the Memento pattern to save the state of a text editor and its change history. In this example, we have 
+        a <span class="code">TextDocument</span> class that represents a text document. It has methods for updating text, canceling (Undo) and returning (Redo) changes. 
+        The <span class="code">Save</span> method saves the current state of the text as a <span class="code">TextDocumentMemento</span> object, which is added to 
+        the <span class="code">_mementos</span> stack. When you start the program, a text document is created, its text is changed, then the changes are canceled 
+        and returned to the previous state. This demonstrates the use of the Memento pattern to save and restore the state of an object.
+    </p>   
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_behavioral_mediator_pattern">[Behavioral] Generate 'Mediator' Pattern</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the <b>generated</b> directory of the plugin, demonstrating the use and application of the behavioral 
+        design pattern 'Mediator' (Mediator). The generated example project will be located in the <b>mediator</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The example program generated by the action simulates the following situation. Let's say we have a flight management system, where various components may be 
+        involved, such as a ticketing agency, an airline, a reservation system, etc. We can use the Mediator pattern to coordinate the interactions between these components. 
+        In this example, the <span class="code">AirTrafficControl</span> class acts as an intermediary that registers participants and coordinates the exchange of messages 
+        between them. Participants (for example, "Airline", "Reservation Engine", "Ticket Agency") can send messages through an intermediary, and it will transmit messages 
+        to other participants. The example demonstrates the implementation of a typical task for the interaction of various components in a flight control system.
+    </p>
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_behavioral_iterator_pattern">[Behavioral] Generate 'Iterator' Pattern</h3>
+    <p class="justify">
+        This action generates in the plugin's <b>generated</b> directory an example of a finished project demonstrating the use and application of the Iterator 
+        behavioral design pattern. The example generated project will be located in the <b>iterator</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The example program generated by the action simulates the following situation. Let's say we have a <span class="code">Student</span> class and 
+        a <span class="code">StudentCollection</span> class that implements the <span class="code">IEnumerable{T}</span> interface to iterate over students. 
+        In this example, <span class="code">StudentCollection</span> represents a collection of students, and <span class="code">StudentIterator</span> implements an 
+        iterator for that collection. By using a <span class="code">foreach</span> loop over a <span class="code">studentCollection</span> object, we can iterate over all 
+        the students in the collection without needing to know the iteration implementation details. The example demonstrates the implementation of a typical task for 
+        developers when it is necessary to iterate over elements in a collection using an iterator.
+    </p> 
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_creational_abstract_factory_pattern">[Creational] Generate 'Abstract Factory' Pattern</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the <b>generated</b> directory of the plugin, demonstrating the use and application of the creational 
+        design pattern 'Abstract Factory'. The example generated project will be located in the <b>abstract_factory</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The example generated by the action simulates a situation where we need to produce parts for cars of different classes - sports cars and sedans. 
+        The <span class="code">AbstractCarFactory</span> class establishes a contract (available class methods) for the production of spare parts for cars of a given class. 
+        The factory class is able to produce certain types of engines and bodies for cars. The classes of specific factories <span class="code">SedanV4CarFactory</span> 
+        and <span class="code">SportCarV12CarFactory</span> are responsible for the production of parts for a car of a given type: the first - parts for sedans, 
+        the second - parts for sports cars. To obtain an instance of a specific factory, just call the static method <span class="code">AbstractCarFactory.GetFactory{T}</span> 
+        on the abstract factory class and pass it the required type of a specific factory, and then create parts of a specific type using the resulting instance.
+    </p>
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_creational_builder_pattern">[Creational] Generate 'Builder' Pattern</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the plugin's <b>generated</b> directory, demonstrating the use and application of the 'Builder' 
+        creational design pattern. The example generated project will be located in the <b>builder</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        In this example, the <span class="code">PizzaOrder</span> class represents a pizza order, and the <span class="code">IPizzaBuilder</span> interface defines 
+        methods for setting the pizza size and adding toppings to the pizza order. The <span class="code">MargheritaPizzaBuilder</span> class implements 
+        the <span class="code">IPizzaBuilder</span> interface for creating a Margherita pizza order. The <span class="code">PizzaDirector</span> manages the 
+        pizza order assembly process. When you run the program, an order of Margherita pizza is created with the specified size and toppings, after which it is 
+        displayed on the console.
+    </p>
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_creational_factory_method_pattern">[Creational] Generate 'Factory Method' Pattern</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the <b>generated</b> directory of the plugin, demonstrating the use and application of the creational 
+        design pattern 'Factory Method'. The example generated project will be located in the <b>factory_method</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The action-generated example program shows sample C# code that demonstrates the use of the Factory Method generative pattern to create objects that represent 
+        different types of vehicles (eg, car, bicycle, airplane). In this example, the classes <span class="code">Car</span>, <span class="code">Bicycle</span>, 
+        and <span class="code">Airplane</span> represent different types of vehicles, implementing the <span class="code">ITransport</span> interface. 
+        Factory classes (<span class="code">CarFactory</span>, <span class="code">BicycleFactory</span>, <span class="code">AirplaneFactory</span>) implement the 
+        abstract method <span class="code">TransportFactory.CreateTransport</span>, which returns a specific instance of the corresponding vehicle. 
+        When the program starts, instances of various vehicle types are created using the appropriate factories, after which they are used to perform 
+        the <span class="code">ITransport.Drive</span> action.
+    </p> 
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_creational_not_thread_safe_singleton_pattern">[Creational] Generate 'Singleton' Pattern - not thread-safe</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the plugin's <b>generated</b> directory, demonstrating the use and application of the Singleton 
+        creational design pattern, which is not thread-safe. The generated example project will be located in the <b>not_thread_safe_singleton</b> subdirectory of 
+        the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        In this example, the <span class="code">Logger</span> class is a simple logger that uses the Singleton pattern to ensure that we only have one instance of 
+        the logger in the application. The <span class="code">Logger.GetInstance</span> method returns this single instance, and all calls 
+        to <span class="code">Logger.GetInstance()</span> will return a reference to the same object class <span class="code">Logger</span>. 
+        The example implementation of the 'Singleton' pattern is not thread-safe, i.e. in the case of a multi-threaded application and the possibility of different 
+        threads accessing the <span class="code">Logger.GetInstance</span> method, the program may behave incorrectly, and different threads will create different 
+        instances of the singleton class, which is not expected from the behavior of the program. Therefore, this implementation option can only be used when only one 
+        thread at a time requests an instance of the <span class="code">Logger</span> class. This Singleton approach is useful, for example, for creating a global logger 
+        or accessing shared resources that only one object in the application should have access to.
+    </p>  
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_creational_thread_safe_singleton_pattern">[Creational] Generate 'Singleton' Pattern - thread-safe</h3>
+    <p class="justify">
+        This action generates in the plugin's <b>generated</b> directory an example of a finished project demonstrating the use and application of the Singleton 
+        creational design pattern, which is thread safe. The generated example project will be located in the <b>thread_safe_singleton</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        In this example, the <span class="code">Logger</span> class is a simple logger that uses the Singleton pattern to ensure that we only have one instance of the 
+        logger in the application. The public <span class="code">Logger.Instance</span> property returns this single instance, and all calls 
+        to <span class="code">Logger.Instance</span> will return a reference to the same class object <span class="code">Logger</span>. 
+        This implementation of the 'Singleton' pattern is thread-safe, although it reduces the performance of the variant due to additional locking inside 
+        the <span class="code">Logger.Instance</span> property, which is necessary to synchronize threads when obtaining a single instance of a singleton class. 
+        This Singleton approach is useful, for example, for creating a global logger or accessing shared resources that only one object in the application should 
+        have access to.
+    </p>
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_creational_object_pool_pattern">[Creational] Generate 'Object Pool' Pattern</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the <b>generated</b> directory of the plugin, demonstrating the use and application of the creational 
+        Object Pool design pattern. The example generated project will be located in the <b>object_pool</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The example shows a simple implementation of the 'Object Pool' pattern in C#, which models a pool of database connections. 
+        In this example, <span class="code">ConnectionPool</span> represents a pool of <span class="code">DatabaseConnection</span> objects that are intended to work 
+        with a database. When requesting a connection from the pool, it either returns an existing connection or creates a new one if all connections are already taken. 
+        Once used, the connection can be released back into the pool for reuse. The Object Pool pattern is useful when creating and destroying objects are expensive 
+        operations and reusing them can improve application performance.
+    </p> 
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_creational_prototype_pattern">[Creational] Generate 'Prototype' Pattern</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the <b>generated</b> directory of the plugin, demonstrating the use and application of the creational 
+        design pattern 'Prototype'. An example of the generated project will be located in the <b>prototype</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The example program generated by the action represents a situation where we have a system for creating and editing documents, and we need to implement the ability 
+        to clone an existing document to create a new one. In this example, <span class="code">Document</span> represents a concrete document class that implements 
+        the <span class="code">DocumentPrototype.Clone</span> method, which returns a clone of the current object. When creating a cloned document, we can change its 
+        title without affecting the original document. The Prototype pattern is useful when you need to create objects based on existing objects with minimal changes. 
+        This avoids complex operations of creating new objects from scratch.
+    </p> 
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_structural_adapter_pattern">[Structural] Generate 'Adapter' Pattern</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the <b>generated</b> directory of the plugin, demonstrating the use and application of the 'Adapter' 
+        structural design pattern. The example generated project will be located in the <b>adapter</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The action-generated sample program provides sample C# code that demonstrates the use of the Adapter pattern to convert the interface of one class to the 
+        interface of another class. As an example, we take a situation where we have a third-party library that provides functionality for working with various input 
+        devices, and we want to use this library in our project, but we already have our own interface for working with input devices. 
+        In this example, the <span class="code">ThirdPartyInputDevice</span> class represents a third-party library, <span class="code">IInputDevice</span> represents 
+        an interface in our project, and <span class="code">InputDeviceAdapter</span> is an adapter that allows you to use the functionality of a third-party library 
+        through our interface. The adapter allows us to encapsulate the logic for converting method calls from our interface into calls to methods of a third-party library.
+    </p> 
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_structural_bridge_pattern">[Structural] Generate 'Bridge' Pattern</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the <b>generated</b> directory of the plugin, demonstrating the use and application of the 'Bridge' 
+        structural design pattern. The example generated project will be located in the <b>bridge</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The example program generated by the action shows an example of using the Bridge pattern in C# to create various types of devices and their control panels. 
+        The Bridge pattern allows you to separate an abstraction from its implementation so that they can change independently of each other. 
+        In this example, we create an abstract class <span class="code">RemoteControl</span> that represents a remote control for a device. 
+        We have two specific devices: <span class="code">TV</span> and <span class="code">Radio</span> that implement the <span class="code">IDevice</span> interface.
+    </p> 
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_structural_decorator_pattern">[Structural] Generate 'Decorator' Pattern</h3>
+    <p class="justify">
+        This action generates in the plugin's <b>generated</b> directory an example of a finished project demonstrating the use and application of the 'Decorator' 
+        structural design pattern. The example generated project will be located in the <b>decorator</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The example program generated by the action shows an example of using the Decorator pattern in C# to create a system for managing user access rights. 
+        In this example, we will be adding different levels of access to the underlying user object. In this example, <span class="code">IUser</span> represents 
+        the interface for the underlying user object. The <span class="code">User</span> class represents the base user. The <span class="code">AdminUserDecorator</span> 
+        and <span class="code">ModeratorUserDecorator</span> decorators add appropriate access levels to the user. The Decorator pattern allows you to dynamically add 
+        new functionality or change the behavior of an object without changing its underlying structure. When you run the program, you can see how each user is displayed 
+        based on their access level (administrator or moderator) added through decorators.
+    </p> 
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_structural_composite_pattern">[Structural] Generate 'Composite' Pattern</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the <b>generated</b> directory of the plugin, demonstrating the use and application of the Composite 
+        structural design pattern. The example generated project will be located in the <b>composite</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The example program generated by the action provides an example implementation of the 'Linker' pattern in C# using the task of organizing files and folders. 
+        In this example, the <span class="code">File</span> and <span class="code">Folder</span> classes represent files and folders, respectively, and inherit from 
+        the abstract class <span class="code">FileSystemItem </span>. The abstract class <span class="code">FileSystemItem</span> defines common methods and properties 
+        for files and folders. The <span class="code">Folder</span> class can contain both files and other folders. 
+        The <span class="code">FileSystemItem.Print</span> method is called recursively for each element, which allows you to display the structure of the file system, 
+        taking into account nested elements.
+    </p> 
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_structural_flyweight_pattern">[Structural] Generate 'Flyweight' Pattern</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the plugin's <b>generated</b> directory, demonstrating the use and application of the Flyweight 
+        structural design pattern. The example generated project will be located in the <b>flyweight</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The example program generated by the action presents a test situation using the task of creating web pages. 
+        In this example, the class <span class="code">WebPage</span> represents the web page, the interface <span class="code">IWebPage</span> represents the opportunist 
+        interface. The <span class="code">WebPageFactory</span> class is a worker factory and is responsible for creating and managing <span class="code">WebPage</span> 
+        instances. If a web page with the given content already exists, the factory returns the previously created instance, otherwise it creates a new instance and 
+        stores it for later use. When you call the <span class="code">IWebPage.Display</span> method, each web page is displayed with the specified theme. 
+        Web pages with the same content are reused, saving memory and reducing the number of objects created.
+    </p> 
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_structural_proxy_pattern">[Structural] Generate 'Proxy' Pattern</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the <b>generated</b> directory of the plugin, demonstrating the use and application of the Proxy 
+        structural design pattern. The example generated project will be located in the <b>proxy</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The example program generated by the action represents a situation where y has a class that represents downloading images from the network. 
+        We can use the Proxy pattern to implement caching of downloaded images to reduce the number of requests to the server. 
+        In this example, <span class="code">ImageService</span> is the actual image download service, and <span class="code">ImageProxy</span> is a proxy that checks 
+        for the image to be cached before downloading it from the network. If the image is already downloaded and is in the cache, the proxy returns it from the cache, 
+        otherwise it delegates the request to the real download service. When you run the program, you can see that if you download the same image again, 
+        it will be retrieved from the cache, which helps reduce the number of requests to the server and improve performance.
+    </p> 
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_structural_router_pattern">[Structural] Generate 'Router' Pattern</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the <b>generated</b> directory of the plugin, demonstrating the use and application of the 'Router' 
+        structural design pattern. The example generated project will be located in the <b>router</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The example program generated by the action presents a situation where you need to implement a simple router for a web application. 
+        We can use the Router pattern to map URLs to specific request handlers. In this example, the <span class="code">Router</span> class maps URLs to the corresponding 
+        controllers (represented by the <span class="code">HomeController</span> and <span class="code">AboutController</span> classes). 
+        When you call the <span class="code">Router.RouteRequest</span> method with a specific URL, the router checks for the presence of a corresponding controller 
+        and calls the <span class="code">Index</span> method of that controller to process the request. When you run the example program, you can see how the router routes requests 
+        to different controllers depending on the specified URL.
+    </p>
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_structural_facade_pattern">[Structural] Generate 'Facade' Pattern</h3>
+    <p class="justify">
+        This action generates an example of a finished project in the <b>generated</b> directory of the plugin, demonstrating the use and application of the Facade 
+        structural design pattern. An example of the generated project will be located in the <b>facade</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        The Façade structural pattern allows you to provide a unified interface to a group of subsystem interfaces. 
+        The action-generated example provides sample C# code that demonstrates the use of the Facade pattern to work with different kinds of files in the file system. 
+        The <span class="code">FileFacade</span> class provides a simplified interface for working with text files and images, hiding the complexity of interacting 
+        with the corresponding <span class="code">TextFileHandler</span> and <span class="code">ImageFileHandler</span> subsystems. 
+        Developers can use <span class="code">FileFacade</span> to open, edit, and save both text and image files without worrying about the implementation details 
+        of each operation.
+    </p>
+    
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+	<h3 id="action_generate_technique_cascading_method">[Tecnhiques] Generate the example project for the technology 'Cascading Method' (Cascading Method)</h3>
+    <p class="justify">
+        This action generates in the <b>generated</b> directory of the plugin an example of a finished project demonstrating the use and application of the 
+        Cascading Method technique. The example generated project will be located in the <b>cascading_method</b> subdirectory of the <b>generated</b> directory.
+    </p>
+    <p class="justify">
+        This example simulates a situation where there is an employee class <span class="code">Employee</span> that describes some employee. 
+        An employee has the properties <span class="code">FullName</span>, <span class="code">Age</span>, <span class="code">Department</span> and 
+        <span class= "code">Position</span>, which stores the full name of the employee, his age, the department in which the employee works and his position. 
+        In the <span class="code">Main</span> method of the example test program, we create three objects of the <span class="code">Employee</span> class by using the 
+        'Cascade Method' technique, in which the class contains methods <span class="code">WithFullName</span>, <span class="code">WithAge</span>, 
+        <span class="code">WithDepartment</span> and <span class="code" >WithPosition</span>, each of which also returns a reference to an instance of 
+        the <span class="code">Employee</span> class. This allows, instead of supporting many of all the necessary constructor variations for a class, 
+        to support only those necessary - for initializing the main fields/properties of the class, for example, <span class="code">FullName</span> and 
+        <span class="code">Age</span>. And we can initialize auxiliary fields/properties of the class as follows: in any order, call the special methods described 
+        above in a cascade manner, the return data type of which is <span class="code">Employee</span>. In the "Cascade Method" technique, the expression 
+        <span class="code">a.b().c().d()</span> for any of the methods <span class="code">b()</span>, <span class="code">c()</span>, <span class="code">d()</span> 
+        always casts the value returned by each method to the type on the left side, i.e. to type <span class="code">a</span>. 
+        This allows you to “chain” methods in any order, forming a chain of calls from them that sequentially performs some actions or modifies (as in this example) 
+        the instance of the class to which the chain of calls is applied.        
+    </p>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+</body>
+</html>

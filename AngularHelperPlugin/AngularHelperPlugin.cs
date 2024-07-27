@@ -291,7 +291,15 @@ namespace AngularHelperPlugin {
                         Process.Start(RecentAngularAppPath);
                     }
 
-                    return new AinDevHelperPluginActionResult(this, actionToRun, "Angular приложение '" + RecentAngularAppName + "' успешно создано в директории '" + targetDirectory + "'" + sbAdditionalInfo.ToString(), true);
+                    return new AinDevHelperPluginActionResult(
+                        this,
+                        actionToRun,
+                        $"Angular приложение '{RecentAngularAppName}' успешно создано в директории '{targetDirectory}'.{sbAdditionalInfo.ToString()}",
+                        true,
+                        (EN, $"Angular application '{RecentAngularAppName}' has been successfully created in the '{targetDirectory}' directory.{sbAdditionalInfo.ToString()}"),
+                        (DE, $"Die Angular-App „{RecentAngularAppName}“ wurde erfolgreich im Verzeichnis „{targetDirectory}“ erstellt.{sbAdditionalInfo.ToString()}")
+                    );
+                    
                 } else {
                     return GetErroneousResponseExpectedParameterizedAction(actionToRun);
                 }
@@ -323,7 +331,15 @@ namespace AngularHelperPlugin {
                                 sbCommandOutput.Append("\r\n").Append(line);
                             }
                             File.Delete(outputLogFile);
-                            return new AinDevHelperPluginActionResult(this, actionToRun, $"Новый Angular компонент '{newComponentName}' успешно создан для проекта '{workingAngularProjectDirectory}'." + sbCommandOutput.ToString());
+
+                            return new AinDevHelperPluginActionResult(
+                                this,
+                                actionToRun,
+                                $"Новый Angular компонент  '{newComponentName}' успешно создан для проекта '{workingAngularProjectDirectory}'.{sbCommandOutput.ToString()}",
+                                true,
+                                (EN, $"New Angular component '{newComponentName}' has been successfully created for project '{workingAngularProjectDirectory}'.{sbCommandOutput.ToString()}"),
+                                (DE, $"Die neue Angular-Komponente „{newComponentName}“ wurde erfolgreich für das Projekt „{workingAngularProjectDirectory}“ erstellt.{sbCommandOutput.ToString()}")
+                            );                            
                         }
                     }
 
@@ -333,15 +349,32 @@ namespace AngularHelperPlugin {
                         if (File.Exists(outputLogFile)) {
                             File.Delete(outputLogFile);
                         }
+
                         return new AinDevHelperPluginActionResult(
                             this,
-                            actionToRun,
-                            $"Новый Angular компонент '{newComponentName}' не был создан для проекта '{workingAngularProjectDirectory}', поскольку целевая директория не является валидным проектом. Проверьте наличие в ней файла package.json. Дополнительные детали ошибки:\r\n" + errorLogDetails);
+                            actionToRun, 
+                            AinDevHelperPluginActionResult.ActionResultReturnCode.PluginFailedToExecuteAction,
+                            $"Новый Angular компонент  '{newComponentName}' не был создан для проекта '{workingAngularProjectDirectory}', поскольку целевая директория не является валидным проектом. Проверьте наличие в ней файла package.json. Дополнительные детали ошибки:\r\n{errorLogDetails}",
+                            true,
+                            (EN, $"The new Angular component '{newComponentName}' was not created for the project '{workingAngularProjectDirectory}' because the target directory is not a valid project. Check for the presence of the package.json file. Additional error details:\r\n{errorLogDetails}"),
+                            (DE, $"Die neue Angular-Komponente „{newComponentName}“ wurde nicht für das Projekt „{workingAngularProjectDirectory}“ erstellt, da das Zielverzeichnis kein gültiges Projekt ist. Überprüfen Sie, ob die Datei package.json vorhanden ist. Zusätzliche Fehlerdetails:\r\n{errorLogDetails}")
+                        );
+
                     } else {
                         if (File.Exists(outputLogFile)) {
                             File.Delete(outputLogFile);
                         }
-                        return new AinDevHelperPluginActionResult(this, actionToRun, $"Новый Angular компонент '{newComponentName}' не был создан для проекта '{workingAngularProjectDirectory}', поскольку целевая директория не является валидным проектом. Проверьте наличие в ней файла package.json.");
+
+                        return new AinDevHelperPluginActionResult(
+                            this,
+                            actionToRun,
+                            AinDevHelperPluginActionResult.ActionResultReturnCode.PluginFailedToExecuteAction,
+                            $"Новый Angular компонент  '{newComponentName}' не был создан для проекта '{workingAngularProjectDirectory}', поскольку целевая директория не является валидным проектом. Проверьте наличие в ней файла 'package.json'.",
+                            true,
+                            (EN, $"The new Angular component '{newComponentName}' was not created for the project '{workingAngularProjectDirectory}' because the target directory is not a valid project. Check for the presence of the 'package.json' file."),
+                            (DE, $"Die neue Angular-Komponente „{newComponentName}“ wurde nicht für das Projekt „{workingAngularProjectDirectory}“ erstellt, da das Zielverzeichnis kein gültiges Projekt ist. Überprüfen Sie, ob die Datei 'package.json' vorhanden ist.")
+                        );
+                        
                     }
                 } else {
                     return GetErroneousResponseExpectedParameterizedAction(actionToRun);

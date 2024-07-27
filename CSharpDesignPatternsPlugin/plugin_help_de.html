@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Design Patterns Plugin</title>
+    <link rel="stylesheet" type="text/css" href="./../common-plugin-styles.css" />
+</head>
+<body>
+    <h1 id="toc" class="title">C# Design Patterns Plugin - Dokumentation</h1>
+    <h2>Über das Plugin</h2>
+    <p class="justify">
+		Ein Plugin, das dem Entwickler hilft, schnell Codebeispiele in C# für verschiedene bekannte Entwurfsmuster (Patterns) zu generieren. 
+        Das Plugin enthält verschiedene Aktionen, darunter Generierungsaktionen, die vorgefertigte Projekte (der Typ jedes Projekts ist eine Konsolenanwendung) in C# für die 
+        Microsoft Visual Studio-Umgebung mit Beispielcode für das ausgewählte Designmuster generieren. 
+        Jedes der generierten Demoprojekte zeigt die Verwendung eines bestimmten Entwurfsmusters in einem bestimmten praktischen Beispielproblem und soll dem Entwickler dabei helfen, 
+        die vorgefertigte generierte Beispielvorlage an alle anderen ähnlichen Aufgaben anzupassen, die der Entwickler in seinen Programmen benötigt.
+	</p>    
+    <h2>Unterstützte Plugin-Aktionen</h2>
+    <p>Das Plugin unterstützt die folgenden Aktionen:</p>
+    <ul>
+        <li><a href="#action_clean_generated_directory">'generated' Plugin-Verzeichnis löschen</a></li>
+		<li><a href="#action_generate_behavioral_visitor_pattern">[Verhaltensmuster] Generieren Sie ein „Besucher“-Muster</a></li>
+		<li><a href="#action_generate_behavioral_chain_of_responsibility_pattern">[Verhaltensmuster] Generieren Sie ein „Chain of Responsibility“-Muster</a></li>
+		<li><a href="#action_generate_behavioral_command_pattern">[Verhaltensmuster] Generieren Sie ein Befehlsmuster</a></li>
+		<li><a href="#action_generate_behavioral_template_method_pattern">[Verhaltensmuster] Generieren Sie das Muster „Vorlagenmethode“</a></li>
+        <li><a href="#action_generate_behavioral_null_object_pattern">[Verhaltensmuster] Generieren Sie ein „Nullobjekt“-Muster</a></li>
+        <li><a href="#action_generate_behavioral_strategy_pattern">[Verhaltensmuster] Generieren Sie ein „Strategie“-Muster</a></li>
+        <li><a href="#action_generate_behavioral_observer_pattern">[Verhaltensmuster] Generieren Sie ein „Observer“-Muster</a></li>
+        <li><a href="#action_generate_behavioral_state_pattern">[Verhaltensmuster] Generieren Sie ein „Status“-Muster</a></li>
+        <li><a href="#action_generate_behavioral_memento_pattern">[Verhaltensmuster] Generieren Sie ein „Memento“-Muster</a></li>
+        <li><a href="#action_generate_behavioral_mediator_pattern">[Verhaltensmuster] Generieren Sie ein „Mediator“-Muster</a></li>
+        <li><a href="#action_generate_behavioral_iterator_pattern">[Verhaltensmuster] Generieren Sie ein „Iterator“-Muster</a></li>
+        <li><a href="#action_generate_creational_abstract_factory_pattern">[Schöpfungsmuster] Generieren Sie das Muster „Abstrakte Fabrik“</a></li>
+        <li><a href="#action_generate_creational_builder_pattern">[Schöpfungsmuster] Generieren Sie ein „Builder“-Muster</a></li>
+        <li><a href="#action_generate_creational_factory_method_pattern">[Schöpfungsmuster] Generieren Sie ein „Factory-Methode“-Muster</a></li>
+        <li><a href="#action_generate_creational_not_thread_safe_singleton_pattern">[Schöpfungsmuster] „Singleton“-Muster generieren – nicht Thread-sicher</a></li>
+        <li><a href="#action_generate_creational_thread_safe_singleton_pattern">[Schöpfungsmuster] „Singleton“-Muster generieren – Thread-sicher</a></li>
+        <li><a href="#action_generate_creational_object_pool_pattern">[Schöpfungsmuster] Generieren Sie ein „Objektpool“-Muster</a></li>
+        <li><a href="#action_generate_creational_prototype_pattern">[Schöpfungsmuster] Generieren Sie ein „Prototyp“-Muster</a></li>
+        <li><a href="#action_generate_structural_adapter_pattern">[Strukturell] Generieren Sie ein „Adapter“-Muster</a></li>
+        <li><a href="#action_generate_structural_bridge_pattern">[Strukturell] Generieren Sie ein „Bridge“-Muster</a></li>
+        <li><a href="#action_generate_structural_decorator_pattern">[Strukturell] Generieren Sie ein „Decorator“-Muster</a></li>
+        <li><a href="#action_generate_structural_composite_pattern">[Strukturell] Generieren Sie ein „zusammengesetztes“ Muster</a></li>
+        <li><a href="#action_generate_structural_flyweight_pattern">[Strukturell] Generieren Sie ein „Fliegengewicht“-Muster</a></li>
+        <li><a href="#action_generate_structural_proxy_pattern">[Strukturell] Generieren Sie ein „Proxy“-Muster</a></li>
+        <li><a href="#action_generate_structural_router_pattern">[Strukturell] Generieren Sie ein „Router“-Muster</a></li>
+        <li><a href="#action_generate_structural_facade_pattern">[Strukturell] Generieren Sie das Muster „Fassade“</a></li>
+        <li><a href="#action_generate_technique_cascading_method">[Techniken] Generieren Sie das Grundprojekt für die Technologie „Cascading Method“ (Cascading Method)</a></li>
+    </ul>
+
+    <h2>Описание действий</h2>
+    
+	<p>Nachfolgend finden Sie eine Beschreibung, wie die vom Plugin unterstützten Aktionen funktionieren.</p>
+    
+	<h3 id="action_clean_generated_directory">'generated' Plugin-Verzeichnis löschen</h3>
+	<p class="justify">
+        Die Aktion löscht den gesamten Inhalt des Verzeichnisses <b>generiert</b>, das sich im Plugin-Verzeichnis befindet, und löscht somit alle zuvor vom Plugin generierten Codebeispiele mit Entwurfsmustern und/oder Techniken.
+    </p>
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_behavioral_visitor_pattern">[Verhaltensmuster] Generieren Sie ein „Besucher“-Muster</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im Verzeichnis <b>generated</b> des Plugins und demonstriert die Verwendung und Anwendung des Besucherverhaltensentwurfsmusters. 
+        Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>visitor</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        In diesem Beispiel sind die Klassen <span class="code">Circle</span>, <span class="code">Square</span>, <span class="code">Triangle</span> und <span class="code">Rectangle</span> stellt verschiedene 
+        geometrische Formen dar, und die Klasse <span class="code">AreaVisitor</span> implementiert die Besucherschnittstelle <span class="code">IVisitor</span> Berechnen Sie die Fläche jeder Form. 
+        Die Methode <span class="code">Accept</span> in jeder Formklasse ruft die entsprechende Besuchermethode auf, um die Fläche der Form zu berechnen. Wenn Sie das Programm für das durch die Aktion 
+        generierte Projekt ausführen, wird eine Meldung mit den Flächen des Kreises, des Quadrats, des Dreiecks und des Rechtecks ​​angezeigt, ohne dass die Klassen dieser Formen selbst geändert werden. 
+        Somit können Sie mit dem Besuchermuster neue Operationen für Objekte hinzufügen, ohne die Objekte selbst zu ändern.        
+    </p>
+
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_behavioral_chain_of_responsibility_pattern">[Verhaltensmuster] Generieren Sie ein „Chain of Responsibility“-Muster</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im Verzeichnis <b>generated</b> des Plugins und demonstriert die Verwendung und Anwendung des Verhaltensentwurfsmusters Chain Of Responsibility. 
+        Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>chain_of_responsibility</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das durch die Aktion generierte Beispielprogramm stellt eine Situation dar, in der wir über ein System zur Bearbeitung von Kreditanträgen verfügen. 
+        Wir verfügen über mehrere Ebenen der Kreditgenehmigung und jede Ebene muss entscheiden, ob sie den Antrag genehmigt oder an die nächste Ebene weiterleitet. 
+        In diesem Beispiel implementieren die Klassen <span class="code">BankManager</span> und <span class="code">LoanManager</span> die gemeinsame 
+        Schnittstelle <span class="code">ICreditApprover</span> und stellen verschiedene Kreditgenehmigungsstufen dar, und die Klasse <span class="code">CreditRequest</span> stellt 
+        den Kreditantrag selbst dar. Jeder Bearbeiter entscheidet, ob er die Anfrage genehmigen kann und gibt sie andernfalls an den nächsten Bearbeiter in der Kette weiter. 
+        Auf diese Weise wird das „Chain of Responsibility“-Muster umgesetzt.
+    </p>    
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_behavioral_command_pattern">[Verhaltensmuster] Generieren Sie ein Befehlsmuster</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im Verzeichnis <b>generated</b> des Plugins und demonstriert die Verwendung und Anwendung des 
+        Verhaltensentwurfsmusters „Command“. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>command</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das aktionsgenerierte Beispielprogramm stellt eine Situation dar, in der wir einen Roboter haben, der verschiedene Befehle ausführen kann, beispielsweise 
+        vorwärts und rückwärts. Wir können das Muster „Befehl“ verwenden, um diese Befehle zu verwalten. In diesem Beispiel erstellen wir eine 
+        <span class="code">ICommand</span>-Schnittstelle, die einen Befehl darstellt. Dann haben wir konkrete Befehlsklassen <span class="code">MoveForwardCommand</span> 
+        und <span class="code">MoveBackwardCommand</span>, die diese Schnittstelle implementieren. Die Klasse <span class="code">Robot</span> stellt das Objekt dar, 
+        auf dem Befehle ausgeführt werden. <span class="code">CommandExecutor</span> ist für die Ausführung von Befehlen verantwortlich. 
+        Die <span class="code">Main</span>-Methode des Beispielprogramms erstellt ein Roboterobjekt und Befehle zum Vorwärts- und Rückwärtsbewegen. Diese Befehle werden 
+        dann an <span class="code">CommandExecutor</span> übergeben, der sie ausführt.
+    </p>
+
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_behavioral_template_method_pattern">[Verhaltensmuster] Generieren Sie das Muster „Vorlagenmethode“</h3>
+    <p class="justify">
+        Diese Aktion generiert im Verzeichnis <b>generated</b> des Plugins ein Beispiel eines fertigen Projekts, das die Verwendung und Anwendung des 
+        Verhaltensentwurfsmusters „Template Method“ demonstriert. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>template_method</b> 
+        des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das durch die Aktion generierte Beispielprogramm stellt eine Situation dar, in der wir eine Basisklasse <span class="code">DataProcessor</span> haben, 
+        die eine Vorlage für die Datenverarbeitung definiert. Wir haben auch zwei Unterklassen <span class="code">CsvDataProcessor</span> und 
+        <span class="code">ExcelDataProcessor</span>, die spezifische Schritte zur Verarbeitung von Daten aus CSV- bzw. Excel-Dateien implementieren. 
+        In diesem Beispiel definiert die abstrakte Klasse <span class="code">DataProcessor</span> eine Vorlagenmethode <span class="code">ProcessData</span>, 
+        die eine Folge von Vorgängen zur Verarbeitung der Daten aufruft: Lesen, Parsen und Parsen. Die Unterklassen CsvDataProcessor und ExcelDataProcessor 
+        implementieren die spezifischen Schritte dieser Vorgänge entsprechend dem Dateiformat (CSV oder Excel). In der Methode <span class="code">Main</span> werden 
+        Instanzen der Klassen <span class="code">CsvDataProcessor</span> und <span class="code">ExcelDataProcessor</span> erstellt , und dann heißt die 
+        Methode <span class="code">ProcessData</span>, die alle Datenverarbeitungsschritte nacheinander gemäß dem in der Basisklasse definierten Muster ausführt.
+    </p>
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_behavioral_null_object_pattern">[Verhaltensmuster] Generieren Sie ein „Nullobjekt“-Muster</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im Verzeichnis <b>generated</b> des Plugins und demonstriert die Verwendung und Anwendung des 
+        Verhaltensentwurfsmusters Null Object. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>null_object</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das Null-Objekt-Muster wird verwendet, um ein Stub-Objekt bereitzustellen, das eine Schnittstelle implementiert, aber keine Aktion ausführt. Dieses Muster ist 
+        nützlich, wenn Sie Nullprüfungen vermeiden und ein sichereres Programmverhalten gewährleisten möchten. Im durch die Aktion generierten Beispielprogramm wird die 
+        Möglichkeit der Verwendung des „Null Object“-Musters am Beispiel der Anmeldung in einer Anwendung betrachtet. 
+        Wir haben eine <span class="code">ILogger</span>-Schnittstelle, die eine Methode zum Schreiben von Protokollen definiert. 
+        Wir erstellen zwei Klassen: <span class="code">FileLogger</span>, der Protokolle in einer Datei speichert, und <span class="code">NullLogger</span>, der ein 
+        Nullobjekt darstellt und dies nicht tut eine beliebige Aktion ausführen. Wenn wir in diesem Beispiel <span class="code">FileLogger</span> verwenden, 
+        werden die Protokolle in eine Datei geschrieben. Wenn wir jedoch <span class="code">FileLogger</span> durch <span class="code">NullLogger</span> ersetzen, 
+        werden die Protokollschreibvorgänge ohne Fehler fortgesetzt, es wird jedoch kein tatsächlicher Schreibvorgang durchgeführt . Dadurch werden Nullprüfungen 
+        vermieden und eine reibungslosere Programmausführung gewährleistet.
+    </p>
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_behavioral_strategy_pattern">[Verhaltensmuster] Generieren Sie ein „Strategie“-Muster</h3>
+    <p class="justify">
+        Diese Aktion generiert im Verzeichnis <b>generated</b> des Plugins ein Beispiel eines abgeschlossenen Projekts, das die Verwendung und Anwendung des 
+        Verhaltensentwurfsmusters „Strategie“ demonstriert. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>strategy</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das Strategiemuster wird verwendet, um eine Familie von Algorithmen zu definieren, jeden von ihnen zu kapseln und sie austauschbar zu machen. 
+        In dem durch die Aktion generierten Beispielprogramm wird die Möglichkeit der Verwendung des Musters „Strategie“ am Beispiel der Zahlungsabwicklung in einem 
+        Online-Shop betrachtet. Wir haben eine Schnittstelle <span class="code">IPaymentStrategy</span>, die eine Methode zum Ausführen einer Zahlung definiert, 
+        und zwei spezifische Implementierungen dieser Schnittstelle: <span class="code">CreditCardPaymentStrategy</span> für die Zahlung per Kreditkarte 
+        und <span class="code">PayPalPaymentStrategy</span> für die Zahlung per PayPal. In diesem Beispiel erstellen wir zwei Zahlungsabwicklungsstrategien: 
+        Kreditkartenzahlung und PayPal-Zahlung. Anschließend erstellen wir Instanzen der Klasse <span class="code">PaymentProcessor</span> und übergeben jeder 
+        von ihnen eine bestimmte Strategie. Beim Aufruf der Methode <span class="code">ProcessOrder</span> führt der <span class="code">PaymentProcessor</span> 
+        je nach ausgewählter Strategie den entsprechenden Zahlungsalgorithmus aus. Dies erleichtert das Hinzufügen neuer Zahlungsmethoden ohne Änderung des Hauptcodes 
+        und sorgt für Systemflexibilität.
+    </p>
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_behavioral_observer_pattern">[Verhaltensmuster] Generieren Sie ein „Observer“-Muster</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im Verzeichnis <b>generated</b> des Plugins und demonstriert die Verwendung und Anwendung 
+        des Observer-Verhaltensentwurfsmusters. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>strategy</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das Observer-Muster wird verwendet, um eine Eins-zu-viele-Abhängigkeit zwischen Objekten herzustellen, sodass alle davon abhängigen Objekte automatisch 
+        benachrichtigt und aktualisiert werden, wenn sich ein Objekt ändert. In dem durch die Aktion generierten Beispielprogramm wird die Möglichkeit der Verwendung 
+        des „Observer“-Musters am Beispiel eines Benachrichtigungssystems in einem sozialen Netzwerk betrachtet. Wir haben 
+        eine <span class="code">ISubscriber</span>-Schnittstelle, die eine Methode zum Aktualisieren von Abonnenten definiert, und 
+        eine <span class="code">SocialMediaPage</span>-Klasse, die eine Seite in einem sozialen Netzwerk darstellt und benachrichtigt seine Abonnenten über neue Beiträge. 
+        In diesem Beispiel stellt die Klasse <span class="code">SocialMediaPage</span> eine Seite in einem sozialen Netzwerk dar, die mehrere Follower haben kann. 
+        Wenn ein neuer Beitrag auf der Seite erscheint, benachrichtigt die Methode <span class="code">PostNewContent</span> alle Abonnenten über den neuen Inhalt, 
+        indem sie bei jedem Beitrag die Methode <span class="code">Update</span> aufruft Teilnehmer. Wenn Sie das Programm ausführen, werden zwei Abonnenten erstellt 
+        und Ihrer sozialen Netzwerkseite hinzugefügt. Anschließend werden zwei Beiträge erstellt und jeder Abonnent erhält eine Benachrichtigung über den neuen Beitrag. 
+        Danach wird einer der Abonnenten gelöscht und nur ein Abonnent erhält eine Benachrichtigung über den letzten Beitrag.
+    </p>
+
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_behavioral_state_pattern">[Verhaltensmuster] Generieren Sie ein „Status“-Muster</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im Verzeichnis <b>generated</b> des Plugins und demonstriert die Verwendung und Anwendung 
+        des State-Verhaltensentwurfsmusters. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>state</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das durch die Aktion generierte Beispielprogramm simuliert die folgende Situation. Stellen wir uns ein Bestellverwaltungssystem für einen Online-Shop vor. 
+        In diesem System kann sich eine Bestellung in verschiedenen Zuständen befinden, beispielsweise „neu“, „in Bearbeitung“, „versendet“ und „ausgeliefert“. 
+        Wir können das State-Muster verwenden, um diese verschiedenen Zustände zu modellieren und zu modellieren, wie sich eine Bestellung abhängig von ihrem aktuellen 
+        Zustand verhält. In diesem Beispiel erstellen wir eine <span class="code">IOrderState</span>-Schnittstelle, die Methoden zum Verarbeiten und Stornieren einer 
+        Bestellung definiert. Anschließend erstellen wir Klassen, die die spezifischen Status der Bestellung darstellen: „Neu“, „In Bearbeitung“ und „Storniert“. 
+        Die Klasse <span class="code">Order</span> verwendet den aktuellen Status, um entsprechende Vorgänge auszuführen. Wenn wir das Programm ausführen, erstellen 
+        wir eine Bestellung, versetzen sie in den Status „In Bearbeitung“, versuchen, die Bestellung erneut zu verarbeiten, stornieren die Bestellung und versuchen, 
+        die stornierte Bestellung zu verarbeiten. Als Ergebnis sehen wir, dass sich das Verhalten der Bestellung abhängig von ihrem aktuellen Status ändert, was das 
+        Hauptprinzip des „State“-Musters ist.
+    </p>
+
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_behavioral_memento_pattern">[Verhaltensmuster] Generieren Sie ein „Memento“-Muster</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im Verzeichnis <b>generated</b> des Plugins, das die Verwendung und Anwendung des 
+        Verhaltensdesignmusters „Guardian“ (Memento) demonstriert. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>memento</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das durch die Aktion generierte Beispielprogramm simuliert die folgende Situation. Stellen wir uns vor, wir entwickeln einen Texteditor, 
+        der über die Funktion „Rückgängig/Wiederherstellen“ verfügen muss. Wir können das Memento-Muster verwenden, um den Status eines Texteditors und seinen 
+        Änderungsverlauf zu speichern. In diesem Beispiel haben wir eine <span class="code">TextDocument</span>-Klasse, die ein Textdokument darstellt. 
+        Es verfügt über Methoden zum Aktualisieren von Text, zum Abbrechen (Rückgängigmachen) und Zurückgeben (Wiederherstellen) von Änderungen. 
+        Die Methode <span class="code">Save</span> speichert den aktuellen Status des Textes als <span class="code">TextDocumentMemento</span>-Objekt, 
+        das dem <span class="code">_mementos</span> stack hinzugefügt wird. Wenn Sie das Programm starten, wird ein Textdokument erstellt, dessen Text 
+        geändert wird, dann werden die Änderungen verworfen und in den vorherigen Zustand zurückversetzt. Dies zeigt die Verwendung des Memento-Musters zum Speichern 
+        und Wiederherstellen des Status eines Objekts.
+    </p>   
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_behavioral_mediator_pattern">[Verhaltensmuster] Generieren Sie ein „Mediator“-Muster</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im Verzeichnis <b>generated</b> des Plugins und demonstriert die Verwendung und Anwendung 
+        des Verhaltensdesignmusters „Mediator“ (Mediator). Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>Mediator</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das durch die Aktion generierte Beispielprogramm simuliert die folgende Situation. Nehmen wir an, wir haben ein Flugmanagementsystem, an dem verschiedene 
+        Komponenten beteiligt sein können, beispielsweise eine Ticketagentur, eine Fluggesellschaft, ein Reservierungssystem usw. Wir können das Mediator-Muster verwenden, 
+        um die Interaktionen zwischen diesen Komponenten zu koordinieren. In diesem Beispiel fungiert die Klasse <span class="code">AirTrafficControl</span> als Vermittler, 
+        der Teilnehmer registriert und den Nachrichtenaustausch zwischen ihnen koordiniert. Teilnehmer (z. B. „Fluggesellschaft“, „Reservierungsmaschine“, „Ticketagentur“) 
+        können über einen Vermittler Nachrichten senden, die wiederum Nachrichten an andere Teilnehmer weiterleiten. Das Beispiel demonstriert die Umsetzung einer 
+        typischen Aufgabe für das Zusammenspiel verschiedener Komponenten in einem Flugsteuerungssystem.
+    </p>
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_behavioral_iterator_pattern">[Verhaltensmuster] Generieren Sie ein „Iterator“-Muster</h3>
+    <p class="justify">
+        Diese Aktion generiert im Verzeichnis <b>generated</b> des Plugins ein Beispiel eines abgeschlossenen Projekts, das die Verwendung und Anwendung des 
+        Iterator-Verhaltensentwurfsmusters demonstriert. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>iterator</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das durch die Aktion generierte Beispielprogramm simuliert die folgende Situation. Nehmen wir an, wir haben eine <span class="code">Student</span>-Klasse und 
+        eine <span class="code">StudentCollection</span>-Klasse, die das <span class="code">IEnumerable{T}</span> implementiert Schnittstelle zum Durchlaufen von Schülern. 
+        In diesem Beispiel stellt <span class="code">StudentCollection</span> eine Sammlung von Studenten dar und <span class="code">StudentIterator</span> implementiert 
+        einen Iterator für diese Sammlung. Durch die Verwendung einer <span class="code">foreach</span>-Schleife über ein <span class="code">studentCollection</span>-Objekt         
+        können wir alle Schüler in der Sammlung durchlaufen, ohne die Iteration kennen zu müssen Implementierungsdetails. 
+        Das Beispiel zeigt die Implementierung einer typischen Aufgabe für Entwickler, wenn es darum geht, mithilfe eines Iterators über Elemente in einer Sammlung zu iterieren.
+    </p> 
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_creational_abstract_factory_pattern">[Schöpfungsmuster] Generieren Sie das Muster „Abstrakte Fabrik“</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im Verzeichnis <b>generated</b> des Plugins und demonstriert die Verwendung und Anwendung des 
+        generativen Designmusters „Abstract Factory“. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>abstract_factory</b> des Verzeichnisses 
+        <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das durch die Aktion generierte Beispiel simuliert eine Situation, in der wir Teile für Autos verschiedener Klassen produzieren müssen – Sportwagen und Limousinen. 
+        Die Klasse <span class="code">AbstractCarFactory</span> stellt einen Vertrag (verfügbare Klassenmethoden) für die Produktion von Ersatzteilen für Autos einer 
+        bestimmten Klasse her. Die Fabrikklasse ist in der Lage, bestimmte Arten von Motoren und Karosserien für Autos herzustellen. 
+        Die Klassen spezifischer Fabriken <span class="code">SedanV4CarFactory</span> und <span class="code">SportCarV12CarFactory</span> sind für die Produktion 
+        von Teilen für ein Auto eines bestimmten Typs verantwortlich: die erste - Teile für Limousinen, die zweiten Teile für Sportwagen. 
+        Um eine Instanz einer bestimmten Factory zu erhalten, rufen Sie einfach die statische Methode <span class="code">AbstractCarFactory.GetFactory{T}</span> für die 
+        abstrakte Factory-Klasse auf und übergeben Sie ihr den erforderlichen Typ einer bestimmten Factory Erstellen Sie Teile eines bestimmten Typs mithilfe der 
+        resultierenden Instanz.
+    </p>
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_creational_builder_pattern">[Schöpfungsmuster] Generieren Sie ein „Builder“-Muster</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im Verzeichnis <b>generated</b> des Plugins und demonstriert die Verwendung und Anwendung 
+        des generativen Designmusters „Builder“. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>builder</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        In diesem Beispiel stellt die Klasse <span class="code">PizzaOrder</span> eine Pizzabestellung dar und die Schnittstelle <span class="code">IPizzaBuilder</span> 
+        definiert Methoden zum Festlegen der Pizzagröße und zum Hinzufügen von Belägen zur Pizzabestellung. Die Klasse <span class="code">MargheritaPizzaBuilder</span> 
+        implementiert die Schnittstelle <span class="code">IPizzaBuilder</span> zum Erstellen einer Margherita-Pizzabestellung. 
+        Der <span class="code">PizzaDirector</span> verwaltet den Prozess der Zusammenstellung der Pizzabestellung. Wenn Sie das Programm ausführen, wird eine 
+        Bestellung von Margherita-Pizza mit der angegebenen Größe und dem angegebenen Belag erstellt und anschließend auf der Konsole angezeigt.
+    </p>
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_creational_factory_method_pattern">[Schöpfungsmuster] Generieren Sie ein „Factory-Methode“-Muster</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im Verzeichnis <b>generated</b> des Plugins und demonstriert die Verwendung und Anwendung 
+        des generativen Designmusters „Factory Method“. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>factory_method</b> des 
+        Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das aktionsgenerierte Beispielprogramm zeigt Beispiel-C#-Code, der die Verwendung des generativen Musters der Factory-Methode zum Erstellen von 
+        Objekten demonstriert, die verschiedene Fahrzeugtypen darstellen (z. B. Auto, Fahrrad, Flugzeug). In diesem Beispiel stellen die 
+        Klassen <span class="code">Car</span>, <span class="code">Bicycle</span> und <span class="code">Airplane</span> unterschiedliche dar Fahrzeugtypen, 
+        die die <span class="code">ITransport</span>-Schnittstelle implementieren. Factory-Klassen (<span class="code">CarFactory</span>, <span class="code">BicycleFactory</span>, <span class="code">AirplaneFactory</span>) 
+        implementieren die abstrakte Methode <span class="code">TransportFactory.CreateTransport</span>, der eine bestimmte Instanz des entsprechenden Fahrzeugs zurückgibt. 
+        Wenn das Programm startet, werden mithilfe der entsprechenden Fabriken Instanzen verschiedener Fahrzeugtypen erstellt, die anschließend zur Ausführung 
+        der Aktion <span class="code">ITransport.Drive</span> verwendet werden.
+    </p> 
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_creational_not_thread_safe_singleton_pattern">[Schöpfungsmuster] „Singleton“-Muster generieren – nicht Thread-sicher</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im Verzeichnis <b>generated</b> des Plugins und demonstriert die Verwendung und Anwendung 
+        des generativen Entwurfsmusters Singleton, das nicht threadsicher ist. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>not_thread_safe_singleton</b> 
+        des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        In diesem Beispiel ist die Klasse <span class="code">Logger</span> ein einfacher Logger, der das Singleton-Muster verwendet, um sicherzustellen, 
+        dass wir nur eine Instanz des Loggers in der Anwendung haben. Die Methode <span class="code">Logger.GetInstance</span> gibt diese einzelne Instanz zurück, 
+        und alle Aufrufe von <span class="code">Logger.GetInstance()</span> geben einen Verweis darauf zurück Objektklasse <span class="code">Logger</span>. 
+        Die Beispielimplementierung des „Singleton“-Musters ist nicht threadsicher, d. h. Im Fall einer Multithread-Anwendung und der Möglichkeit, dass verschiedene 
+        Threads auf die Methode <span class="code">Logger.GetInstance</span> zugreifen, verhält sich das Programm möglicherweise falsch und verschiedene Threads 
+        erstellen unterschiedliche Instanzen des Singletons Klasse, was aufgrund des Verhaltens des Programms nicht zu erwarten ist. Daher kann diese 
+        Implementierungsoption nur verwendet werden, wenn jeweils nur ein Thread eine Instanz der <span class="code">Logger</span>-Klasse anfordert. 
+        Dieser Singleton-Ansatz ist beispielsweise nützlich, um einen globalen Logger zu erstellen oder auf freigegebene Ressourcen zuzugreifen, auf die nur ein Objekt 
+        in der Anwendung Zugriff haben sollte.
+    </p>  
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_creational_thread_safe_singleton_pattern">[Schöpfungsmuster] „Singleton“-Muster generieren – Thread-sicher</h3>
+    <p class="justify">
+        Diese Aktion generiert im Verzeichnis <b>generated</b> des Plugins ein Beispiel eines fertigen Projekts, das die Verwendung und Anwendung des generativen 
+        Entwurfsmusters Singleton demonstriert, das Thread-sicher ist. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>thread_safe_singleton</b> 
+        des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        In diesem Beispiel ist die Klasse <span class="code">Logger</span> ein einfacher Logger, der das Singleton-Muster verwendet, um sicherzustellen, 
+        dass wir nur eine Instanz des Loggers in der Anwendung haben. Die öffentliche Eigenschaft <span class="code">Logger.Instance</span> gibt diese einzelne Instanz 
+        zurück, und alle Aufrufe von <span class="code">Logger.Instance</span> geben einen Verweis auf dieselbe Klasse zurück Objekt <span class="code">Logger</span>. 
+        Diese Implementierung des „Singleton“-Musters ist threadsicher, verringert jedoch die Leistung der Variante aufgrund zusätzlicher Sperren innerhalb der 
+        Eigenschaft <span class="code">Logger.Instance</span>, die zum Synchronisieren von Threads erforderlich ist beim Abrufen einer einzelnen Instanz einer 
+        Singleton-Klasse. Dieser Singleton-Ansatz ist beispielsweise nützlich, um einen globalen Logger zu erstellen oder auf freigegebene Ressourcen zuzugreifen, 
+        auf die nur ein Objekt in der Anwendung Zugriff haben sollte.
+    </p>
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_creational_object_pool_pattern">[Schöpfungsmuster] Generieren Sie ein „Objektpool“-Muster</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im Verzeichnis <b>generated</b> des Plugins und demonstriert die Verwendung und Anwendung des 
+        generierenden Objektpool-Entwurfsmusters. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>object_pool</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das Beispiel zeigt eine einfache Implementierung des „Object Pool“-Musters in C#, das einen Pool von Datenbankverbindungen modelliert. 
+        In diesem Beispiel stellt <span class="code">ConnectionPool</span> einen Pool von <span class="code">DatabaseConnection</span>-Objekten dar, die für die Arbeit 
+        mit einer Datenbank vorgesehen sind. Beim Anfordern einer Verbindung aus dem Pool wird entweder eine bestehende Verbindung zurückgegeben oder eine neue erstellt, 
+        wenn alle Verbindungen bereits belegt sind. Nach der Verwendung kann die Verbindung zur Wiederverwendung wieder in den Pool freigegeben werden. 
+        Das Objektpoolmuster ist nützlich, wenn das Erstellen und Zerstören von Objekten kostspielige Vorgänge sind und ihre Wiederverwendung die Anwendungsleistung 
+        verbessern kann.
+    </p> 
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_creational_prototype_pattern">[Schöpfungsmuster] Generieren Sie ein „Prototyp“-Muster</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im Verzeichnis <b>generated</b> des Plugins und demonstriert die Verwendung und Anwendung des 
+        generativen Designmusters „Prototype“. Ein Beispiel des generierten Projekts befindet sich im Unterverzeichnis <b>prototype</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das durch die Aktion generierte Beispielprogramm stellt eine Situation dar, in der wir über ein System zum Erstellen und Bearbeiten von Dokumenten verfügen und 
+        die Möglichkeit implementieren müssen, ein vorhandenes Dokument zu klonen, um ein neues zu erstellen. 
+        In diesem Beispiel stellt <span class="code">Document</span> eine konkrete Dokumentklasse dar, die die Methode <span class="code">DocumentPrototype.Clone</span> 
+        implementiert, die einen Klon des aktuellen Objekts zurückgibt. Beim Erstellen eines geklonten Dokuments können wir dessen Titel ändern, ohne dass sich dies auf 
+        das Originaldokument auswirkt. Das Prototype-Muster ist nützlich, wenn Sie Objekte basierend auf vorhandenen Objekten mit minimalen Änderungen erstellen müssen. 
+        Dies vermeidet komplexe Vorgänge zum Erstellen neuer Objekte von Grund auf.
+    </p> 
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_structural_adapter_pattern">[Strukturell] Generieren Sie ein „Adapter“-Muster</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im Verzeichnis <b>generated</b> des Plugins und demonstriert die Verwendung und Anwendung 
+        des strukturellen Entwurfsmusters „Adapter“. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>adapter</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das durch eine Aktion generierte Beispielprogramm stellt C#-Beispielcode bereit, der die Verwendung des Adaptermusters zum Konvertieren der Schnittstelle 
+        einer Klasse in die Schnittstelle einer anderen Klasse demonstriert. Als Beispiel nehmen wir eine Situation, in der wir über eine Bibliothek eines Drittanbieters 
+        verfügen, die Funktionen für die Arbeit mit verschiedenen Eingabegeräten bereitstellt, und wir diese Bibliothek in unserem Projekt verwenden möchten, aber bereits 
+        über eine eigene Schnittstelle für die Arbeit mit Eingabegeräten verfügen. In diesem Beispiel stellt die Klasse <span class="code">ThirdPartyInputDevice</span> 
+        eine Bibliothek eines Drittanbieters dar, <span class="code">IInputDevice</span> stellt eine Schnittstelle in unserem Projekt dar und <span class="code">InputDeviceAdapter</span> 
+        ist ein Adapter, der es Ihnen ermöglicht, die Funktionalität einer Drittanbieter-Bibliothek über unsere Schnittstelle zu nutzen. 
+        Mit dem Adapter können wir die Logik zum Konvertieren von Methodenaufrufen von unserer Schnittstelle in Aufrufe von Methoden einer Drittanbieterbibliothek kapseln.
+    </p> 
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_structural_bridge_pattern">[Strukturell] Generieren Sie ein „Bridge“-Muster</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im <b>generated</b> Verzeichnis des Plugins und demonstriert die Verwendung und Anwendung des 
+        strukturellen Entwurfsmusters „Bridge“. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>bridge</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das durch die Aktion generierte Beispielprogramm zeigt ein Beispiel für die Verwendung des Bridge-Musters in C# zum Erstellen verschiedener Gerätetypen und 
+        ihrer Bedienfelder. Mit dem Bridge-Muster können Sie eine Abstraktion von ihrer Implementierung trennen, sodass sie sich unabhängig voneinander ändern können. 
+        In diesem Beispiel erstellen wir eine abstrakte Klasse <span class="code">RemoteControl</span>, die eine Fernbedienung für ein Gerät darstellt. 
+        Wir haben zwei spezifische Geräte: <span class="code">TV</span> und <span class="code">Radio</span>, die die <span class="code">IDevice</span>-Schnittstelle 
+        implementieren.
+    </p> 
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_structural_decorator_pattern">[Strukturell] Generieren Sie ein „Decorator“-Muster</h3>
+    <p class="justify">
+        Diese Aktion generiert im Verzeichnis <b>generated</b> des Plugins ein Beispiel eines abgeschlossenen Projekts, das die Verwendung und Anwendung 
+        des strukturellen Entwurfsmusters „Decorator“ demonstriert. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>decorator</b> des 
+        Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das durch die Aktion generierte Beispielprogramm zeigt ein Beispiel für die Verwendung des Decorator-Musters in C# zum Erstellen eines Systems zur Verwaltung 
+        von Benutzerzugriffsrechten. In diesem Beispiel fügen wir dem zugrunde liegenden Benutzerobjekt verschiedene Zugriffsebenen hinzu. In diesem Beispiel 
+        stellt <span class="code">IUser</span> die Schnittstelle für das zugrunde liegende Benutzerobjekt dar. Die Klasse <span class="code">User</span> stellt den 
+        Basisbenutzer dar. Die Dekoratoren <span class="code">AdminUserDecorator</span> und <span class="code">ModeratorUserDecorator</span> fügen dem Benutzer 
+        entsprechende Zugriffsebenen hinzu. Mit dem Decorator-Muster können Sie dynamisch neue Funktionen hinzufügen oder das Verhalten eines Objekts ändern, ohne die 
+        zugrunde liegende Struktur zu ändern. Wenn Sie das Programm ausführen, können Sie sehen, wie jeder Benutzer basierend auf seiner durch Dekoratoren hinzugefügten 
+        Zugriffsebene (Administrator oder Moderator) angezeigt wird.
+    </p> 
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_structural_composite_pattern">[Strukturell] Generieren Sie ein „zusammengesetztes“ Muster</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im Verzeichnis <b>generated</b> des Plugins und demonstriert die Verwendung und Anwendung des 
+        Composite-Strukturentwurfsmusters. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>composite</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das durch die Aktion generierte Beispielprogramm bietet eine Beispielimplementierung des „Linker“-Musters in C# unter Verwendung der Aufgabe, Dateien und Ordner 
+        zu organisieren. In diesem Beispiel stellen die Klassen <span class="code">File</span> und <span class="code">Folder</span> Dateien bzw. Ordner dar und erben 
+        von der abstrakten Klasse <span class= "code">FileSystemItem </span>. Die abstrakte Klasse <span class="code">FileSystemItem</span> definiert allgemeine Methoden 
+        und Eigenschaften für Dateien und Ordner. Die Klasse <span class="code">Folder</span> kann sowohl Dateien als auch andere Ordner enthalten. 
+        Die Methode <span class="code">FileSystemItem.Print</span> wird rekursiv für jedes Element aufgerufen, wodurch Sie die Struktur des Dateisystems unter 
+        Berücksichtigung verschachtelter Elemente anzeigen können.
+    </p> 
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_structural_flyweight_pattern">[Strukturell] Generieren Sie ein „Fliegengewicht“-Muster</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im Verzeichnis <b>generated</b> des Plugins und demonstriert die Verwendung und Anwendung 
+        des Flyweight-Strukturentwurfsmusters. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>flyweight</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das durch die Aktion generierte Beispielprogramm stellt eine Testsituation anhand der Aufgabe dar, Webseiten zu erstellen. 
+        In diesem Beispiel repräsentiert die Klasse <span class="code">WebPage</span> die Webseite, die Schnittstelle <span class="code">IWebPage</span> 
+        repräsentiert die opportunistische Schnittstelle. Die Klasse <span class="code">WebPageFactory</span> ist eine Worker-Factory und für die Erstellung und 
+        Verwaltung von <span class="code">WebPage</span>-Instanzen verantwortlich. Wenn bereits eine Webseite mit dem angegebenen Inhalt vorhanden ist, 
+        gibt die Factory die zuvor erstellte Instanz zurück, andernfalls erstellt sie eine neue Instanz und speichert sie zur späteren Verwendung. 
+        Wenn Sie die Methode <span class="code">IWebPage.Display</span> aufrufen, wird jede Webseite mit dem angegebenen Thema angezeigt. 
+        Webseiten mit demselben Inhalt werden wiederverwendet, wodurch Speicherplatz gespart und die Anzahl der erstellten Objekte reduziert wird.
+    </p> 
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_structural_proxy_pattern">[Strukturell] Generieren Sie ein „Proxy“-Muster</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im <b>generated</b> Verzeichnis des Plugins und demonstriert die Verwendung und Anwendung des 
+        Proxy-Strukturentwurfsmusters. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>proxy</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das durch die Aktion generierte Beispielprogramm stellt eine Situation dar, in der y eine Klasse hat, die das Herunterladen von Bildern aus dem Netzwerk 
+        darstellt. Wir können das Proxy-Muster verwenden, um die Zwischenspeicherung heruntergeladener Bilder zu implementieren und so die Anzahl der Anfragen 
+        an den Server zu reduzieren. In diesem Beispiel ist <span class="code">ImageService</span> der eigentliche Bild-Download-Dienst und 
+        <span class="code">ImageProxy</span> ist ein Proxy, der prüft, ob das Bild zuvor zwischengespeichert wurde Laden Sie es aus dem Netzwerk herunter. 
+        Wenn das Bild bereits heruntergeladen wurde und sich im Cache befindet, gibt der Proxy es aus dem Cache zurück, andernfalls delegiert er die Anfrage 
+        an den echten Download-Dienst. Wenn Sie das Programm ausführen, können Sie sehen, dass, wenn Sie dasselbe Bild erneut herunterladen, es aus dem Cache 
+        abgerufen wird, was dazu beiträgt, die Anzahl der Anfragen an den Server zu reduzieren und die Leistung zu verbessern.
+    </p> 
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_structural_router_pattern">[Strukturell] Generieren Sie ein „Router“-Muster</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im Verzeichnis <b>generated</b> des Plugins und demonstriert die Verwendung und Anwendung 
+        des strukturellen Entwurfsmusters „Router“. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>router</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Das durch die Aktion generierte Beispielprogramm stellt eine Situation dar, in der Sie einen einfachen Router für eine Webanwendung implementieren müssen. 
+        Wir können das Router-Muster verwenden, um URLs bestimmten Anforderungshandlern zuzuordnen. 
+        In diesem Beispiel ordnet die Klasse <span class="code">Router</span> URLs den entsprechenden Controllern zu 
+        (dargestellt durch <span class="code">HomeController</span> und <span class="code">AboutController</span>-Klassen). 
+        Wenn Sie die Methode <span class="code">Router.RouteRequest</span> mit einer bestimmten URL aufrufen, prüft der Router, 
+        ob ein entsprechender Controller vorhanden ist, und ruft den <span class="code">Index</span> auf Methode dieses Controllers zur Verarbeitung der Anfrage. 
+        Wenn Sie das Beispielprogramm ausführen, können Sie sehen, wie der Router Anfragen abhängig von der angegebenen URL an verschiedene Controller weiterleitet.
+    </p>
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_structural_facade_pattern">[Strukturell] Generieren Sie das Muster „Fassade“</h3>
+    <p class="justify">
+        Diese Aktion generiert ein Beispiel eines fertigen Projekts im Verzeichnis <b>generated</b> des Plugins und demonstriert die Verwendung und Anwendung 
+        des Strukturentwurfsmusters „Fassade“. Ein Beispiel des generierten Projekts befindet sich im Unterverzeichnis <b>facade</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Mit dem Strukturmuster „Fassade“ können Sie einer Gruppe von Subsystemschnittstellen eine einheitliche Schnittstelle bereitstellen. 
+        Das aktionsgenerierte Beispiel stellt Beispiel-C#-Code bereit, der die Verwendung des Facade-Musters für die Arbeit mit verschiedenen Dateitypen im Dateisystem 
+        demonstriert. Die <span class="code">FileFacade</span>-Klasse bietet eine vereinfachte Schnittstelle für die Arbeit mit Textdateien und Bildern und verbirgt 
+        so die Komplexität der Interaktion mit den entsprechenden <span class="code">TextFileHandler</span> und <span class="code">ImageFileHandler</span> subsystems. 
+        Entwickler können <span class="code">FileFacade</span> verwenden, um sowohl Text- als auch Bilddateien zu öffnen, zu bearbeiten und zu speichern, ohne sich um 
+        die Implementierungsdetails jedes Vorgangs kümmern zu müssen.
+    </p>
+    
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+
+	<h3 id="action_generate_technique_cascading_method">[Techniken] Generieren Sie das Grundprojekt für die Technologie „Cascading Method“ (Cascading Method)</h3>
+    <p class="justify">
+        Diese Aktion generiert im Verzeichnis <b>generated</b> des Plugins ein Beispiel eines fertigen Projekts, das die Verwendung und Anwendung der Cascading 
+        Method-Technik demonstriert. Das generierte Beispielprojekt befindet sich im Unterverzeichnis <b>cascading_method</b> des Verzeichnisses <b>generated</b>.
+    </p>
+    <p class="justify">
+        Dieses Beispiel simuliert eine Situation, in der es eine Mitarbeiterklasse <span class="code">Employee</span> gibt, die einen Mitarbeiter beschreibt. 
+        Ein Mitarbeiter hat die Eigenschaften <span class="code">FullName</span>, <span class="code">Age</span>, <span class="code">Department</span> und 
+        <span class="code">Position</span>, der den vollständigen Namen des Mitarbeiters, sein Alter, die Abteilung, in der der Mitarbeiter arbeitet, 
+        und seine Position speichert. In der Methode <span class="code">Main</span> des Beispieltestprogramms erstellen wir drei Objekte der Klasse 
+        <span class="code">Employee</span> mithilfe der „Cascade-Methode“. , in dem die Klasse die Methoden <span class="code">WithFullName</span>, 
+        <span class="code">WithAge</span>, <span class="code">WithDepartment</span> und enthält <span class="code" >WithPosition</span>, 
+        die jeweils auch einen Verweis auf eine Instanz der Klasse <span class="code">Employee</span> zurückgeben. Dies ermöglicht, anstatt viele aller notwendigen 
+        Konstruktorvarianten für eine Klasse zu unterstützen, nur die notwendigen zu unterstützen – zum Initialisieren der Hauptfelder/Eigenschaften der Klasse, 
+        zum Beispiel <span class="code">FullName</span> und <span class="code">Age</span>. Und wir können Hilfsfelder/Eigenschaften der Klasse wie folgt initialisieren: 
+        Rufen Sie in beliebiger Reihenfolge die oben beschriebenen speziellen Methoden kaskadenartig auf, deren Rückgabedatentyp <span class="code">Employee</span> ist. 
+        Bei der „Kaskadenmethode“-Technik ist der Ausdruck <span class="code">a.b().c().d()</span> für jede der Methoden <span class="code">b()</span>, 
+        <span class="code">c()</span>, <span class="code">d()</span> wandelt den von jeder Methode zurückgegebenen Wert immer in den Typ auf der linken Seite um, d.h. 
+        um <span class="code">a</span> einzugeben. Auf diese Weise können Sie Methoden in beliebiger Reihenfolge „verketten“ und daraus eine Aufrufkette bilden, 
+        die nacheinander einige Aktionen ausführt oder (wie in diesem Beispiel) die Instanz der Klasse ändert, auf die die Aufrufkette angewendet wird.
+    </p>
+
+    <a href="#toc" title="Zum Inhalt">▲ Zum Inhalt</a>
+</body>
+</html>

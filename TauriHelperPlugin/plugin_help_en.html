@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Helper Plugin</title>
+    <link rel="stylesheet" type="text/css" href="./../common-plugin-styles.css" />
+</head>
+<body>
+    <h1 class="title">Tauri Helper Plugin - Documentation</h1>
+    <h2>About the plugin</h2>
+    <p class="justify">
+		A plugin that helps the developer with various activities related to developing applications on Tauri.
+	</p>    
+    <h2>Supported plugin actions</h2>
+    <p>The plugin supports the following actions:</p>
+    <ul>
+        <li><a href="#create_new_tauri_application">Create a new Tauri application</a></li>
+		<li><a href="#open_tauri_application_in_vscode">Open the Tauri application in Visual Studio Code</a></li>
+		<li><a href="#navigate_to_tauri_website">Browser - Open the main page of the Tauri website</a></li>
+		<li><a href="#navigate_to_tauri_guides">Browser - Open the "Guides" page of the Tauri website</a></li>
+		<li><a href="#navigate_to_tauri_guides_getting_started_prerequisites">Browser - Open the "Guides → Getting Started → Prerequisites" page of the Tauri website</a></li>
+        <li><a href="#navigate_to_tauri_guides_getting_started_quickstart">Browser - Open the "Guides → Getting Started → Quick Start" page of the Tauri website</a></li>
+        <li><a href="#navigate_to_tauri_guides_development_development_cycle">Browser - Open the page "Guides → Development → Development Cycle" of the Tauri website</a></li>
+        <li><a href="#navigate_to_tauri_api_configuration">Browser - Open the "API → Configuration" page of the Tauri website</a></li>
+        <li><a href="#navigate_to_tauri_api_cli">Browser - Open the "API → CLI" page of the Tauri website</a></li>
+        <li><a href="#navigate_to_tauri_api_javascript_typescript">Browser - Open the "API → JavaScript / TypeScript" page of the Tauri website</a></li>
+    </ul>
+
+    <h2>Description of actions</h2>
+
+    <p>Below is a description of how the actions supported by the plugin work.</p>
+    
+	<h3 id="create_new_tauri_application">Create a new Tauri application</h3>
+	<p class="justify">
+        A parameterized action helps you quickly create a new Tauri application.
+    </p>
+    <p class="justify">
+        The plugin executes the command <span class="code">cmd /c npm create tauri-app@latest ${appName}</span>, starting the <span class="code">cmd</span> process with 
+        arguments <span class="code">npm create tauri-app@latest ${appName}</span> and key <span class="code">/c</span>.
+    </p>
+
+    <h4>Action Parameters</h4>
+    <ul>
+        <li><b>appName</b> - name of the new Tauri application</li>
+        <li><b>appPath</b> - working directory for creating a new Tauri application when creating it and starting the <span class="code">cmd</span> process</li>
+    </ul>
+    
+	<h3 id="open_tauri_application_in_vscode">Open the Tauri application in Visual Studio Code</h3>
+    <p class="justify">
+        The parameterized action attempts to open the specified Tauri application in the Visual Studio Code environment. If the Visual Studio Code development environment is installed on your computer, 
+        and the directory was specified as the directory containing an existing Tauri application, then the project with that application will be opened in Visual Studio Code.
+    </p>
+    <p class="justify">
+        When an action is executed, the plugin executes the command <span class="code">code -r ${appPath}</span>, starting the Visual Studio Code development environment 
+        and passing it the directory specified in the action parameter.
+    </p>
+    
+    <h4>Action Parameters</h4>
+    <ul>        
+        <li><b>appPath</b> - path to the existing directory containing the finished Tauri application for opening it in Visual Studio Code</li>
+    </ul>
+
+	<h3 id="navigate_to_tauri_website">Browser - Open the main page of the Tauri website</h3>
+    <p class="justify">        
+        When executing the action, the default browser installed on the system will be opened, after which the action will open the Web page at <b>https://tauri.app/</b>
+    </p>
+
+	<h3 id="navigate_to_tauri_guides">Browser - Open the "Guides" page of the Tauri website</h3>
+    <p class="justify">        
+        When executing the action, the default browser installed on the system will be opened, after which the action will open the Web page at <b>https://tauri.app/v1/guides/</b>
+    </p>
+
+    <h3 id="navigate_to_tauri_guides_getting_started_prerequisites">Browser - Open the "Guides → Getting Started → Prerequisites" page of the Tauri website</h3>
+    <p class="justify">        
+        When executing the action, the default browser installed on the system will be opened, after which the action will open the Web page at <b>https://tauri.app/v1/guides/getting-started/prerequisites</b>
+    </p>
+
+    <h3 id="navigate_to_tauri_guides_getting_started_quickstart">Browser - Open the "Guides → Getting Started → Quick Start" page of the Tauri website</h3>
+    <p class="justify">        
+        When executing the action, the default browser installed on the system will be opened, after which the action will open the Web page at <b>https://tauri.app/v1/guides/getting-started/setup/</b>
+    </p>
+
+    <h3 id="navigate_to_tauri_guides_development_development_cycle">Browser - Open the page "Guides → Development → Development Cycle" of the Tauri website</h3>
+    <p class="justify">        
+        When executing the action, the default browser installed on the system will be opened, after which the action will open the Web page at <b>https://tauri.app/v1/guides/development/development-cycle</b>
+    </p>
+
+    <h3 id="navigate_to_tauri_api_configuration">Browser - Open the "API → Configuration" page of the Tauri website</h3>
+    <p class="justify">        
+        When executing the action, the default browser installed on the system will be opened, after which the action will open the Web page at <b>https://tauri.app/v1/api/config</b>
+    </p>
+
+    <h3 id="navigate_to_tauri_api_cli">Browser - Open the "API → CLI" page of the Tauri website</h3>
+    <p class="justify">        
+        When executing the action, the default browser installed on the system will be opened, after which the action will open the Web page at <b>https://tauri.app/v1/api/cli</b>
+    </p>
+
+    <h3 id="navigate_to_tauri_api_javascript_typescript">Browser - Open the "API → JavaScript / TypeScript" page of the Tauri website</h3>
+    <p class="justify">
+        When executing the action, the default browser installed on the system will be opened, after which the action will open the Web page at <b>https://tauri.app/v1/api/js/</b>
+    </p>
+</body>
+</html>

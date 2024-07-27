@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Helper Plugin</title>
+    <link rel="stylesheet" type="text/css" href="./../common-plugin-styles.css" />
+</head>
+<body>
+    <h1 class="title">Tauri Helper Plugin - Документация</h1>
+    <h2>О плагине</h2>
+    <p class="justify">
+		Плагин, помогающий разработчику с выполнением различных действий, связанных с разработкой приложений на Tauri.
+	</p>    
+    <h2>Поддерживаемые действия плагина</h2>
+    <p>Плагин поддерживает следующие действия:</p>
+    <ul>
+        <li><a href="#create_new_tauri_application">Создать новое Tauri приложение</a></li>
+		<li><a href="#open_tauri_application_in_vscode">Открыть Tauri приложение в среде Visual Studio Code</a></li>
+		<li><a href="#navigate_to_tauri_website">Браузер - Открыть главную страницу сайта Tauri</a></li>
+		<li><a href="#navigate_to_tauri_guides">Браузер - Открыть страницу "Guides" сайта Tauri</a></li>
+		<li><a href="#navigate_to_tauri_guides_getting_started_prerequisites">Браузер - Открыть страницу "Guides → Getting Started → Prerequisites" сайта Tauri</a></li>
+        <li><a href="#navigate_to_tauri_guides_getting_started_quickstart">Браузер - Открыть страницу "Guides → Getting Started → Quick Start" сайта Tauri</a></li>
+        <li><a href="#navigate_to_tauri_guides_development_development_cycle">Браузер - Открыть страницу "Guides → Development → Development Cycle" сайта Tauri</a></li>
+        <li><a href="#navigate_to_tauri_api_configuration">Браузер - Открыть страницу "API → Configuration" сайта Tauri</a></li>
+        <li><a href="#navigate_to_tauri_api_cli">Браузер - Открыть страницу "API → CLI" сайта Tauri</a></li>
+        <li><a href="#navigate_to_tauri_api_javascript_typescript">Браузер - Открыть страницу "API → JavaScript / TypeScript" сайта Tauri</a></li>
+    </ul>
+
+    <h2>Описание действий</h2>
+    
+	<p>Ниже приводится описание работы действий, поддерживаемых плагином.</p>
+    
+	<h3 id="create_new_tauri_application">Создать новое Tauri приложение</h3>
+	<p class="justify">
+        Параметризованное действие помогает быстро создать новое приложение Tauri.
+    </p>
+    <p class="justify">
+        Плагин выполняет команду <span class="code">cmd /c npm create tauri-app@latest ${appName}</span>, запуская процесс <span class="code">cmd</span> 
+        с аргументами <span class="code">npm create tauri-app@latest ${appName}</span> и ключом <span class="code">/c</span>.
+    </p>
+
+    <h4>Параметры действия</h4>
+    <ul>
+        <li><b>appName</b> - название нового Tauri приложения</li>
+        <li><b>appPath</b> - рабочий каталог для создания нового Tauri приложения при его создании и запуске процесса <span class="code">cmd</span></li>
+    </ul>
+    
+	<h3 id="open_tauri_application_in_vscode">Открыть Tauri приложение в среде Visual Studio Code</h3>
+    <p class="justify">
+        Параметризованное действие пробует открыть указанное Tauri приложение в среде Visual Studio Code. Если среда разработки Visual Studio Code установлена на компьютере, и в качестве каталога был указан каталог, содержащий существующее приложение Tauri,
+        то проект с этим приложением будет открыт в Visual Studio Code.
+    </p>
+    <p class="justify">
+        При выполнении действия плагин выполняет команду <span class="code">code -r ${appPath}</span>, запуская среду разработки Visual Studio Code и передавая ей каталог, указанный в параметре действия.
+    </p>
+    
+    <h4>Параметры действия</h4>
+    <ul>        
+        <li><b>appPath</b> - путь к существующему каталогу, содержащему готовое приложение Tauri для его открытия в Visual Studio Code</li>
+    </ul>
+
+	<h3 id="navigate_to_tauri_website">Браузер - Открыть главную страницу сайта Tauri</h3>
+    <p class="justify">
+        При выполнении действия будет открыт браузер по умолчанию, установленный в системе, после чего действие откроет Веб-страницу по адресу <b>https://tauri.app/</b>
+    </p>
+
+	<h3 id="navigate_to_tauri_guides">Браузер - Открыть страницу "Guides" сайта Tauri</h3>
+    <p class="justify">
+        При выполнении действия будет открыт браузер по умолчанию, установленный в системе, после чего действие откроет Веб-страницу по адресу <b>https://tauri.app/v1/guides/</b>
+    </p>
+
+    <h3 id="navigate_to_tauri_guides_getting_started_prerequisites">Браузер - Открыть страницу "Guides → Getting Started → Prerequisites" сайта Tauri</h3>
+    <p class="justify">
+        При выполнении действия будет открыт браузер по умолчанию, установленный в системе, после чего действие откроет Веб-страницу по адресу <b>https://tauri.app/v1/guides/getting-started/prerequisites</b>
+    </p>
+
+    <h3 id="navigate_to_tauri_guides_getting_started_quickstart">Браузер - Открыть страницу "Guides → Getting Started → Quick Start" сайта Tauri</h3>
+    <p class="justify">
+        При выполнении действия будет открыт браузер по умолчанию, установленный в системе, после чего действие откроет Веб-страницу по адресу <b>https://tauri.app/v1/guides/getting-started/setup/</b>
+    </p>
+
+    <h3 id="navigate_to_tauri_guides_development_development_cycle">Браузер - Открыть страницу "Guides → Development → Development Cycle" сайта Tauri</h3>
+    <p class="justify">
+        При выполнении действия будет открыт браузер по умолчанию, установленный в системе, после чего действие откроет Веб-страницу по адресу <b>https://tauri.app/v1/guides/development/development-cycle</b>
+    </p>
+
+    <h3 id="navigate_to_tauri_api_configuration">Браузер - Открыть страницу "API → Configuration" сайта Tauri</h3>
+    <p class="justify">
+        При выполнении действия будет открыт браузер по умолчанию, установленный в системе, после чего действие откроет Веб-страницу по адресу <b>https://tauri.app/v1/api/config</b>
+    </p>
+
+    <h3 id="navigate_to_tauri_api_cli">Браузер - Открыть страницу "API → CLI" сайта Tauri</h3>
+    <p class="justify">
+        При выполнении действия будет открыт браузер по умолчанию, установленный в системе, после чего действие откроет Веб-страницу по адресу <b>https://tauri.app/v1/api/cli</b>
+    </p>
+
+    <h3 id="navigate_to_tauri_api_javascript_typescript">Браузер - Открыть страницу "API → JavaScript / TypeScript" сайта Tauri</h3>
+
+    <p class="justify">
+        При выполнении действия будет открыт браузер по умолчанию, установленный в системе, после чего действие откроет Веб-страницу по адресу <b>https://tauri.app/v1/api/js/</b>
+    </p>
+</body>
+</html>

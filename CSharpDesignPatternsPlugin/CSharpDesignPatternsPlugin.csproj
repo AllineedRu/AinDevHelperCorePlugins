@@ -48,10 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CSharpDesignPatternsPlugin.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />    
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-	<Compile Include="Templates\CSharp\Behavioral\ChainOfResponsibility\BankManager.cs">
+    <Compile Include="Templates\CSharp\Behavioral\ChainOfResponsibility\BankManager.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BankManager.tt</DependentUpon>
@@ -846,7 +846,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MethodCascadingCSharpProject.tt</DependentUpon>
-    </Compile>    
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -855,6 +855,15 @@
     <Folder Include="Templates\CSharp\Structural\PrivateClassData\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="plugin_help.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugin_help_de.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugin_help_en.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Templates\CSharp\Behavioral\ChainOfResponsibility\BankManager.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>BankManager.cs</LastGenOutput>
@@ -1463,7 +1472,7 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MethodCascadingCSharpProject.cs</LastGenOutput>
     </Content>
-  </ItemGroup>  
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\AinDevHelperPluginLibrary\AinDevHelperPluginLibrary.csproj">
       <Project>{37ab27d6-d34c-4b94-9581-b10e46b34426}</Project>

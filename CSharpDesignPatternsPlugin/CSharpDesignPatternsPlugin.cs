@@ -80,7 +80,7 @@ namespace CSharpDesignPatternsPlugin {
         public const string EN_ACTION_GENERATE_BEHAVIORAL_CHAIN_OF_RESPONSIBILITY_PATTERN = "[Behavioral] Generate 'Chain Of Responsibility' Pattern";
         public const string DE_ACTION_GENERATE_BEHAVIORAL_CHAIN_OF_RESPONSIBILITY_PATTERN = "[Verhaltensmuster] Generieren Sie ein „Chain of Responsibility“-Muster";
 
-        public const string RU_ACTION_GENERATE_BEHAVIORAL_COMMAND_PATTERN = "[Поведенческие] Сгенерировать шаблон 'Команда' (Chain Of Responsibility)";
+        public const string RU_ACTION_GENERATE_BEHAVIORAL_COMMAND_PATTERN = "[Поведенческие] Сгенерировать шаблон 'Команда' (Command)";
         public const string EN_ACTION_GENERATE_BEHAVIORAL_COMMAND_PATTERN = "[Behavioral] Generate 'Command' Pattern";
         public const string DE_ACTION_GENERATE_BEHAVIORAL_COMMAND_PATTERN = "[Verhaltensmuster] Generieren Sie ein Befehlsmuster";
 
@@ -177,7 +177,7 @@ namespace CSharpDesignPatternsPlugin {
         public const string DE_ACTION_GENERATE_STRUCTURAL_FACADE_PATTERN = "[Strukturell] Generieren Sie das Muster „Fassade“";
 
         public const string RU_ACTION_GENERATE_TECHNIQUE_CASCADING_METHOD = "[Техники] Сгенерировать пример проекта для техники 'Каскадный метод' (Cascading Method)";
-        public const string EN_ACTION_GENERATE_TECHNIQUE_CASCADING_METHOD = "[Tecnhiques] Generate the primer project for the technology 'Cascading Method' (Cascading Method)";
+        public const string EN_ACTION_GENERATE_TECHNIQUE_CASCADING_METHOD = "[Tecnhiques] Generate the example project for the technology 'Cascading Method' (Cascading Method)";
         public const string DE_ACTION_GENERATE_TECHNIQUE_CASCADING_METHOD = "[Techniken] Generieren Sie das Grundprojekt für die Technologie „Cascading Method“ (Cascading Method)";
 
         // =======================================================================================================================

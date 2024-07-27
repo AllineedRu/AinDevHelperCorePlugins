@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Helper Plugin</title>
+    <link rel="stylesheet" type="text/css" href="./../common-plugin-styles.css" />
+</head>
+<body>
+    <h1 class="title">Angular Helper Plugin – Dokumentation</h1>
+    <h2>Über das Plugin</h2>
+    <p class="justify">
+		Ein Plugin, das Angular-Entwicklern verschiedene nützliche Aktionen bietet, z. B. das Abrufen von Informationen zu Angular-CLI-, NPM- und Node.js-Versionen, und das außerdem die Erstellung neuer Anwendungen und Komponenten in Angular erleichtert.
+	</p>    
+    <h2>Unterstützte Plugin-Aktionen</h2>
+    <p>Das Plugin unterstützt die folgenden Aktionen:</p>
+    <ul>
+        <li><a href="#show_active_angular_cli_version">Zeigt die aktuell aktive Version von Angular CLI an</a></li>
+		<li><a href="#show_active_nodejs_version">Zeigt die aktuell aktive Version von Node.js an</a></li>
+		<li><a href="#show_active_npm_version">Zeigt die aktuell aktive NPM-Version an</a></li>
+		<li><a href="#create_new_angular_app_via_angular_cli">Erstellen Sie eine neue Angular-Anwendung über die Angular-CLI</a></li>
+		<li><a href="#create_new_angular_component_via_angular_cli">Erstellen Sie eine neue Angular-Komponente über die Angular-CLI</a></li>
+    </ul>
+
+    <h2>Beschreibung der Aktionen</h2>
+    
+	<p>Nachfolgend finden Sie eine Beschreibung, wie die vom Plugin unterstützten Aktionen funktionieren.</p>
+    
+	<h3 id="show_active_angular_cli_version">Zeigt die aktuell aktive Version von Angular CLI an</h3>
+	<p class="justify">Die Aktion zeigt die derzeit aktive Version von Angular CLI an, die auf dem Computer installiert ist.</p>
+    <p class="justify">Das Plugin führt den Befehl <span class="code">cmd /c ng version 1> angle_cli_version.txt</span> aus und startet den Prozess <span class="code">cmd</span> mit den Argumenten <span class= „code“ >ng version 1> angle_cli_version.txt</span> und den Schlüssel <span class="code">/c</span>, damit das Ergebnis des Befehls in die temporäre Datei <i>angular_cli_version geschrieben wird. txt</i>.</p>
+	
+	<h3 id="show_active_nodejs_version">Zeigt die aktuell aktive Version von Node.js an</h3>
+    <p class="justify">Die Aktion zeigt die aktuell aktive Version von Node.js an, die auf dem Computer installiert ist.</p>
+    <p class="justify">Wenn die Aktion ausgeführt wird, führt das Plugin den Befehl <span class="code">cmd /c node -v 1> node_version.txt</span> aus und startet den <span class="code">cmd</span> Prozess mit den Argumenten <span class="code">node -v 1> node_version.txt</span> und dem Schlüssel <span class="code">/c</span>, sodass das Ergebnis des Befehls geschrieben wird in die temporäre Datei <i>node_version.txt</i>.</p>
+
+	<h3 id="show_active_npm_version">Zeigt die aktuell aktive NPM-Version an</h3>
+
+    <p class="justify">Die Aktion zeigt die aktuell aktive Version von NPM an, die auf dem Computer installiert ist.</p>
+    <p class="justify">Wenn die Aktion ausgeführt wird, führt das Plugin den Befehl <span class="code">cmd /c npm -v 1> npm_version.txt</span> aus und startet den Prozess <span class="code">cmd</span > mit den Argumenten <span class="code">node -v 1> node_version.txt</span> und dem Schlüssel <span class="code">/c</span>, damit das Ergebnis des Befehls geschrieben wird in die temporäre Datei <i>npm_version.txt</i>.</p>
+
+	<h3 id="create_new_angular_app_via_angular_cli">Erstellen Sie eine neue Angular-Anwendung über die Angular-CLI</h3>
+
+    <p class="justify">Mit einer parametrisierten Aktion können Sie eine neue Angular-Anwendung erstellen, indem Sie den entsprechenden Befehl über die Angular-CLI ausführen.</p>
+    <p class="justify">Wenn die Aktion ausgeführt wird, führt das Plugin den Befehl <span class="code">cmd /c ng new ${appName} 1> new_angular_app.txt</span> 
+        aus und startet den <span class="code">cmd</span>-Prozess mit den Argumenten <span class="code">ng new ${appName} 1> new_angular_app.txt</span> und dem Schlüssel <span class="code">/c</span>, 
+        also Das Ergebnis des Befehls wird in eine temporäre Datei <i>new_angular_app.txt</i> geschrieben.</p>
+
+    <h4>Aktionsparameter</h4>
+    <ul>
+        <li><b>appName</b> - Name der neuen Angular-Anwendung</li>
+        <li><b>appPath</b> - Arbeitsverzeichnis zum Erstellen einer neuen Angular-Anwendung beim Erstellen und Starten des <span class="code">cmd</span>-Prozesses</li>
+    </ul>
+
+	<h3 id="create_new_angular_component_via_angular_cli">Erstellen Sie eine neue Angular-Komponente über die Angular-CLI</h3>
+
+    <p class="justify">Mit einer parametrisierten Aktion können Sie mithilfe der Angular-CLI-Tools eine neue Komponente in einer bereits erstellten Angular-Anwendung erstellen.</p>
+    <p class="justify">Wenn die Aktion ausgeführt wird, führt das Plugin den Befehl <span class="code">cmd /c ng generic Component ${newComponentName} 1> new_angular_component.txt 2> new_angular_component_error.txt</span> aus und startet damit 
+        die <span class= „code“>cmd-Prozess </span> mit Argumenten <span class="code">ng generic Component ${newComponentName} 1> new_angular_component.txt 2> new_angular_component_error.txt</span> und 
+        Schlüssel <span class="code" >/c</span >, somit wird das Ergebnis der Befehlsausführung in die temporäre Datei <i>new_angular_component.txt</i> geschrieben, wenn keine Befehlsausführungsfehler vorliegen, und in die Datei <i>new_angular_component_error</i> wenn es Fehler gibt.</p>
+
+    <h4>Aktionsparameter</h4>
+    <ul>
+        <li><b>appPath</b> - ein Verzeichnis mit einer bereits erstellten Angular-Anwendung, in der Sie eine neue Komponente erstellen möchten</li>
+        <li><b>newComponentName</b> - Name der neuen Angular-Komponente</li>
+    </ul>        
+</body>
+</html>
