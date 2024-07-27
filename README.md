@@ -4,7 +4,7 @@
 * **[English]** You are viewing the English version of this README. You can also read this manual in other languages.
 * **[Deutsch]** Sie sehen sich die englische Version dieser README-Datei an. Sie können dieses Handbuch auch in anderen Sprachen lesen.
 
-[Русский](README-ru.md) | [German](README-de.md)
+[Русский](README-ru.md) | [Deutsch](README-de.md)
 
 # About Repository
 
