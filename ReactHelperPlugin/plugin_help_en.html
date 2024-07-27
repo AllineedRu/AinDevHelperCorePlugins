@@ -1,4 +1,19 @@
 <!DOCTYPE html>
+<!--
+Copyright 2024 Allineed.Ru, Max Damascus
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,27 +25,27 @@
     <h1 class="title">React Helper Plugin - Documentation</h1>
     <h2>About the plugin</h2>
     <p class="justify">
-		A plugin that helps the developer with various activities related to developing applications in React.
-	</p>    
+        A plugin that helps the developer with various activities related to developing applications in React.
+    </p>
     <h2>Supported plugin actions</h2>
     <p>The plugin supports the following actions:</p>
     <ul>
         <li><a href="#create_new_react_app">Create a new React application</a></li>
-		<li><a href="#open_react_app_in_vs_code">Open React application in Visual Studio Code</a></li>
-		<li><a href="#navigate_to_react_website">Browser - Open the main page of the React site</a></li>
-		<li><a href="#navigate_to_react_quickstart">Browser - Open the "Quick Start" page of the React site</a></li>		
+        <li><a href="#open_react_app_in_vs_code">Open React application in Visual Studio Code</a></li>
+        <li><a href="#navigate_to_react_website">Browser - Open the main page of the React site</a></li>
+        <li><a href="#navigate_to_react_quickstart">Browser - Open the "Quick Start" page of the React site</a></li>
     </ul>
 
     <h2>Description of actions</h2>
 
     <p>Below is a description of how the actions supported by the plugin work.</p>
-    
-	<h3 id="create_new_react_app">Create a new React application</h3>
-	<p class="justify">
+
+    <h3 id="create_new_react_app">Create a new React application</h3>
+    <p class="justify">
         A parameterized action helps you quickly create a new React application.
     </p>
     <p class="justify">
-        The plugin executes the command <span class="code">cmd /c npx create-react-app ${appName}</span>, starting the <span class="code">cmd</span> process with 
+        The plugin executes the command <span class="code">cmd /c npx create-react-app ${appName}</span>, starting the <span class="code">cmd</span> process with
         arguments <span class="code">npx create-react-app ${appName}</span> and key <span class="code">/c</span>.
     </p>
 
@@ -39,29 +54,29 @@
         <li><b>appName</b> - name of the new React application</li>
         <li><b>appPath</b> - working directory for creating a new React application when creating it and starting the <span class="code">cmd</span> process</li>
     </ul>
-    
-	<h3 id="open_react_app_in_vs_code">Open the React application in Visual Studio Code</h3>
+
+    <h3 id="open_react_app_in_vs_code">Open the React application in Visual Studio Code</h3>
     <p class="justify">
-        The parameterized action attempts to open the specified React application in the Visual Studio Code environment. If the Visual Studio Code development environment is installed on your computer, 
+        The parameterized action attempts to open the specified React application in the Visual Studio Code environment. If the Visual Studio Code development environment is installed on your computer,
         and the directory was specified as the directory containing an existing React application, then the project with that application will be opened in Visual Studio Code.
     </p>
     <p class="justify">
-        When an action is executed, the plugin executes the command <span class="code">code -r ${appPath}</span>, starting the Visual Studio Code development environment 
+        When an action is executed, the plugin executes the command <span class="code">code -r ${appPath}</span>, starting the Visual Studio Code development environment
         and passing it the directory specified in the action parameter.
     </p>
-    
+
     <h4>Action Parameters</h4>
-    <ul>        
+    <ul>
         <li><b>appPath</b> - path to the existing directory containing the finished React application for opening it in Visual Studio Code</li>
     </ul>
 
-	<h3 id="navigate_to_react_website">Browser - Open the main page of the React site</h3>
-    <p class="justify">        
+    <h3 id="navigate_to_react_website">Browser - Open the main page of the React site</h3>
+    <p class="justify">
         When executing the action, the default browser installed on the system will be opened, after which the action will open the Web page at <b>https://react.dev/</b>
     </p>
 
-	<h3 id="navigate_to_react_quickstart">Browser - Open the "Quick Start" page of the React site</h3>
-    <p class="justify">        
+    <h3 id="navigate_to_react_quickstart">Browser - Open the "Quick Start" page of the React site</h3>
+    <p class="justify">
         When executing the action, the default browser installed on the system will be opened, after which the action will open the Web page at <b>https://react.dev/learn</b>
     </p>
 </body>

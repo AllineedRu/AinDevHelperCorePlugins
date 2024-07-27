@@ -1,4 +1,19 @@
 <!DOCTYPE html>
+<!--
+Copyright 2024 Allineed.Ru, Max Damascus
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -10,16 +25,16 @@
     <h1 class="title">Tauri Helper Plugin - Документация</h1>
     <h2>О плагине</h2>
     <p class="justify">
-		Плагин, помогающий разработчику с выполнением различных действий, связанных с разработкой приложений на Tauri.
-	</p>    
+        Плагин, помогающий разработчику с выполнением различных действий, связанных с разработкой приложений на Tauri.
+    </p>
     <h2>Поддерживаемые действия плагина</h2>
     <p>Плагин поддерживает следующие действия:</p>
     <ul>
         <li><a href="#create_new_tauri_application">Создать новое Tauri приложение</a></li>
-		<li><a href="#open_tauri_application_in_vscode">Открыть Tauri приложение в среде Visual Studio Code</a></li>
-		<li><a href="#navigate_to_tauri_website">Браузер - Открыть главную страницу сайта Tauri</a></li>
-		<li><a href="#navigate_to_tauri_guides">Браузер - Открыть страницу "Guides" сайта Tauri</a></li>
-		<li><a href="#navigate_to_tauri_guides_getting_started_prerequisites">Браузер - Открыть страницу "Guides → Getting Started → Prerequisites" сайта Tauri</a></li>
+        <li><a href="#open_tauri_application_in_vscode">Открыть Tauri приложение в среде Visual Studio Code</a></li>
+        <li><a href="#navigate_to_tauri_website">Браузер - Открыть главную страницу сайта Tauri</a></li>
+        <li><a href="#navigate_to_tauri_guides">Браузер - Открыть страницу "Guides" сайта Tauri</a></li>
+        <li><a href="#navigate_to_tauri_guides_getting_started_prerequisites">Браузер - Открыть страницу "Guides → Getting Started → Prerequisites" сайта Tauri</a></li>
         <li><a href="#navigate_to_tauri_guides_getting_started_quickstart">Браузер - Открыть страницу "Guides → Getting Started → Quick Start" сайта Tauri</a></li>
         <li><a href="#navigate_to_tauri_guides_development_development_cycle">Браузер - Открыть страницу "Guides → Development → Development Cycle" сайта Tauri</a></li>
         <li><a href="#navigate_to_tauri_api_configuration">Браузер - Открыть страницу "API → Configuration" сайта Tauri</a></li>
@@ -28,15 +43,15 @@
     </ul>
 
     <h2>Описание действий</h2>
-    
-	<p>Ниже приводится описание работы действий, поддерживаемых плагином.</p>
-    
-	<h3 id="create_new_tauri_application">Создать новое Tauri приложение</h3>
-	<p class="justify">
+
+    <p>Ниже приводится описание работы действий, поддерживаемых плагином.</p>
+
+    <h3 id="create_new_tauri_application">Создать новое Tauri приложение</h3>
+    <p class="justify">
         Параметризованное действие помогает быстро создать новое приложение Tauri.
     </p>
     <p class="justify">
-        Плагин выполняет команду <span class="code">cmd /c npm create tauri-app@latest ${appName}</span>, запуская процесс <span class="code">cmd</span> 
+        Плагин выполняет команду <span class="code">cmd /c npm create tauri-app@latest ${appName}</span>, запуская процесс <span class="code">cmd</span>
         с аргументами <span class="code">npm create tauri-app@latest ${appName}</span> и ключом <span class="code">/c</span>.
     </p>
 
@@ -45,8 +60,8 @@
         <li><b>appName</b> - название нового Tauri приложения</li>
         <li><b>appPath</b> - рабочий каталог для создания нового Tauri приложения при его создании и запуске процесса <span class="code">cmd</span></li>
     </ul>
-    
-	<h3 id="open_tauri_application_in_vscode">Открыть Tauri приложение в среде Visual Studio Code</h3>
+
+    <h3 id="open_tauri_application_in_vscode">Открыть Tauri приложение в среде Visual Studio Code</h3>
     <p class="justify">
         Параметризованное действие пробует открыть указанное Tauri приложение в среде Visual Studio Code. Если среда разработки Visual Studio Code установлена на компьютере, и в качестве каталога был указан каталог, содержащий существующее приложение Tauri,
         то проект с этим приложением будет открыт в Visual Studio Code.
@@ -54,18 +69,18 @@
     <p class="justify">
         При выполнении действия плагин выполняет команду <span class="code">code -r ${appPath}</span>, запуская среду разработки Visual Studio Code и передавая ей каталог, указанный в параметре действия.
     </p>
-    
+
     <h4>Параметры действия</h4>
-    <ul>        
+    <ul>
         <li><b>appPath</b> - путь к существующему каталогу, содержащему готовое приложение Tauri для его открытия в Visual Studio Code</li>
     </ul>
 
-	<h3 id="navigate_to_tauri_website">Браузер - Открыть главную страницу сайта Tauri</h3>
+    <h3 id="navigate_to_tauri_website">Браузер - Открыть главную страницу сайта Tauri</h3>
     <p class="justify">
         При выполнении действия будет открыт браузер по умолчанию, установленный в системе, после чего действие откроет Веб-страницу по адресу <b>https://tauri.app/</b>
     </p>
 
-	<h3 id="navigate_to_tauri_guides">Браузер - Открыть страницу "Guides" сайта Tauri</h3>
+    <h3 id="navigate_to_tauri_guides">Браузер - Открыть страницу "Guides" сайта Tauri</h3>
     <p class="justify">
         При выполнении действия будет открыт браузер по умолчанию, установленный в системе, после чего действие откроет Веб-страницу по адресу <b>https://tauri.app/v1/guides/</b>
     </p>

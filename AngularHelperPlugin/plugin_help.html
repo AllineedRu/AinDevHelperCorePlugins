@@ -1,4 +1,19 @@
 <!DOCTYPE html>
+<!--
+Copyright 2024 Allineed.Ru, Max Damascus
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -10,43 +25,51 @@
     <h1 class="title">Angular Helper Plugin - Документация</h1>
     <h2>О плагине</h2>
     <p class="justify">
-		Плагин, предоставляющий разработчикам на Angular различные полезные действия, такие как получение информации о версиях Angular CLI, NPM, Node.js, а также облегчающий создание новых приложений и компонентов на Angular.
-	</p>    
+        Плагин, предоставляющий разработчикам на Angular различные полезные действия, такие как получение информации о версиях Angular CLI, NPM, Node.js, а также облегчающий создание новых приложений и компонентов на Angular.
+    </p>
     <h2>Поддерживаемые действия плагина</h2>
     <p>Плагин поддерживает следующие действия:</p>
     <ul>
         <li><a href="#show_active_angular_cli_version">Показать текущую активную версию Angular CLI</a></li>
-		<li><a href="#show_active_nodejs_version">Показать текущую активную версию Node.js</a></li>
-		<li><a href="#show_active_npm_version">Показать текущую активную версию NPM</a></li>
-		<li><a href="#create_new_angular_app_via_angular_cli">Создать новое Angular приложение через Angular CLI</a></li>
-		<li><a href="#create_new_angular_component_via_angular_cli">Создать новый Angular компонент через Angular CLI</a></li>
+        <li><a href="#show_active_nodejs_version">Показать текущую активную версию Node.js</a></li>
+        <li><a href="#show_active_npm_version">Показать текущую активную версию NPM</a></li>
+        <li><a href="#create_new_angular_app_via_angular_cli">Создать новое Angular приложение через Angular CLI</a></li>
+        <li><a href="#create_new_angular_component_via_angular_cli">Создать новый Angular компонент через Angular CLI</a></li>
     </ul>
 
     <h2>Описание действий</h2>
-    
-	<p>Ниже приводится описание работы действий, поддерживаемых плагином.</p>
-    
-	<h3 id="show_active_angular_cli_version">Показать текущую активную версию Angular CLI</h3>
-	<p class="justify">Действие отображает текущую активную версию Angular CLI, установленную на компьютере.</p>
-    <p class="justify">Плагин выполняет команду <span class="code">cmd /c ng version 1> angular_cli_version.txt</span>, запуская процесс <span class="code">cmd</span> с аргументами <span class="code">ng version 1> angular_cli_version.txt</span> и ключом <span class="code">/c</span>,
-	таким образом результат выполнения команды записывается во временный файл <i>angular_cli_version.txt</i>.</p>
-    
-	<h3 id="show_active_nodejs_version">Показать текущую активную версию Node.js</h3>
-    <p class="justify">Действие отображает текущую активную версию Node.js, установленную на компьютере.</p>
-    <p class="justify">При выполнении действия плагин выполняет команду <span class="code">cmd /c node -v 1> node_version.txt</span>, запуская процесс <span class="code">cmd</span> с аргументами <span class="code">node -v 1> node_version.txt</span> и ключом <span class="code">/c</span>,
-        таким образом результат выполнения команды записывается во временный файл <i>node_version.txt</i>.</p>
 
-	<h3 id="show_active_npm_version">Показать текущую активную версию NPM</h3>
+    <p>Ниже приводится описание работы действий, поддерживаемых плагином.</p>
+
+    <h3 id="show_active_angular_cli_version">Показать текущую активную версию Angular CLI</h3>
+    <p class="justify">Действие отображает текущую активную версию Angular CLI, установленную на компьютере.</p>
+    <p class="justify">
+        Плагин выполняет команду <span class="code">cmd /c ng version 1> angular_cli_version.txt</span>, запуская процесс <span class="code">cmd</span> с аргументами <span class="code">ng version 1> angular_cli_version.txt</span> и ключом <span class="code">/c</span>,
+        таким образом результат выполнения команды записывается во временный файл <i>angular_cli_version.txt</i>.
+    </p>
+
+    <h3 id="show_active_nodejs_version">Показать текущую активную версию Node.js</h3>
+    <p class="justify">Действие отображает текущую активную версию Node.js, установленную на компьютере.</p>
+    <p class="justify">
+        При выполнении действия плагин выполняет команду <span class="code">cmd /c node -v 1> node_version.txt</span>, запуская процесс <span class="code">cmd</span> с аргументами <span class="code">node -v 1> node_version.txt</span> и ключом <span class="code">/c</span>,
+        таким образом результат выполнения команды записывается во временный файл <i>node_version.txt</i>.
+    </p>
+
+    <h3 id="show_active_npm_version">Показать текущую активную версию NPM</h3>
 
     <p class="justify">Действие отображает текущую активную версию NPM, установленную на компьютере.</p>
-    <p class="justify">При выполнении действия плагин выполняет команду <span class="code">cmd /c npm -v 1> npm_version.txt</span>, запуская процесс <span class="code">cmd</span> с аргументами <span class="code">node -v 1> node_version.txt</span> и ключом <span class="code">/c</span>,
-        таким образом результат выполнения команды записывается во временный файл <i>npm_version.txt</i>.</p>
+    <p class="justify">
+        При выполнении действия плагин выполняет команду <span class="code">cmd /c npm -v 1> npm_version.txt</span>, запуская процесс <span class="code">cmd</span> с аргументами <span class="code">node -v 1> node_version.txt</span> и ключом <span class="code">/c</span>,
+        таким образом результат выполнения команды записывается во временный файл <i>npm_version.txt</i>.
+    </p>
 
-	<h3 id="create_new_angular_app_via_angular_cli">Создать новое Angular приложение через Angular CLI</h3>
+    <h3 id="create_new_angular_app_via_angular_cli">Создать новое Angular приложение через Angular CLI</h3>
 
     <p class="justify">Параметризованное действие позволяет создать новое приложение Angular при помощи выполнения соответствующей команды через Angular CLI.</p>
-    <p class="justify">При выполнении действия плагин выполняет команду <span class="code">cmd /c ng new ${appName} 1> new_angular_app.txt</span>, запуская процесс <span class="code">cmd</span> с аргументами <span class="code">ng new ${appName} 1> new_angular_app.txt</span> и ключом <span class="code">/c</span>,
-        таким образом результат выполнения команды записывается во временный файл <i>new_angular_app.txt</i>.</p>
+    <p class="justify">
+        При выполнении действия плагин выполняет команду <span class="code">cmd /c ng new ${appName} 1> new_angular_app.txt</span>, запуская процесс <span class="code">cmd</span> с аргументами <span class="code">ng new ${appName} 1> new_angular_app.txt</span> и ключом <span class="code">/c</span>,
+        таким образом результат выполнения команды записывается во временный файл <i>new_angular_app.txt</i>.
+    </p>
 
     <h4>Параметры действия</h4>
     <ul>
@@ -54,17 +77,19 @@
         <li><b>appPath</b> - рабочий каталог для создания нового Angular приложения при его создании и запуске процесса <span class="code">cmd</span></li>
     </ul>
 
-	<h3 id="create_new_angular_component_via_angular_cli">Создать новый Angular компонент через Angular CLI</h3>
+    <h3 id="create_new_angular_component_via_angular_cli">Создать новый Angular компонент через Angular CLI</h3>
 
     <p class="justify">Параметризованное действие позволяет создать через средства Angular CLI новый компонент в уже созданном приложении Angular.</p>
-    <p class="justify">При выполнении действия плагин выполняет команду <span class="code">cmd /c ng generate component ${newComponentName} 1> new_angular_component.txt 2> new_angular_component_error.txt</span>, 
+    <p class="justify">
+        При выполнении действия плагин выполняет команду <span class="code">cmd /c ng generate component ${newComponentName} 1> new_angular_component.txt 2> new_angular_component_error.txt</span>,
         запуская процесс <span class="code">cmd</span> с аргументами <span class="code">ng generate component ${newComponentName} 1> new_angular_component.txt 2> new_angular_component_error.txt</span> и ключом <span class="code">/c</span>,
-        таким образом результат выполнения команды записывается во временный файл <i>new_angular_component.txt</i> при отсутствии ошибок исполнения команды и в файл <i>new_angular_component_error</i> при наличии ошибок.</p>
+        таким образом результат выполнения команды записывается во временный файл <i>new_angular_component.txt</i> при отсутствии ошибок исполнения команды и в файл <i>new_angular_component_error</i> при наличии ошибок.
+    </p>
 
     <h4>Параметры действия</h4>
     <ul>
         <li><b>appPath</b> - каталог с уже созданным приложением Angular, в котором требуется создать новый компонент</li>
         <li><b>newComponentName</b> - название нового Angular компонента</li>
-    </ul>        
+    </ul>
 </body>
 </html>
