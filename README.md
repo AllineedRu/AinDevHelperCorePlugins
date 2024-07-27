@@ -4,6 +4,8 @@
 * **[English]** You are viewing the English version of this README. You can also read this manual in other languages.
 * **[Deutsch]** Sie sehen sich die englische Version dieser README-Datei an. Sie können dieses Handbuch auch in anderen Sprachen lesen.
 
+[Русский](README-ru.md) | [English](README.md)
+
 # About Repository
 
 **AinDevHelperCorePlugins** is a repository containing a set of standard *core plugins* and test plugins for the AinDevHelper program. *Core plugins* are 

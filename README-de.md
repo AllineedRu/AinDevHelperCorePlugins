@@ -1,8 +1,5 @@
 # AinDevHelperCorePlugins
 
-![.NET worflow status badge](https://github.com/AllineedRu/AinDevHelperPluginLibrary/actions/workflows/dotnet.yml/badge.svg?branch=master)
-![version Pre-Alpha](https://img.shields.io/badge/version-Pre--Alpha-red)
-
 * **[Русский]** Вы просматриваете версию данного README на немецком языке. Вы также можете читать данное руководство на других языках.
 * **[English]** You are viewing the German version of this README. You can also read this manual in other languages.
 * **[Deutsch]** Sie sehen die deutsche Version dieser README-Datei. Sie können dieses Handbuch auch in anderen Sprachen lesen.
