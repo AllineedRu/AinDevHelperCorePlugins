@@ -851,9 +851,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Templates\CSharp\Structural\PrivateClassData\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="plugin_help.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
