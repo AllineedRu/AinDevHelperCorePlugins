@@ -94,7 +94,7 @@ namespace AngularHelperPlugin {
 
         public const string RU_ACTION_CREATE_NEW_ANGULAR_SERVICE_WORKER = "Создать service-worker через Angular CLI";
         public const string EN_ACTION_CREATE_NEW_ANGULAR_SERVICE_WORKER = "Create service-worker via Angular CLI";
-        public const string DE_ACTION_CREATE_NEW_ANGULAR_SERVICE_WORKER = "Erstellen Sie einen Servicemitarbeiter über Angular CLI";
+        public const string DE_ACTION_CREATE_NEW_ANGULAR_SERVICE_WORKER = "Erstellen Sie einen Service-Worker über Angular CLI";
 
         public const string RU_ACTION_CREATE_NEW_ANGULAR_WEB_WORKER = "Создать web-worker через Angular CLI";
         public const string EN_ACTION_CREATE_NEW_ANGULAR_WEB_WORKER = "Create a new web-worker via Angular CLI";
@@ -106,7 +106,7 @@ namespace AngularHelperPlugin {
 
         public const string RU_ACTION_CREATE_NEW_ANGULAR_INTERCEPTOR = "Создать перехватчика (interceptor) через Angular CLI";
         public const string EN_ACTION_CREATE_NEW_ANGULAR_INTERCEPTOR = "Create a new interceptor via Angular CLI";
-        public const string DE_ACTION_CREATE_NEW_ANGULAR_INTERCEPTOR = "Erstellen Sie einen Web Worker über Angular CLI";
+        public const string DE_ACTION_CREATE_NEW_ANGULAR_INTERCEPTOR = "Erstellen Sie einen neuen Interceptor über Angular CLI";
 
         public const string RU_ACTION_GENERATE_ENVIRONMENTS = "Сгенерировать окружения (environments) для проекта через Angular CLI";
         public const string EN_ACTION_GENERATE_ENVIRONMENTS = "Generate environments for a project via Angular CLI";
@@ -617,22 +617,6 @@ namespace AngularHelperPlugin {
             );
             generateEnvironmentsAction.LocalizedNames.Add(new AinDevHelperLocalizedMessage(EN, EN_ACTION_GENERATE_ENVIRONMENTS));
             generateEnvironmentsAction.LocalizedNames.Add(new AinDevHelperLocalizedMessage(DE, DE_ACTION_GENERATE_ENVIRONMENTS));
-
-            /*
-                [+] public const string ID_ACTION_CREATE_NEW_ANGULAR_SERVICE = "create_new_angular_service_via_angular_cli";
-                [+] public const string ID_ACTION_CREATE_NEW_ANGULAR_CONFIG = "create_new_angular_config_via_angular_cli";
-                [+] public const string ID_ACTION_CREATE_NEW_ANGULAR_LIBRARY = "create_new_angular_library_via_angular_cli";
-                [+] public const string ID_ACTION_CREATE_NEW_ANGULAR_MODULE = "create_new_angular_module_via_angular_cli";
-                [+] public const string ID_ACTION_CREATE_NEW_ANGULAR_ENUM = "create_new_angular_enum_via_angular_cli";
-                [+] public const string ID_ACTION_CREATE_NEW_ANGULAR_INTERFACE = "create_new_angular_interface_via_angular_cli";
-                [+] public const string ID_ACTION_CREATE_NEW_ANGULAR_RESOLVER = "create_new_angular_resolver_via_angular_cli";
-                [+] public const string ID_ACTION_CREATE_NEW_ANGULAR_PIPE = "create_new_angular_pipe_via_angular_cli";
-                [+] public const string ID_ACTION_CREATE_NEW_ANGULAR_DIRECTIVE = "create_new_angular_directive_via_angular_cli";
-                    public const string ID_ACTION_CREATE_NEW_ANGULAR_SERVICE_WORKER = "create_new_angular_service_worker_via_angular_cli";
-                    public const string ID_ACTION_CREATE_NEW_ANGULAR_WEB_WORKER = "create_new_angular_web_worker_via_angular_cli"; 
-             */
-
-
 
             return AinDevHelperPluginAction.From(
                 AinDevHelperPluginAction.ActionFrom(RU_ACTION_SHOW_CURRENT_ACTIVE_ANGULAR_CLI_VERSION, ID_ACTION_SHOW_CURRENT_ACTIVE_ANGULAR_CLI_VERSION,
@@ -1835,6 +1819,96 @@ namespace AngularHelperPlugin {
             textBoxNewComponentName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(DE, "Name für die neue Komponente:"));
 
             pluginSettings.AddSettingControl(textBoxNewComponentName);
+
+            AinDevHelperSettingTextBoxControl textBoxNewServiceName = new AinDevHelperSettingTextBoxControl("newServiceName", "Название для нового сервиса:", "my-angular-service");
+            textBoxNewServiceName.OffsetLeft = 10;
+            textBoxNewServiceName.Width = 550;
+            textBoxNewServiceName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(EN, "Name for the new service:"));
+            textBoxNewServiceName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(DE, "Name für den neuen Dienst:"));
+
+            pluginSettings.AddSettingControl(textBoxNewServiceName);
+
+            AinDevHelperSettingTextBoxControl textBoxNewLibraryName = new AinDevHelperSettingTextBoxControl("newLibraryName", "Название для новой библиотеки:", "my-angular-library");
+            textBoxNewLibraryName.OffsetLeft = 10;
+            textBoxNewLibraryName.Width = 550;
+            textBoxNewLibraryName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(EN, "Name for the new library:"));
+            textBoxNewLibraryName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(DE, "Name für die neue Bibliothek:"));
+
+            pluginSettings.AddSettingControl(textBoxNewLibraryName);
+
+            AinDevHelperSettingTextBoxControl textBoxNewModuleName = new AinDevHelperSettingTextBoxControl("newModuleName", "Название для нового модуля:", "my-angular-module");
+            textBoxNewModuleName.OffsetLeft = 10;
+            textBoxNewModuleName.Width = 550;
+            textBoxNewModuleName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(EN, "Name for the new module:"));
+            textBoxNewModuleName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(DE, "Name für das neue Modul:"));
+
+            pluginSettings.AddSettingControl(textBoxNewModuleName);
+
+            AinDevHelperSettingTextBoxControl textBoxNewEnumName = new AinDevHelperSettingTextBoxControl("newEnumName", "Название для нового enum:", "my-angular-enum");
+            textBoxNewEnumName.OffsetLeft = 10;
+            textBoxNewEnumName.Width = 550;
+            textBoxNewEnumName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(EN, "Name for new enum:"));
+            textBoxNewEnumName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(DE, "Name für die neue Enumeration:"));
+
+            pluginSettings.AddSettingControl(textBoxNewEnumName);
+
+            AinDevHelperSettingTextBoxControl textBoxNewInterfaceName = new AinDevHelperSettingTextBoxControl("newInterfaceName", "Название для нового интерфейса:", "my-angular-interface");
+            textBoxNewInterfaceName.OffsetLeft = 10;
+            textBoxNewInterfaceName.Width = 550;
+            textBoxNewInterfaceName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(EN, "Name for the new interface:"));
+            textBoxNewInterfaceName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(DE, "Name für die neue Schnittstelle:"));
+
+            pluginSettings.AddSettingControl(textBoxNewInterfaceName);
+
+            AinDevHelperSettingTextBoxControl textBoxNewResolverName = new AinDevHelperSettingTextBoxControl("newResolverName", "Название для нового резолвера (resolver):", "my-angular-resolver");
+            textBoxNewResolverName.OffsetLeft = 10;
+            textBoxNewResolverName.Width = 550;
+            textBoxNewResolverName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(EN, "Name for the new resolver:"));
+            textBoxNewResolverName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(DE, "Name für den neuen Resolver:"));
+
+            pluginSettings.AddSettingControl(textBoxNewResolverName);
+
+
+            AinDevHelperSettingTextBoxControl textBoxNewPipeName = new AinDevHelperSettingTextBoxControl("newPipeName", "Название для нового пайпа (pipe):", "my-angular-pipe");
+            textBoxNewPipeName.OffsetLeft = 10;
+            textBoxNewPipeName.Width = 550;
+            textBoxNewPipeName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(EN, "Name for the new pipe:"));
+            textBoxNewPipeName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(DE, "Name für die neue Pipe:"));
+
+            pluginSettings.AddSettingControl(textBoxNewPipeName);
+
+            AinDevHelperSettingTextBoxControl textBoxNewDirectiveName = new AinDevHelperSettingTextBoxControl("newDirectiveName", "Название для новой директивы (directive):", "my-angular-directive");
+            textBoxNewDirectiveName.OffsetLeft = 10;
+            textBoxNewDirectiveName.Width = 550;
+            textBoxNewDirectiveName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(EN, "Name for the new directive:"));
+            textBoxNewDirectiveName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(DE, "Name für die neue Angular-Direktive:"));
+
+            pluginSettings.AddSettingControl(textBoxNewDirectiveName);
+
+            AinDevHelperSettingTextBoxControl textBoxNewWebWorkerName = new AinDevHelperSettingTextBoxControl("newWebWorkerName", "Название для нового web-worker:", "my-angular-web-worker");
+            textBoxNewWebWorkerName.OffsetLeft = 10;
+            textBoxNewWebWorkerName.Width = 550;
+            textBoxNewWebWorkerName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(EN, "Name for the new web-worker:"));
+            textBoxNewWebWorkerName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(DE, "Name für den neuen Web-Worker:"));
+
+            pluginSettings.AddSettingControl(textBoxNewWebWorkerName);
+
+            AinDevHelperSettingTextBoxControl textBoxNewGuardName = new AinDevHelperSettingTextBoxControl("newGuardName", "Название для нового защитника (guard):", "my-angular-guard");
+            textBoxNewGuardName.OffsetLeft = 10;
+            textBoxNewGuardName.Width = 550;
+            textBoxNewGuardName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(EN, "Name for the new guard:"));
+            textBoxNewGuardName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(DE, "Name für den neuen Guard:"));
+
+            pluginSettings.AddSettingControl(textBoxNewGuardName);
+
+
+            AinDevHelperSettingTextBoxControl textBoxNewInterceptorName = new AinDevHelperSettingTextBoxControl("newInterceptorName", "Название для нового перехватчика (interceptor):", "my-angular-interceptor");
+            textBoxNewInterceptorName.OffsetLeft = 10;
+            textBoxNewInterceptorName.Width = 550;
+            textBoxNewInterceptorName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(EN, "Name for the new interceptor:"));
+            textBoxNewInterceptorName.LocalizedLabels.Add(new AinDevHelperLocalizedMessage(DE, "Name für den neuen Interceptor:"));
+
+            pluginSettings.AddSettingControl(textBoxNewInterceptorName);
         }
     }
 }

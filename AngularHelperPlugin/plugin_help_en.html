@@ -22,7 +22,7 @@ limitations under the License.
     <link rel="stylesheet" type="text/css" href="./../common-plugin-styles.css" />
 </head>
 <body>
-    <h1 class="title">Angular Helper Plugin - Documentation</h1>
+    <h1 id="toc" class="title">Angular Helper Plugin - Documentation</h1>
     <h2>About the plugin</h2>
     <p class="justify">
         A plugin that provides Angular developers with various useful actions, such as obtaining information about Angular CLI, NPM, Node.js versions, and also makes it easier to create new applications and components in Angular.
@@ -35,6 +35,20 @@ limitations under the License.
         <li><a href="#show_active_npm_version">Show currently active NPM version</a></li>
         <li><a href="#create_new_angular_app_via_angular_cli">Create a new Angular application via Angular CLI</a></li>
         <li><a href="#create_new_angular_component_via_angular_cli">Create a new Angular component via Angular CLI</a></li>
+        <li><a href="#create_new_angular_service_via_angular_cli">Create a new Angular service via Angular CLI</a></li>
+        <li><a href="#create_new_angular_config_via_angular_cli">Create a new configuration file via Angular CLI</a></li>
+        <li><a href="#create_new_angular_library_via_angular_cli">Create a new library via Angular CLI</a></li>
+        <li><a href="#create_new_angular_module_via_angular_cli">Create a new module via Angular CLI</a></li>
+        <li><a href="#create_new_angular_enum_via_angular_cli">Create a new enum via Angular CLI</a></li>
+        <li><a href="#create_new_angular_interface_via_angular_cli">Create a new interface via Angular CLI</a></li>
+        <li><a href="#create_new_angular_resolver_via_angular_cli">Create a new resolver via Angular CLI</a></li>
+        <li><a href="#create_new_angular_pipe_via_angular_cli">Create a new pipe via Angular CLI</a></li>
+        <li><a href="#create_new_angular_directive_via_angular_cli">Create a new directive via Angular CLI</a></li>
+        <li><a href="#create_new_angular_service_worker_via_angular_cli">Create service-worker via Angular CLI</a></li>
+        <li><a href="#create_new_angular_web_worker_via_angular_cli">Create a new web-worker via Angular CLI</a></li>
+        <li><a href="#create_new_angular_guard_via_angular_cli">Create a new guard via Angular CLI</a></li>
+        <li><a href="#create_new_angular_interceptor_via_angular_cli">Create a new interceptor via Angular CLI</a></li>
+        <li><a href="#generate_environments_via_angular_cli">Generate environments for a project via Angular CLI</a></li>
     </ul>
 
     <h2>Description of actions</h2>
@@ -45,14 +59,20 @@ limitations under the License.
     <p class="justify">The action displays the currently active version of Angular CLI installed on the machine.</p>
     <p class="justify">The plugin executes the command <span class="code">cmd /c ng version 1> angular_cli_version.txt</span>, starting the process <span class="code">cmd</span> with arguments <span class="code">ng version 1> angular_cli_version.txt</span> and the <span class="code">/c</span> key, so the result of the command is written to the temporary file <i>angular_cli_version.txt</i>.</p>
 
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
     <h3 id="show_active_nodejs_version">Show the current active version of Node.js</h3>
     <p class="justify">The action displays the current active version of Node.js installed on the machine.</p>
     <p class="justify">When the action is executed, the plugin executes the command <span class="code">cmd /c node -v 1> node_version.txt</span>, starting the <span class="code">cmd</span> process with the arguments <span class="code">node -v 1> node_version.txt</span> and the key <span class="code">/c</span>, so the result of the command is written to the temporary file <i>node_version.txt</i>.</p>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
 
     <h3 id="show_active_npm_version">Show currently active NPM version</h3>
 
     <p class="justify">The action displays the currently active version of NPM installed on the computer.</p>
     <p class="justify">When the action is executed, the plugin executes the command <span class="code">cmd /c npm -v 1> npm_version.txt</span>, starting the process <span class="code">cmd</span> with the arguments <span class="code">node -v 1> node_version.txt</span> and the key <span class="code">/c</span>, so the result of the command is written to the temporary file <i>npm_version.txt</i>.</p>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
 
     <h3 id="create_new_angular_app_via_angular_cli">Create a new Angular application via Angular CLI</h3>
 
@@ -69,13 +89,15 @@ limitations under the License.
         <li><b>appPath</b> - working directory for creating a new Angular application when creating it and starting the <span class="code">cmd</span> process</li>
     </ul>
 
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
     <h3 id="create_new_angular_component_via_angular_cli">Create a new Angular component via Angular CLI</h3>
 
     <p class="justify">A parameterized action allows you to create a new component in an already created Angular application using the Angular CLI tools.</p>
     <p class="justify">
         When the action is executed, the plugin executes the command <span class="code">cmd /c ng generate component ${newComponentName} 1> new_angular_component.txt 2> new_angular_component_error.txt</span>,
         starting the <span class="code">cmd process </span> with arguments <span class="code">ng generate component ${newComponentName} 1> new_angular_component.txt 2> new_angular_component_error.txt</span>
-        and key <span class="code">/c</span>, thus the result of the command execution is written to the temporary file <i>new_angular_component.txt</i> if there are no command execution errors and to the file <i>new_angular_component_error</i> if there are errors.
+        and key <span class="code">/c</span>, thus the result of the command execution is written to the temporary file <i>new_angular_component.txt</i> if there are no command execution errors and to the file <i>new_angular_component_error.txt</i> if there are errors.
     </p>
 
     <h4>Action Parameters</h4>
@@ -83,5 +105,257 @@ limitations under the License.
         <li><b>appPath</b> - a directory with an already created Angular application in which you want to create a new component</li>
         <li><b>newComponentName</b> - name of the new Angular component</li>
     </ul>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+    <h3 id="create_new_angular_service_via_angular_cli">Create a new Angular service via Angular CLI</h3>
+
+    <p class="justify">A parameterized action allows you to create a new service in an already created Angular application using the Angular CLI.</p>
+    <p class="justify">
+        When executing the action, the plugin executes the command <span class="code">cmd /c ng generate service ${newServiceName} 1> new_angular_service.txt 2> new_angular_service_error.txt</span>,
+        starting the process <span class="code">cmd</span> with the arguments <span class="code">ng generate service ${newServiceName} 1> new_angular_service.txt 2> new_angular_service_error.txt</span> and the key
+        <span class="code">/c</span>, thus, the result of the command execution is written to the temporary file <i>new_angular_service.txt</i> if there are no command execution errors and
+        to the file <i>new_angular_service_error.txt</i> if there are errors.
+    </p>
+
+    <h4>Action Parameters</h4>
+    <ul>
+        <li><b>appPath</b> - directory with an already created Angular application in which you want to create a new service</li>
+        <li><b>newServiceName</b> - название нового Angular сервиса</li>
+    </ul>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+    <h3 id="create_new_angular_config_via_angular_cli">Create a new configuration file via Angular CLI</h3>
+
+    <p class="justify">A parameterized action allows you to create a new configuration file in an already created Angular application via the Angular CLI.</p>
+    <p class="justify">
+        When executing an action, the plugin executes the command <span class="code">cmd /c ng generate config ${newConfigType} 1> new_angular_config.txt 2> new_angular_config_error.txt</span>,
+        starting the process <span class="code">cmd</span> with the arguments <span class="code">ng generate config ${newConfigType} 1> new_angular_config.txt 2> new_angular_config_error.txt</span> and the key
+        <span class="code">/c</span>, thus, the result of the command execution is written to the temporary file <i>new_angular_config.txt</i> if there are no command execution errors and
+        to the file <i>new_angular_config_error.txt</i> if there are errors.
+    </p>
+
+    <h4>Action Parameters</h4>
+    <ul>
+        <li><b>appPath</b> - directory with an already created Angular application in which you want to create a new configuration file</li>
+        <li><b>newConfigType</b> - configuration file type. One of the available values ​​<span class="code">karma</span> or <span class="code">browserslist</span>, specifying the type of configuration file to create</li>
+    </ul>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+    <h3 id="create_new_angular_library_via_angular_cli">Create a new library via Angular CLI</h3>
+
+    <p class="justify">A parameterized action allows you to create a new library in an already created Angular application using the Angular CLI.</p>
+    <p class="justify">
+        When executing the action, the plugin executes the command <span class="code">cmd /c ng generate library ${newLibraryName} 1> new_angular_library.txt 2> new_angular_library_error.txt</span>,
+        starting the process <span class="code">cmd</span> with the arguments <span class="code">ng generate library ${newLibraryName} 1> new_angular_library.txt 2> new_angular_library_error.txt</span> and the key
+        <span class="code">/c</span>, thus, the result of the command execution is written to the temporary file <i>new_angular_library.txt</i> if there are no command execution errors and
+        to the file <i>new_angular_library_error.txt</i> if there are errors.
+    </p>
+
+    <h4>Action Parameters</h4>
+    <ul>
+        <li><b>appPath</b> - directory with an already created Angular application in which you want to create a new library</li>
+        <li><b>newLibraryName</b> - name of the new Angular library</li>
+    </ul>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+    <h3 id="create_new_angular_module_via_angular_cli">Create a new module via Angular CLI</h3>
+
+    <p class="justify">A parameterized action allows you to create a new module in an already created Angular application using the Angular CLI.</p>
+    <p class="justify">
+        When executing an action, the plugin executes the command <span class="code">cmd /c ng generate module ${newModuleName} 1> new_angular_module.txt 2> new_angular_module_error.txt</span>,
+        starting the process <span class="code">cmd</span> with the arguments <span class="code">ng generate module ${newModuleName} 1> new_angular_module.txt 2> new_angular_module_error.txt</span> and the key
+        <span class="code">/c</span>, thus, the result of the command execution is written to the temporary file <i>new_angular_module.txt</i> if there are no command execution errors and
+        to the file <i>new_angular_module_error.txt</i> if there are errors.
+    </p>
+
+    <h4>Action Parameters</h4>
+    <ul>
+        <li><b>appPath</b> - directory with an already created Angular application in which you want to create a new module</li>
+        <li><b>newModuleName</b> - name of the new Angular module</li>
+    </ul>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+    <h3 id="create_new_angular_enum_via_angular_cli">Create a new enum via Angular CLI</h3>
+
+    <p class="justify">A parameterized action allows you to create a new enum in an already created Angular application via the Angular CLI.</p>
+    <p class="justify">
+        When executing an action, the plugin executes the command <span class="code">cmd /c ng generate enum ${newEnumName} 1> new_angular_enum.txt 2> new_angular_enum_error.txt</span>,
+        starting the process <span class="code">cmd</span> with the arguments <span class="code">ng generate enum ${newEnumName} 1> new_angular_enum.txt 2> new_angular_enum_error.txt</span> and the key
+        <span class="code">/c</span>, thus, the result of the command execution is written to the temporary file <i>new_angular_enum.txt</i> if there are no command execution errors and
+        to the file <i>new_angular_enum_error.txt</i> if there are errors.
+    </p>
+
+    <h4>Action Parameters</h4>
+    <ul>
+        <li><b>appPath</b> - directory with an already created Angular application in which you want to create a new enum</li>
+        <li><b>newEnumName</b> - name of the new Angular enum</li>
+    </ul>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+    <h3 id="create_new_angular_interface_via_angular_cli">Create a new interface via Angular CLI</h3>
+
+    <p class="justify">A parameterized action allows you to create a new interface in an already created Angular application using the Angular CLI.</p>
+    <p class="justify">
+        When executing an action, the plugin executes the command <span class="code">cmd /c ng generate interface ${newInterfaceName} 1> new_angular_interface.txt 2> new_angular_interface_error.txt</span>,
+        starting the process <span class="code">cmd</span> with the arguments <span class="code">ng generate interface ${newInterfaceName} 1> new_angular_interface.txt 2> new_angular_interface_error.txt</span> and the key
+        <span class="code">/c</span>, thus, the result of the command execution is written to the temporary file <i>new_angular_interface.txt</i> if there are no command execution errors and
+        to the file <i>new_angular_interface_error.txt</i> if there are errors.
+    </p>
+
+    <h4>Action Parameters</h4>
+    <ul>
+        <li><b>appPath</b> - directory with an already created Angular application in which you want to create a new interface</li>
+        <li><b>newInterfaceName</b> - name of the new Angular interface</li>
+    </ul>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+    <h3 id="create_new_angular_resolver_via_angular_cli">Create a new resolver via Angular CLI</h3>
+
+    <p class="justify">A parameterized action allows you to create a new resolver in an already created Angular application via the Angular CLI.</p>
+    <p class="justify">
+        When executing an action, the plugin executes the command <span class="code">cmd /c ng generate resolver ${newResolverName} 1> new_angular_resolver.txt 2> new_angular_resolver_error.txt</span>,
+        starting the process <span class="code">cmd</span> with the arguments <span class="code">ng generate resolver ${newResolverName} 1> new_angular_resolver.txt 2> new_angular_resolver_error.txt</span> and the key
+        <span class="code">/c</span>, thus, the result of the command execution is written to the temporary file <i>new_angular_resolver.txt</i> if there are no command execution errors and
+        to the file <i>new_angular_resolver_error.txt</i> if there are errors.
+    </p>
+
+    <h4>Action Parameters</h4>
+    <ul>
+        <li><b>appPath</b> - directory with an already created Angular application in which you want to create a new resolver</li>
+        <li><b>newResolverName</b> - name of the new Angular resolver</li>
+    </ul>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+    <h3 id="create_new_angular_pipe_via_angular_cli">Create a new pipe via Angular CLI</h3>
+
+    <p class="justify">A parameterized action allows you to create a new pipe in an already created Angular application via the Angular CLI.</p>
+    <p class="justify">
+        When executing the action, the plugin executes the command <span class="code">cmd /c ng generate pipe ${newPipeName} 1> new_angular_pipe.txt 2> new_angular_pipe_error.txt</span>,
+        starting the process <span class="code">cmd</span> with the arguments <span class="code">ng generate pipe ${newPipeName} 1> new_angular_pipe.txt 2> new_angular_pipe_error.txt</span> and the key
+        <span class="code">/c</span>, thus, the result of the command execution is written to the temporary file <i>new_angular_pipe.txt</i> if there are no command execution errors and
+        to the file <i>new_angular_pipe_error.txt</i> if there are errors.
+    </p>
+
+    <h4>Action Parameters</h4>
+    <ul>
+        <li><b>appPath</b> - directory with an already created Angular application in which you want to create a new pipe</li>
+        <li><b>newPipeName</b> - name of the new Angular pipe</li>
+    </ul>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+    <h3 id="create_new_angular_directive_via_angular_cli">Create a new directive via Angular CLI</h3>
+
+    <p class="justify">A parameterized action allows you to create a new directive in an already created Angular application via the Angular CLI.</p>
+    <p class="justify">
+        When executing an action, the plugin executes the command <span class="code">cmd /c ng generate directive ${newDirectiveName} 1> new_angular_directive.txt 2> new_angular_directive_error.txt</span>,
+        starting the process <span class="code">cmd</span> with the arguments <span class="code">ng generate directive ${newDirectiveName} 1> new_angular_directive.txt 2> new_angular_directive_error.txt</span> and the key
+        <span class="code">/c</span>, thus, the result of the command execution is written to the temporary file <i>new_angular_directive.txt</i> if there are no command execution errors and
+        to the file <i>new_angular_directive_error.txt</i> if there are errors.
+    </p>
+
+    <h4>Action Parameters</h4>
+    <ul>
+        <li><b>appPath</b> - directory with an already created Angular application in which you want to create a new directive</li>
+        <li><b>newDirectiveName</b> - name of the new Angular directive</li>
+    </ul>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+    <h3 id="create_new_angular_service_worker_via_angular_cli">Create service-worker via Angular CLI</h3>
+
+    <p class="justify">A parameterized action allows you to create a service worker in an already created Angular application via the Angular CLI.</p>
+    <p class="justify">
+        When executing the action, the plugin executes the command <span class="code">cmd /c ng generate service-worker 1> new_angular_service_worker.txt 2> new_angular_service_worker_error.txt</span>,
+        starting the process <span class="code">cmd</span> with the arguments <span class="code">ng generate service-worker 1> new_angular_service_worker.txt 2> new_angular_service_worker_error.txt</span> and the key
+        <span class="code">/c</span>, thus, the result of the command execution is written to the temporary file <i>new_angular_service_worker.txt</i> if there are no command execution errors and
+        to the file <i>new_angular_service_worker_error.txt</i> if there are errors.
+    </p>
+
+    <h4>Action Parameters</h4>
+    <ul>
+        <li><b>appPath</b> - directory with an already created Angular application in which you want to create a service-worker</li>
+    </ul>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+    <h3 id="create_new_angular_web_worker_via_angular_cli">Create a new web-worker via Angular CLI</h3>
+
+    <p class="justify">The parameterized action allows you to create a new web worker in an already created Angular application via the Angular CLI.</p>
+    <p class="justify">
+        When executing the action, the plugin executes the command <span class="code">cmd /c ng generate web-worker ${newWebWorkerName} 1> new_angular_web_worker.txt 2> new_angular_web_worker_error.txt</span>,
+        starting the process <span class="code">cmd</span> with the arguments <span class="code">ng generate web-worker ${newWebWorkerName} 1> new_angular_web_worker.txt 2> new_angular_web_worker_error.txt</span> and the key
+        <span class="code">/c</span>, thus, the result of the command execution is written to the temporary file <i>new_angular_web_worker.txt</i> if there are no command execution errors and
+        to the file <i>new_angular_web_worker_error.txt</i> if there are errors.
+    </p>
+
+    <h4>Action Parameters</h4>
+    <ul>
+        <li><b>appPath</b> - directory with an already created Angular application in which you want to create a new web-worker</li>
+        <li><b>newWebWorkerName</b> - name of the new Angular web-worker</li>
+    </ul>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+    <h3 id="create_new_angular_guard_via_angular_cli">Create a new guard via Angular CLI</h3>
+
+    <p class="justify">A parameterized action allows you to create a new guard in an already created Angular application via the Angular CLI.</p>
+    <p class="justify">
+        When executing the action, the plugin executes the command <span class="code">cmd /c ng generate guard ${newGuardName} 1> new_angular_guard.txt 2> new_angular_guard_error.txt</span>,
+        starting the process <span class="code">cmd</span> with the arguments <span class="code">ng generate guard ${newGuardName} 1> new_angular_guard.txt 2> new_angular_guard_error.txt</span> and the key
+        <span class="code">/c</span>, thus, the result of the command execution is written to the temporary file <i>new_angular_guard.txt</i> if there are no command execution errors and
+        to the file <i>new_angular_guard_error.txt</i> if there are errors.
+    </p>
+
+    <h4>Action Parameters</h4>
+    <ul>
+        <li><b>appPath</b> - directory with an already created Angular application in which you want to create a new guard</li>
+        <li><b>newGuardName</b> - name of the new Angular guard</li>
+    </ul>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+    <h3 id="create_new_angular_interceptor_via_angular_cli">Create a new interceptor via Angular CLI</h3>
+
+    <p class="justify">A parameterized action allows you to create a new interceptor in an already created Angular application via the Angular CLI.</p>
+    <p class="justify">
+        When executing an action, the plugin executes the command <span class="code">cmd /c ng generate interceptor ${newInterceptorName} 1> new_angular_interceptor.txt 2> new_angular_interceptor_error.txt</span>,
+        starting the process <span class="code">cmd</span> with the arguments <span class="code">ng generate interceptor ${newInterceptorName} 1> new_angular_interceptor.txt 2> new_angular_interceptor_error.txt</span> and the key
+        <span class="code">/c</span>, thus, the result of the command execution is written to the temporary file <i>new_angular_interceptor.txt</i> if there are no command execution errors and
+        to the file <i>new_angular_interceptor_error.txt</i> if there are errors.
+    </p>
+
+    <h4>Action Parameters</h4>
+    <ul>
+        <li><b>appPath</b> - directory with an already created Angular application in which you want to create a new interceptor</li>
+        <li><b>newInterceptorName</b> - name of the new Angular interceptor</li>
+    </ul>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
+
+    <h3 id="generate_environments_via_angular_cli">Generate environments for a project via Angular CLI</h3>
+
+    <p class="justify">The parameterized action allows you to generate environment files in an already created Angular application via the Angular CLI.</p>
+    <p class="justify">
+        When executing the action, the plugin executes the command <span class="code">cmd /c ng generate environments 1> new_angular_environments.txt 2> new_angular_environments_error.txt</span>,
+        starting the process <span class="code">cmd</span> with the arguments <span class="code">ng generate environments 1> new_angular_environments.txt 2> new_angular_environments_error.txt</span> and the key
+        <span class="code">/c</span>, thus, the result of the command execution is written to the temporary file <i>new_angular_environments.txt</i> if there are no command execution errors and
+        to the file <i>new_angular_environments_error.txt</i> if there are errors.
+    </p>
+
+    <h4>Action Parameters</h4>
+    <ul>
+        <li><b>appPath</b> - directory with an already created Angular application in which you want to generate environments</li>
+    </ul>
+
+    <a href="#toc" title="To Contents">▲ To Contents</a>
 </body>
 </html>

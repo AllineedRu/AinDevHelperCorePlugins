@@ -22,7 +22,7 @@ limitations under the License.
     <link rel="stylesheet" type="text/css" href="./../common-plugin-styles.css" />
 </head>
 <body>
-    <h1 class="title">Angular Helper Plugin - Документация</h1>
+    <h1 id="toc" class="title">Angular Helper Plugin - Документация</h1>
     <h2>О плагине</h2>
     <p class="justify">
         Плагин, предоставляющий разработчикам на Angular различные полезные действия, такие как получение информации о версиях Angular CLI, NPM, Node.js, а также облегчающий создание новых приложений и компонентов на Angular.
@@ -35,6 +35,20 @@ limitations under the License.
         <li><a href="#show_active_npm_version">Показать текущую активную версию NPM</a></li>
         <li><a href="#create_new_angular_app_via_angular_cli">Создать новое Angular приложение через Angular CLI</a></li>
         <li><a href="#create_new_angular_component_via_angular_cli">Создать новый Angular компонент через Angular CLI</a></li>
+        <li><a href="#create_new_angular_service_via_angular_cli">Создать новый Angular сервис через Angular CLI</a></li>
+        <li><a href="#create_new_angular_config_via_angular_cli">Создать новый конфигурационный файл через Angular CLI</a></li>
+        <li><a href="#create_new_angular_library_via_angular_cli">Создать новую библиотеку через Angular CLI</a></li>
+        <li><a href="#create_new_angular_module_via_angular_cli">Создать новый модуль через Angular CLI</a></li>
+        <li><a href="#create_new_angular_enum_via_angular_cli">Создать новый enum через Angular CLI</a></li>
+        <li><a href="#create_new_angular_interface_via_angular_cli">Создать новый интерфейс через Angular CLI</a></li>
+        <li><a href="#create_new_angular_resolver_via_angular_cli">Создать новый резолвер (resolver) через Angular CLI</a></li>
+        <li><a href="#create_new_angular_pipe_via_angular_cli">Создать новый пайп (pipe) через Angular CLI</a></li>
+        <li><a href="#create_new_angular_directive_via_angular_cli">Создать новую директиву (directive) через Angular CLI</a></li>
+        <li><a href="#create_new_angular_service_worker_via_angular_cli">Создать service-worker через Angular CLI</a></li>
+        <li><a href="#create_new_angular_web_worker_via_angular_cli">Создать web-worker через Angular CLI</a></li>
+        <li><a href="#create_new_angular_guard_via_angular_cli">Создать защитника (guard) через Angular CLI</a></li>
+        <li><a href="#create_new_angular_interceptor_via_angular_cli">Создать перехватчика (interceptor) через Angular CLI</a></li>
+        <li><a href="#generate_environments_via_angular_cli">Сгенерировать окружения (environments) для проекта через Angular CLI</a></li>
     </ul>
 
     <h2>Описание действий</h2>
@@ -48,12 +62,16 @@ limitations under the License.
         таким образом результат выполнения команды записывается во временный файл <i>angular_cli_version.txt</i>.
     </p>
 
+    <a href="#toc" title="К оглавлению">▲ К оглавлению</a>
+
     <h3 id="show_active_nodejs_version">Показать текущую активную версию Node.js</h3>
     <p class="justify">Действие отображает текущую активную версию Node.js, установленную на компьютере.</p>
     <p class="justify">
         При выполнении действия плагин выполняет команду <span class="code">cmd /c node -v 1> node_version.txt</span>, запуская процесс <span class="code">cmd</span> с аргументами <span class="code">node -v 1> node_version.txt</span> и ключом <span class="code">/c</span>,
         таким образом результат выполнения команды записывается во временный файл <i>node_version.txt</i>.
     </p>
+
+    <a href="#toc" title="К оглавлению">▲ К оглавлению</a>
 
     <h3 id="show_active_npm_version">Показать текущую активную версию NPM</h3>
 
@@ -62,6 +80,8 @@ limitations under the License.
         При выполнении действия плагин выполняет команду <span class="code">cmd /c npm -v 1> npm_version.txt</span>, запуская процесс <span class="code">cmd</span> с аргументами <span class="code">node -v 1> node_version.txt</span> и ключом <span class="code">/c</span>,
         таким образом результат выполнения команды записывается во временный файл <i>npm_version.txt</i>.
     </p>
+
+    <a href="#toc" title="К оглавлению">▲ К оглавлению</a>
 
     <h3 id="create_new_angular_app_via_angular_cli">Создать новое Angular приложение через Angular CLI</h3>
 
@@ -77,13 +97,15 @@ limitations under the License.
         <li><b>appPath</b> - рабочий каталог для создания нового Angular приложения при его создании и запуске процесса <span class="code">cmd</span></li>
     </ul>
 
+    <a href="#toc" title="К оглавлению">▲ К оглавлению</a>
+
     <h3 id="create_new_angular_component_via_angular_cli">Создать новый Angular компонент через Angular CLI</h3>
 
     <p class="justify">Параметризованное действие позволяет создать через средства Angular CLI новый компонент в уже созданном приложении Angular.</p>
     <p class="justify">
         При выполнении действия плагин выполняет команду <span class="code">cmd /c ng generate component ${newComponentName} 1> new_angular_component.txt 2> new_angular_component_error.txt</span>,
         запуская процесс <span class="code">cmd</span> с аргументами <span class="code">ng generate component ${newComponentName} 1> new_angular_component.txt 2> new_angular_component_error.txt</span> и ключом <span class="code">/c</span>,
-        таким образом результат выполнения команды записывается во временный файл <i>new_angular_component.txt</i> при отсутствии ошибок исполнения команды и в файл <i>new_angular_component_error</i> при наличии ошибок.
+        таким образом, результат выполнения команды записывается во временный файл <i>new_angular_component.txt</i> при отсутствии ошибок исполнения команды и в файл <i>new_angular_component_error.txt</i> при наличии ошибок.
     </p>
 
     <h4>Параметры действия</h4>
@@ -91,5 +113,243 @@ limitations under the License.
         <li><b>appPath</b> - каталог с уже созданным приложением Angular, в котором требуется создать новый компонент</li>
         <li><b>newComponentName</b> - название нового Angular компонента</li>
     </ul>
+
+    <a href="#toc" title="К оглавлению">▲ К оглавлению</a>
+
+    <h3 id="create_new_angular_service_via_angular_cli">Создать новый Angular сервис через Angular CLI</h3>
+
+    <p class="justify">Параметризованное действие позволяет создать через средства Angular CLI новый сервис в уже созданном приложении Angular.</p>
+    <p class="justify">
+        При выполнении действия плагин выполняет команду <span class="code">cmd /c ng generate service ${newServiceName} 1> new_angular_service.txt 2> new_angular_service_error.txt</span>,
+        запуская процесс <span class="code">cmd</span> с аргументами <span class="code">ng generate service ${newServiceName} 1> new_angular_service.txt 2> new_angular_service_error.txt</span> и ключом <span class="code">/c</span>,
+        таким образом, результат выполнения команды записывается во временный файл <i>new_angular_service.txt</i> при отсутствии ошибок исполнения команды и в файл <i>new_angular_service_error.txt</i> при наличии ошибок.
+    </p>
+
+    <h4>Параметры действия</h4>
+    <ul>
+        <li><b>appPath</b> - каталог с уже созданным приложением Angular, в котором требуется создать новый сервис</li>
+        <li><b>newServiceName</b> - название нового Angular сервиса</li>
+    </ul>
+
+    <a href="#toc" title="К оглавлению">▲ К оглавлению</a>
+
+    <h3 id="create_new_angular_config_via_angular_cli">Создать новый конфигурационный файл через Angular CLI</h3>
+
+    <p class="justify">Параметризованное действие позволяет создать через средства Angular CLI новый конфигурационный файл в уже созданном приложении Angular.</p>
+    <p class="justify">
+        При выполнении действия плагин выполняет команду <span class="code">cmd /c ng generate config ${newConfigType} 1> new_angular_config.txt 2> new_angular_config_error.txt</span>,
+        запуская процесс <span class="code">cmd</span> с аргументами <span class="code">ng generate config ${newConfigType} 1> new_angular_config.txt 2> new_angular_config_error.txt</span> и ключом <span class="code">/c</span>,
+        таким образом, результат выполнения команды записывается во временный файл <i>new_angular_config.txt</i> при отсутствии ошибок исполнения команды и в файл <i>new_angular_config_error.txt</i> при наличии ошибок.
+    </p>
+
+    <h4>Параметры действия</h4>
+    <ul>
+        <li><b>appPath</b> - каталог с уже созданным приложением Angular, в котором требуется создать новый конфигурационный файл</li>
+        <li><b>newConfigType</b> - тип конфигурационного файла. Одно из доступных значений <span class="code">karma</span> или <span class="code">browserslist</span>, задающее тип конфигурационного файла, который необходимо создать</li>
+    </ul>
+
+    <a href="#toc" title="К оглавлению">▲ К оглавлению</a>
+
+    <h3 id="create_new_angular_library_via_angular_cli">Создать новую библиотеку через Angular CLI</h3>
+
+    <p class="justify">Параметризованное действие позволяет создать через средства Angular CLI новую библиотеку в уже созданном приложении Angular.</p>
+    <p class="justify">
+        При выполнении действия плагин выполняет команду <span class="code">cmd /c ng generate library ${newLibraryName} 1> new_angular_library.txt 2> new_angular_library_error.txt</span>,
+        запуская процесс <span class="code">cmd</span> с аргументами <span class="code">ng generate library ${newLibraryName} 1> new_angular_library.txt 2> new_angular_library_error.txt</span> и ключом <span class="code">/c</span>,
+        таким образом, результат выполнения команды записывается во временный файл <i>new_angular_library.txt</i> при отсутствии ошибок исполнения команды и в файл <i>new_angular_library_error.txt</i> при наличии ошибок.
+    </p>
+
+    <h4>Параметры действия</h4>
+    <ul>
+        <li><b>appPath</b> - каталог с уже созданным приложением Angular, в котором требуется создать новую библиотеку</li>
+        <li><b>newLibraryName</b> - название новой Angular библиотеки</li>
+    </ul>
+
+    <a href="#toc" title="К оглавлению">▲ К оглавлению</a>
+
+    <h3 id="create_new_angular_module_via_angular_cli">Создать новый модуль через Angular CLI</h3>
+
+    <p class="justify">Параметризованное действие позволяет создать через средства Angular CLI новый модуль в уже созданном приложении Angular.</p>
+    <p class="justify">
+        При выполнении действия плагин выполняет команду <span class="code">cmd /c ng generate module ${newModuleName} 1> new_angular_module.txt 2> new_angular_module_error.txt</span>,
+        запуская процесс <span class="code">cmd</span> с аргументами <span class="code">ng generate module ${newModuleName} 1> new_angular_module.txt 2> new_angular_module_error.txt</span> и ключом <span class="code">/c</span>,
+        таким образом, результат выполнения команды записывается во временный файл <i>new_angular_module.txt</i> при отсутствии ошибок исполнения команды и в файл <i>new_angular_module_error.txt</i> при наличии ошибок.
+    </p>
+
+    <h4>Параметры действия</h4>
+    <ul>
+        <li><b>appPath</b> - каталог с уже созданным приложением Angular, в котором требуется создать новый модуль</li>
+        <li><b>newModuleName</b> - название нового Angular модуля</li>
+    </ul>
+
+    <a href="#toc" title="К оглавлению">▲ К оглавлению</a>
+
+    <h3 id="create_new_angular_enum_via_angular_cli">Создать новый enum через Angular CLI</h3>
+
+    <p class="justify">Параметризованное действие позволяет создать через средства Angular CLI новый enum в уже созданном приложении Angular.</p>
+    <p class="justify">
+        При выполнении действия плагин выполняет команду <span class="code">cmd /c ng generate enum ${newEnumName} 1> new_angular_enum.txt 2> new_angular_enum_error.txt</span>,
+        запуская процесс <span class="code">cmd</span> с аргументами <span class="code">ng generate enum ${newEnumName} 1> new_angular_enum.txt 2> new_angular_enum_error.txt</span> и ключом <span class="code">/c</span>,
+        таким образом, результат выполнения команды записывается во временный файл <i>new_angular_enum.txt</i> при отсутствии ошибок исполнения команды и в файл <i>new_angular_enum_error.txt</i> при наличии ошибок.
+    </p>
+
+    <h4>Параметры действия</h4>
+    <ul>
+        <li><b>appPath</b> - каталог с уже созданным приложением Angular, в котором требуется создать новый enum</li>
+        <li><b>newEnumName</b> - название нового Angular enum</li>
+    </ul>
+
+    <a href="#toc" title="К оглавлению">▲ К оглавлению</a>
+
+    <h3 id="create_new_angular_interface_via_angular_cli">Создать новый интерфейс через Angular CLI</h3>
+
+    <p class="justify">Параметризованное действие позволяет создать через средства Angular CLI новый интерфейс в уже созданном приложении Angular.</p>
+    <p class="justify">
+        При выполнении действия плагин выполняет команду <span class="code">cmd /c ng generate interface ${newInterfaceName} 1> new_angular_interface.txt 2> new_angular_interface_error.txt</span>,
+        запуская процесс <span class="code">cmd</span> с аргументами <span class="code">ng generate interface ${newInterfaceName} 1> new_angular_interface.txt 2> new_angular_interface_error.txt</span> и ключом <span class="code">/c</span>,
+        таким образом, результат выполнения команды записывается во временный файл <i>new_angular_interface.txt</i> при отсутствии ошибок исполнения команды и в файл <i>new_angular_interface_error.txt</i> при наличии ошибок.
+    </p>
+
+    <h4>Параметры действия</h4>
+    <ul>
+        <li><b>appPath</b> - каталог с уже созданным приложением Angular, в котором требуется создать новый интерфейс</li>
+        <li><b>newInterfaceName</b> - название нового Angular интерфейса</li>
+    </ul>
+
+    <a href="#toc" title="К оглавлению">▲ К оглавлению</a>
+
+    <h3 id="create_new_angular_resolver_via_angular_cli">Создать новый резолвер (resolver) через Angular CLI</h3>
+
+    <p class="justify">Параметризованное действие позволяет создать через средства Angular CLI новый резолвер (resolver) в уже созданном приложении Angular.</p>
+    <p class="justify">
+        При выполнении действия плагин выполняет команду <span class="code">cmd /c ng generate resolver ${newResolverName} 1> new_angular_resolver.txt 2> new_angular_resolver_error.txt</span>,
+        запуская процесс <span class="code">cmd</span> с аргументами <span class="code">ng generate resolver ${newResolverName} 1> new_angular_resolver.txt 2> new_angular_resolver_error.txt</span> и ключом <span class="code">/c</span>,
+        таким образом, результат выполнения команды записывается во временный файл <i>new_angular_resolver.txt</i> при отсутствии ошибок исполнения команды и в файл <i>new_angular_resolver_error.txt</i> при наличии ошибок.
+    </p>
+
+    <h4>Параметры действия</h4>
+    <ul>
+        <li><b>appPath</b> - каталог с уже созданным приложением Angular, в котором требуется создать новый резолвер (resolver)</li>
+        <li><b>newResolverName</b> - название нового Angular резолвера (resolver)</li>
+    </ul>
+
+    <a href="#toc" title="К оглавлению">▲ К оглавлению</a>
+
+    <h3 id="create_new_angular_pipe_via_angular_cli">Создать новый пайп (pipe) через Angular CLI</h3>
+
+    <p class="justify">Параметризованное действие позволяет создать через средства Angular CLI новый пайп (pipe) в уже созданном приложении Angular.</p>
+    <p class="justify">
+        При выполнении действия плагин выполняет команду <span class="code">cmd /c ng generate pipe ${newPipeName} 1> new_angular_pipe.txt 2> new_angular_pipe_error.txt</span>,
+        запуская процесс <span class="code">cmd</span> с аргументами <span class="code">ng generate pipe ${newPipeName} 1> new_angular_pipe.txt 2> new_angular_pipe_error.txt</span> и ключом <span class="code">/c</span>,
+        таким образом, результат выполнения команды записывается во временный файл <i>new_angular_pipe.txt</i> при отсутствии ошибок исполнения команды и в файл <i>new_angular_pipe_error.txt</i> при наличии ошибок.
+    </p>
+
+    <h4>Параметры действия</h4>
+    <ul>
+        <li><b>appPath</b> - каталог с уже созданным приложением Angular, в котором требуется создать новый пайп (pipe)</li>
+        <li><b>newPipeName</b> - название нового Angular пайпа (pipe)</li>
+    </ul>
+
+    <a href="#toc" title="К оглавлению">▲ К оглавлению</a>
+
+    <h3 id="create_new_angular_directive_via_angular_cli">Создать новую директиву (directive) через Angular CLI</h3>
+
+    <p class="justify">Параметризованное действие позволяет создать через средства Angular CLI новую директиву (directive) в уже созданном приложении Angular.</p>
+    <p class="justify">
+        При выполнении действия плагин выполняет команду <span class="code">cmd /c ng generate directive ${newDirectiveName} 1> new_angular_directive.txt 2> new_angular_directive_error.txt</span>,
+        запуская процесс <span class="code">cmd</span> с аргументами <span class="code">ng generate directive ${newDirectiveName} 1> new_angular_directive.txt 2> new_angular_directive_error.txt</span> и ключом <span class="code">/c</span>,
+        таким образом, результат выполнения команды записывается во временный файл <i>new_angular_directive.txt</i> при отсутствии ошибок исполнения команды и в файл <i>new_angular_directive_error.txt</i> при наличии ошибок.
+    </p>
+
+    <h4>Параметры действия</h4>
+    <ul>
+        <li><b>appPath</b> - каталог с уже созданным приложением Angular, в котором требуется создать новую директиву (directive)</li>
+        <li><b>newDirectiveName</b> - название новой Angular директивы (directive)</li>
+    </ul>
+
+    <a href="#toc" title="К оглавлению">▲ К оглавлению</a>
+
+    <h3 id="create_new_angular_service_worker_via_angular_cli">Создать service-worker через Angular CLI</h3>
+
+    <p class="justify">Параметризованное действие позволяет создать через средства Angular CLI service-worker в уже созданном приложении Angular.</p>
+    <p class="justify">
+        При выполнении действия плагин выполняет команду <span class="code">cmd /c ng generate service-worker 1> new_angular_service_worker.txt 2> new_angular_service_worker_error.txt</span>,
+        запуская процесс <span class="code">cmd</span> с аргументами <span class="code">ng generate service-worker 1> new_angular_service_worker.txt 2> new_angular_service_worker_error.txt</span> и ключом <span class="code">/c</span>,
+        таким образом, результат выполнения команды записывается во временный файл <i>new_angular_service_worker.txt</i> при отсутствии ошибок исполнения команды и в файл <i>new_angular_service_worker_error.txt</i> при наличии ошибок.
+    </p>
+
+    <h4>Параметры действия</h4>
+    <ul>
+        <li><b>appPath</b> - каталог с уже созданным приложением Angular, в котором требуется создать service-worker</li>
+    </ul>
+
+    <a href="#toc" title="К оглавлению">▲ К оглавлению</a>
+
+    <h3 id="create_new_angular_web_worker_via_angular_cli">Создать web-worker через Angular CLI</h3>
+
+    <p class="justify">Параметризованное действие позволяет создать через средства Angular CLI новый web-worker в уже созданном приложении Angular.</p>
+    <p class="justify">
+        При выполнении действия плагин выполняет команду <span class="code">cmd /c ng generate web-worker ${newWebWorkerName} 1> new_angular_web_worker.txt 2> new_angular_web_worker_error.txt</span>,
+        запуская процесс <span class="code">cmd</span> с аргументами <span class="code">ng generate web-worker ${newWebWorkerName} 1> new_angular_web_worker.txt 2> new_angular_web_worker_error.txt</span> и ключом <span class="code">/c</span>,
+        таким образом, результат выполнения команды записывается во временный файл <i>new_angular_web_worker.txt</i> при отсутствии ошибок исполнения команды и в файл <i>new_angular_web_worker_error.txt</i> при наличии ошибок.
+    </p>
+
+    <h4>Параметры действия</h4>
+    <ul>
+        <li><b>appPath</b> - каталог с уже созданным приложением Angular, в котором требуется создать новый web-worker</li>
+        <li><b>newWebWorkerName</b> - название нового Angular web-worker</li>
+    </ul>
+
+    <a href="#toc" title="К оглавлению">▲ К оглавлению</a>
+
+    <h3 id="create_new_angular_guard_via_angular_cli">Создать защитника (guard) через Angular CLI</h3>
+
+    <p class="justify">Параметризованное действие позволяет создать через средства Angular CLI нового защитника (guard) в уже созданном приложении Angular.</p>
+    <p class="justify">
+        При выполнении действия плагин выполняет команду <span class="code">cmd /c ng generate guard ${newGuardName} 1> new_angular_guard.txt 2> new_angular_guard_error.txt</span>,
+        запуская процесс <span class="code">cmd</span> с аргументами <span class="code">ng generate guard ${newGuardName} 1> new_angular_guard.txt 2> new_angular_guard_error.txt</span> и ключом <span class="code">/c</span>,
+        таким образом, результат выполнения команды записывается во временный файл <i>new_angular_guard.txt</i> при отсутствии ошибок исполнения команды и в файл <i>new_angular_guard_error.txt</i> при наличии ошибок.
+    </p>
+
+    <h4>Параметры действия</h4>
+    <ul>
+        <li><b>appPath</b> - каталог с уже созданным приложением Angular, в котором требуется создать нового защитника (guard)</li>
+        <li><b>newGuardName</b> - название нового Angular защитника (guard)</li>
+    </ul>
+
+    <a href="#toc" title="К оглавлению">▲ К оглавлению</a>
+
+    <h3 id="create_new_angular_interceptor_via_angular_cli">Создать перехватчика (interceptor) через Angular CLI</h3>
+
+    <p class="justify">Параметризованное действие позволяет создать через средства Angular CLI нового перехватчика (interceptor) в уже созданном приложении Angular.</p>
+    <p class="justify">
+        При выполнении действия плагин выполняет команду <span class="code">cmd /c ng generate interceptor ${newInterceptorName} 1> new_angular_interceptor.txt 2> new_angular_interceptor_error.txt</span>,
+        запуская процесс <span class="code">cmd</span> с аргументами <span class="code">ng generate interceptor ${newInterceptorName} 1> new_angular_interceptor.txt 2> new_angular_interceptor_error.txt</span> и ключом <span class="code">/c</span>,
+        таким образом, результат выполнения команды записывается во временный файл <i>new_angular_interceptor.txt</i> при отсутствии ошибок исполнения команды и в файл <i>new_angular_interceptor_error.txt</i> при наличии ошибок.
+    </p>
+
+    <h4>Параметры действия</h4>
+    <ul>
+        <li><b>appPath</b> - каталог с уже созданным приложением Angular, в котором требуется создать нового перехватчика (interceptor)</li>
+        <li><b>newInterceptorName</b> - название нового Angular перехватчика (interceptor)</li>
+    </ul>
+
+    <a href="#toc" title="К оглавлению">▲ К оглавлению</a>
+
+    <h3 id="generate_environments_via_angular_cli">Сгенерировать окружения (environments) для проекта через Angular CLI</h3>
+
+    <p class="justify">Параметризованное действие позволяет сгенерировать через средства Angular CLI файлы окружения (environments) в уже созданном приложении Angular.</p>
+    <p class="justify">
+        При выполнении действия плагин выполняет команду <span class="code">cmd /c ng generate environments 1> new_angular_environments.txt 2> new_angular_environments_error.txt</span>,
+        запуская процесс <span class="code">cmd</span> с аргументами <span class="code">ng generate environments 1> new_angular_environments.txt 2> new_angular_environments_error.txt</span> и ключом <span class="code">/c</span>,
+        таким образом, результат выполнения команды записывается во временный файл <i>new_angular_environments.txt</i> при отсутствии ошибок исполнения команды и в файл <i>new_angular_environments_error.txt</i> при наличии ошибок.
+    </p>
+
+    <h4>Параметры действия</h4>
+    <ul>
+        <li><b>appPath</b> - каталог с уже созданным приложением Angular, в котором требуется сгенерировать окружения (environments)</li>
+    </ul>
+
+    <a href="#toc" title="К оглавлению">▲ К оглавлению</a>
 </body>
 </html>
